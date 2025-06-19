@@ -1631,7 +1631,7 @@ svg, svg * {
 
 /* Ensure hamburger icon is always red accent */
 .mobile-navbar-hamburger {
-  color: var(--color-brand-custom-order) !important;
+  color: #292c2f !important;
 }
 
 /* Ensure logo is never filtered */

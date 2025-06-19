@@ -206,8 +206,8 @@ export default function Navbar() {
           aria-label="Go to homepage"
         >
           <img
-            src={"/Navbar_Logo.png"}
-            alt="THCP Main Logo"
+            src={"/BraydenPeltTextLogo.png"}
+            alt="Brayden Pelt Logo"
             style={{ height: '43px' }}
             draggable={false}
           />
@@ -233,7 +233,7 @@ export default function Navbar() {
         id="mobile-menu"
         className={`md:hidden fixed inset-0 z-40 transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : 'translate-x-full'} mobile-menu-all-white`}
         aria-hidden={!isOpen}
-        style={{ paddingTop: '70px', zIndex: 40, background: 'var(--color-brand-accent)' }}
+        style={{ paddingTop: '70px', zIndex: 40, background: '#292c2f' }}
       >
         <div className="flex flex-col justify-start items-center h-full w-full pt-8 space-y-8 relative" style={{height: '100%'}}>
           <Button
@@ -285,8 +285,8 @@ export default function Navbar() {
               <Link to="/" className="flex-shrink-0 flex items-center">
                 <span className="navbar-logo">
                   <img
-                    src={"/Navbar_Logo.png"}
-                    alt="THCP Main Logo"
+                    src={"/BraydenPeltTextLogo.png"}
+                    alt="Brayden Pelt Logo"
                     draggable={false}
                     style={{ filter: 'none' }}
                   />

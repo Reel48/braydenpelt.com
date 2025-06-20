@@ -4,9 +4,9 @@ import { Spotify } from 'react-spotify-embed';
 const SpotifySection = () => {
   // TODO: Replace with actual playlist URLs
   const playlistUrls = [
-    'https://open.spotify.com/embed/playlist/4TfPPw4bFSdS8wll6PY5rW?utm_source=generator&theme=0',
-    'https://open.spotify.com/embed/playlist/0sgca4DLP195nWzRbkN8ZB?utm_source=generator&theme=0',
-    'https://open.spotify.com/embed/playlist/0eYoFYhpqZ3flBUdCfaKAY?utm_source=generator&theme=0'
+    'https://open.spotify.com/playlist/4TfPPw4bFSdS8wll6PY5rW',
+    'https://open.spotify.com/playlist/0sgca4DLP195nWzRbkN8ZB',
+    'https://open.spotify.com/playlist/0eYoFYhpqZ3flBUdCfaKAY'
   ];
 
   return (

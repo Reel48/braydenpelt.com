@@ -15,7 +15,7 @@ const SpotifySection = () => {
         <div className="flex justify-center mb-12">
           <img src="/Brayden_Spotify_Logo.png" alt="Brayden Spotify Logo" className="h-24" />
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 place-items-center">
           {playlistUrls.map((url, index) => (
             <Spotify key={index} link={url} />
           ))}

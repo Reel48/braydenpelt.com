@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
 import FaqSection from './components/FaqSection';
+import SpotifySection from './components/SpotifySection';
 import FooterSection from './components/FooterSection';
 import NotFound from './pages/NotFound';
 
@@ -12,6 +13,7 @@ function HomePage() {
       <Navbar />
       <HeroSection />
       <FaqSection />
+      <SpotifySection />
       <FooterSection />
     </>
   );

@@ -48,6 +48,9 @@ const FooterSection = () => {
               <a href="https://www.facebook.com/txhcpllc" target="_blank" rel="noopener noreferrer" className="min-w-[44px] min-h-[44px] p-2 flex items-center justify-center text-[var(--color-brand-accent)] md:hover:text-[var(--color-brand-accent)]/80 transition-all duration-300 md:transform md:hover:-translate-y-1">
                 <img src="/Facebook_logo.png" alt="Facebook Logo" className="h-[21px] w-[21px] object-contain" style={{ display: 'block' }} />
               </a>
+              <a href="https://open.spotify.com/user/zikjs7op32conxgwdggqw5u4b?si=e12bf6253aaa4ade" target="_blank" rel="noopener noreferrer" className="min-w-[44px] min-h-[44px] p-2 flex items-center justify-center text-[var(--color-brand-accent)] md:hover:text-[var(--color-brand-accent)]/80 transition-all duration-300 md:transform md:hover:-translate-y-1">
+                <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="h-[21px] w-[21px] fill-current"><title>Spotify</title><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.923 16.223c-.26.398-1.03.523-1.428.263-2.914-1.78-6.574-2.186-10.95-.992-.49.13-1.006-.166-.13-.49C.88 14.004 1.176 13.5 1.666 13.37c4.875-1.32 8.974-.86 12.273 1.15.39.24.524 1.01.26 1.428.024.008.024.008 0 0zm1.31-2.924c-.326.49-.873.65-1.363.325-3.32-2.02-7.85-2.6-11.52-1.42-.58.18-1.16-.22-1.34-.8-.18-.58.22-1.16.8-1.34 4.22-1.32 9.25-.66 12.99 1.58.49.33.65.87.33 1.36-.004.003-.004.003 0 0zm.024-3.11c-.39.58-1.16.77-1.74.38-3.7-2.31-9.67-3.03-13.43-1.66C.25 8.9.19 8.13.77 7.74c.58-.39 1.35-.19 1.66.39 4.34 1.54 10.87 2.31 15.06.58.58-.24 1.35.02 1.59.59.24.58-.02 1.35-.59 1.59v-.01z"/></svg>
+              </a>
             </div>
           </div>
           <div className="hidden md:block mobile-hide-quicklinks space-y-4 md:space-y-0">

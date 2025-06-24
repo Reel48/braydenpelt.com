@@ -198,20 +198,12 @@ export default function Navbar() {
         }}
       >
         {/* Left-side placeholder to balance the hamburger button, ensuring the logo is truly centered */}
-        <div style={{ width: '44px', height: '44px' }}></div>
-        {/* Centered Logo */}
-        <Link
-          to="/"
-          onClick={scrollToTop}
-          aria-label="Go to homepage"
-        >
-          <img
-            src={"/braydenpeltlogo.png"}
-            alt="Brayden Pelt Logo"
-            style={{ height: '43px' }}
-            draggable={false}
-          />
-        </Link>
+        <img
+          src="/braydenpeltlogo.png"
+          alt="Brayden Pelt Logo"
+          className="navbar-logo-img"
+          style={{ height: '48px', width: 'auto', display: 'block' }}
+        />
         {/* Hamburger/Close Icon on right */}
         <button
           className="mobile-navbar-hamburger"

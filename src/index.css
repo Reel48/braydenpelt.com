@@ -21,49 +21,35 @@
 }
 
 :root {
-  /* Core Palette */
-  --color-gray-lightest: #fff; /* White (was Cream) */
-  --color-gray-light: #a5cbeb;    /* Light Blue */
-  --color-gray-border: #a5cbeb;   /* Light Blue (used for borders) */
-  --color-gray-text: #292c2f;     /* Black */
-  --color-gray-heading: #2e5a86;  /* Dark Blue */
-  --color-gray-deep: #224b29;     /* Dark Green */
-  --color-white: #ffffff;         /* White */
-  --color-black: #292c2f;         /* Black */
+  --color-blue: #5e8791;
+  --color-green: #8cb89d;
+  --color-tan: #f0f5e8;
+  --color-white: #ffffff;
 
-  /* Brand Colors */
-  --color-brand-custom-order: #2e5a86; /* Dark Blue as accent */
-  --color-brand-custom-order-hover: #224b29; /* Dark Green for hover */
-  --color-brand-custom-order-focus: #94bc7e; /* Light Green for focus */
-  --color-brand-custom-order-transparent-10: rgba(46, 90, 134, 0.1);
-  --color-brand-custom-order-transparent-20: rgba(46, 90, 134, 0.2);
-  --color-brand-custom-order-transparent-30: rgba(46, 90, 134, 0.3);
+  /* Brand/Accent Colors */
+  --color-brand-accent: var(--color-blue);
+  --color-brand-accent-hover: var(--color-green);
+  --color-brand-accent-focus: var(--color-tan);
+  --color-brand-accent-transparent-10: rgba(94, 135, 145, 0.1);
+  --color-brand-accent-transparent-20: rgba(94, 135, 145, 0.2);
+  --color-brand-accent-transparent-30: rgba(94, 135, 145, 0.3);
 
   /* Semantic Colors */
-  --color-success: #224b29;   /* Dark Green */
-  --color-error: #ae2c36;     /* Keep as is or update if you want a new error color */
-  --color-warning: #f57c00;   /* Keep as is or update if you want a new warning color */
-  --color-info: #2e5a86;      /* Dark Blue */
+  --color-success: var(--color-green);
+  --color-error: var(--color-blue); /* fallback, or use a new error color if desired */
+  --color-warning: var(--color-tan); /* fallback, or use a new warning color if desired */
+  --color-info: var(--color-blue);
 
   /* Elevation Shadows */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
-  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
-  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
+  --shadow-sm: 0 1px 2px rgba(94, 135, 145, 0.05);
+  --shadow-md: 0 4px 6px rgba(94, 135, 145, 0.07);
+  --shadow-lg: 0 10px 15px rgba(94, 135, 145, 0.1);
+  --shadow-xl: 0 20px 25px rgba(94, 135, 145, 0.15);
 
-  /* Focus Ring Styles */
   --focus-ring-width: 2px;
   --focus-ring-offset: 2px;
   --focus-ring-color: var(--color-brand-accent);
   --focus-ring-color-transparent: var(--color-brand-accent-transparent-20);
-
-  /* Global Accent Color */
-  --color-brand-accent: var(--color-brand-custom-order);
-  --color-brand-accent-hover: var(--color-brand-custom-order-hover);
-  --color-brand-accent-focus: var(--color-brand-custom-order-focus);
-  --color-brand-accent-transparent-10: var(--color-brand-custom-order-transparent-10);
-  --color-brand-accent-transparent-20: var(--color-brand-custom-order-transparent-20);
-  --color-brand-accent-transparent-30: var(--color-brand-custom-order-transparent-30);
 }
 
 @tailwind base;
@@ -84,6 +70,8 @@ body {
   @apply bg-gray-lightest text-gray-text antialiased text-base;
   font-family: 'TAYLennon', sans-serif !important;
   transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: var(--color-tan);
+  color: var(--color-blue);
 }
 
 /* Remove any alternating backgrounds */
@@ -91,6 +79,7 @@ section {
   @apply bg-white;
   position: relative;
   z-index: 1;
+  background-color: var(--color-white) !important;
 }
 
 /* Override any section-specific backgrounds */
@@ -105,15 +94,18 @@ section {
 #gallery,
 #contact {
   @apply bg-white;
+  background-color: var(--color-white) !important;
 }
 
 /* Keep footer dark */
 footer {
   @apply bg-gray-deep text-gray-lightest;
+  background-color: var(--color-blue) !important;
+  color: var(--color-white) !important;
 }
 
 h1, h2, h3, h4, h5, h6, p, blockquote, a, .nav-link {
-  color: #000000 !important;
+  color: var(--color-blue) !important;
   font-family: 'TAYLennon', sans-serif !important;
 }
 @media (min-width: 768px) {

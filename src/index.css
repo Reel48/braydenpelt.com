@@ -1767,3 +1767,22 @@ h1, h2, h3, h4, h5, h6 {
   fill: #fff !important;
   stroke: #fff !important;
 }
+
+#letterboxd-embed-wrapper-tc.embed-green-bg {
+  background-color: var(--color-green) !important;
+  color: #fff !important;
+}
+
+#letterboxd-embed-wrapper-tc.embed-green-bg * {
+  background-color: transparent !important;
+  color: #fff !important;
+  font-family: 'TAYLennon', sans-serif !important;
+}
+
+#letterboxd-embed-wrapper-tc.embed-green-bg a {
+  color: #fff !important;
+}
+
+#letterboxd-embed-wrapper-tc.embed-green-bg a:hover {
+  color: var(--color-brand-accent-hover) !important;
+}

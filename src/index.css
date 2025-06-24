@@ -12,6 +12,14 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'TAYLennon';
+  src: url('/TAYLennon.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   /* Core Palette */
   --color-gray-lightest: #fff;
@@ -74,7 +82,7 @@
 /* Base Styles */
 body {
   @apply bg-gray-lightest text-gray-text antialiased text-base;
-  font-family: 'Inter', sans-serif;
+  font-family: 'TAYLennon', sans-serif !important;
   transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -106,6 +114,7 @@ footer {
 
 h1, h2, h3, h4, h5, h6, p, blockquote, a, .nav-link {
   color: #000000 !important;
+  font-family: 'TAYLennon', sans-serif !important;
 }
 @media (min-width: 768px) {
   h1 {
@@ -156,26 +165,26 @@ h6 {
 /* Global Paragraph Styles */
 p {
   @apply break-words whitespace-normal max-w-full;
-  font-family: 'Inter', sans-serif; /* Inter for mobile (base) */
+  font-family: 'TAYLennon', sans-serif !important;
   @apply text-base leading-relaxed mb-4;
 }
 
 @media (min-width: 768px) {
   p {
-    font-family: 'Source Serif 4', serif; /* Source Serif 4 for desktop */
+    font-family: 'TAYLennon', sans-serif !important;
     @apply text-lg leading-relaxed mb-5;
   }
 }
 
 /* Global Blockquote Styles */
 blockquote {
-  font-family: 'Inter', sans-serif; /* Inter for mobile (base) */
+  font-family: 'TAYLennon', sans-serif !important;
   @apply italic border-l-4 border-gray-border pl-4 my-6;
 }
 
 @media (min-width: 768px) {
   blockquote {
-    font-family: 'Source Serif 4', serif; /* Source Serif 4 for desktop */
+    font-family: 'TAYLennon', sans-serif !important;
   }
 }
 

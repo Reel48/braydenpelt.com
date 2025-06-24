@@ -305,13 +305,13 @@ select:focus {
 /* Navigation Styles */
 .nav-link {
   position: relative;
-  color: var(--color-gray-heading);
+  color: var(--color-blue);
   transition: color 0.2s ease-in-out;
 }
 
 .nav-link:hover,
 .nav-link:focus {
-  color: var(--color-gray-text);
+  color: var(--color-green);
   text-decoration: none;
 }
 
@@ -333,7 +333,7 @@ select:focus {
 
 /* Footer Styles */
 footer a {
-  @apply text-gray-lightest opacity-90 transition-opacity duration-200
+  @apply text-blue opacity-90 transition-opacity duration-200
          hover:opacity-100 hover:underline;
 }
 
@@ -369,7 +369,7 @@ footer a {
 
 /* Text Highlighting */
 .highlight-guide {
-  color: var(--color-gray-900);
+  color: var(--color-blue);
   font-weight: 600;
   /* Removed background-color for minimalist style */
   /* Optionally, keep padding/border-radius for inline emphasis, or remove if not needed */
@@ -382,12 +382,12 @@ footer a {
 
 /* Navigation Links (Header) */
 .nav-link {
-  color: var(--color-gray-heading);
+  color: var(--color-blue);
   transition: color 0.2s ease-in-out;
 }
 
 .nav-link:hover, .nav-link:focus {
-  color: var(--color-gray-text);
+  color: var(--color-green);
 }
 
 /* Interactive Icons - Updated */
@@ -513,7 +513,7 @@ select.error {
 
 /* Remove green text highlight */
 .highlight-guide {
-  color: var(--color-gray-900);
+  color: var(--color-blue);
   font-weight: 600;
   /* Removed background-color for minimalist style */
 }
@@ -546,7 +546,7 @@ select.error {
 .border-green-50,
 .border-green-500,
 .border-green-600 {
-  border-color: var(--color-gray-300);
+  border-color: var(--color-blue);
 }
 
 .key-icon {
@@ -555,8 +555,8 @@ select.error {
 
 .btn-outline-light {
   background-color: var(--color-white);
-  border: 1px solid var(--color-gray-300);
-  color: var(--color-gray-900);
+  border: 1px solid var(--color-blue);
+  color: var(--color-blue);
   box-shadow: 0 1px 4px 0 rgba(0,0,0,0.04);
   transition: all 0.2s;
 }
@@ -570,7 +570,7 @@ select.error {
 .nav-link,
 .nav-item,
 .nav-menu-item {
-  color: var(--color-gray-heading);
+  color: var(--color-blue);
   transition: color 0.2s ease-in-out;
 }
 
@@ -580,7 +580,7 @@ select.error {
 .nav-link:focus,
 .nav-item:focus,
 .nav-menu-item:focus {
-  color: var(--color-gray-text);
+  color: var(--color-green);
 }
 
 /* Secondary text */
@@ -588,20 +588,20 @@ select.error {
 .text-muted,
 .text-caption,
 .text-description {
-  color: var(--color-gray-text);
+  color: var(--color-blue);
 }
 
 /* Form labels */
 label,
 .form-label,
 .input-label {
-  color: var(--color-gray-heading);
+  color: var(--color-blue);
   font-weight: 500;
 }
 
 /* Form placeholders */
 ::placeholder {
-  color: var(--color-gray-text);
+  color: var(--color-blue);
   opacity: 0.7;
 }
 
@@ -835,13 +835,13 @@ input,
 textarea,
 select {
   transition: all 0.2s ease-in-out;
-  border: 1px solid var(--color-gray-border);
+  border: 1px solid var(--color-blue);
 }
 
 input:hover,
 textarea:hover,
 select:hover {
-  border-color: var(--color-gray-text);
+  border-color: var(--color-green);
 }
 
 input:focus,
@@ -955,6 +955,7 @@ a:hover {
 .heading-product,
 .icon-product {
   /* Reset any product-specific colors to grayscale */
+  --section-accent: var(--color-blue);
   --section-accent: var(--color-gray-heading);
   --section-accent-transparent: var(--color-gray-border);
 }

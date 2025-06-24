@@ -21,8 +21,8 @@ const mobileTopBarStyle = `
       left: 0;
       width: 100vw;
       z-index: 60;
-      background: var(--color-gray-deep);
-      color: var(--color-gray-lightest);
+      background: var(--color-blue);
+      color: var(--color-white);
       font-size: 0.95rem;
       padding: 0.4rem 0.5rem;
       text-align: center;
@@ -32,7 +32,7 @@ const mobileTopBarStyle = `
       min-height: 2rem;
     }
     .mobile-top-bar-link {
-      color: var(--color-gray-lightest);
+      color: var(--color-white);
       text-decoration: none;
       font-weight: 600;
       margin-left: 0.3em;
@@ -42,7 +42,7 @@ const mobileTopBarStyle = `
     .mobile-top-bar-link:active,
     .mobile-top-bar-link:focus,
     .mobile-top-bar-link:hover {
-      color: var(--color-gray-light);
+      color: var(--color-green);
       text-decoration: underline;
     }
   }
@@ -82,13 +82,13 @@ export default function Navbar() {
       <style>{`
         nav.fixed.w-full.z-50 {
           transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-          background: var(--color-gray-lightest) !important;
+          background: var(--color-white) !important;
           box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
           backdrop-filter: none;
           -webkit-backdrop-filter: none;
         }
         nav.fixed.w-full.z-50.scrolled {
-          background: var(--color-gray-lightest) !important;
+          background: var(--color-white) !important;
           box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
           backdrop-filter: none;
           -webkit-backdrop-filter: none;
@@ -96,7 +96,7 @@ export default function Navbar() {
         @media (max-width: 639px) {
           nav.fixed.w-full.z-50 {
             top: calc(env(safe-area-inset-top, 0px) + 2rem);
-            background: var(--color-gray-lightest) !important;
+            background: var(--color-white) !important;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
             backdrop-filter: none;
             -webkit-backdrop-filter: none;
@@ -117,10 +117,10 @@ export default function Navbar() {
           font-weight: 500;
         }
         .nav-link.scrolled {
-          color: var(--color-gray-heading);
+          color: var(--color-blue);
         }
         .nav-link:hover {
-          color: var(--color-gray-text);
+          color: var(--color-blue);
         }
         .navbar-logo-img {
           transition: filter 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -189,7 +189,7 @@ export default function Navbar() {
           width: '100%',
           height: '70px',
           zIndex: 50,
-          background: 'var(--color-gray-lightest)',
+          background: 'var(--color-white)',
           boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
           display: 'flex',
           alignItems: 'center',
@@ -288,13 +288,13 @@ export default function Navbar() {
                 {navLinks.map((link, idx) => {
                   if (link.type === 'link') {
                     let linkColorClass = location.hash === link.to.replace('/','') || location.pathname + location.hash === link.to
-                      ? 'text-[var(--color-gray-heading)]'
-                      : 'text-[var(--color-gray-text)]';
+                      ? 'text-[var(--color-blue)]'
+                      : 'text-[var(--color-blue)]';
                     return (
                       <a
                         key={link.label}
                         href={link.to}
-                        className={`nav-link scrolled ${linkColorClass} hover:text-[var(--color-gray-text)] transition-colors`}
+                        className={`nav-link scrolled ${linkColorClass} hover:text-[var(--color-blue)] transition-colors`}
                         style={{ cursor: 'pointer' }}
                       >
                         {link.label}
@@ -304,7 +304,7 @@ export default function Navbar() {
                     return (
                       <span
                         key={link.label}
-                        className="nav-link scrolled text-[var(--color-gray-text)] opacity-60 cursor-not-allowed transition-colors"
+                        className="nav-link scrolled text-[var(--color-blue)] opacity-60 cursor-not-allowed transition-colors"
                         style={{ pointerEvents: 'none' }}
                       >
                         {link.label}
@@ -315,7 +315,7 @@ export default function Navbar() {
                       <a
                         key={link.label}
                         href={link.to}
-                        className="nav-link scrolled text-[var(--color-gray-text)] hover:text-[var(--color-gray-heading)] transition-colors"
+                        className="nav-link scrolled text-[var(--color-blue)] hover:text-[var(--color-blue)] transition-colors"
                         style={{ cursor: 'pointer' }}
                       >
                         {link.label}

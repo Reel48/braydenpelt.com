@@ -21,7 +21,7 @@ const FooterSection = () => {
   const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
   const mapUrl = isIOS() ? appleMapsUrl : googleMapsUrl;
   return (
-    <footer className="bg-gray-lightest text-gray-text py-8 md:py-10 text-sm leading-normal" style={{ fontSize: '0.875rem', lineHeight: 1.5 }}>
+    <footer className="bg-tan text-blue py-8 md:py-10 text-sm leading-normal" style={{ fontSize: '0.875rem', lineHeight: 1.5 }}>
       <div className="container-custom">
         <div className="grid grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-6 md:gap-x-6 footer-columns-group">
           <div className="space-y-4 md:space-y-5">
@@ -38,7 +38,7 @@ const FooterSection = () => {
                 draggable={false}
               />
             </a>
-            <p className="text-gray-text leading-snug">
+            <p className="text-blue leading-snug">
               Reliable, professional, and affordable plumbing solutions for your home and business.
             </p>
             <div className="flex gap-2 md:gap-4 footer-social justify-start" style={{ paddingLeft: 0, marginLeft: 0 }}>
@@ -54,14 +54,14 @@ const FooterSection = () => {
             </div>
           </div>
           <div className="hidden md:block mobile-hide-quicklinks space-y-4 md:space-y-0">
-            <h3 className="text-base font-semibold text-gray-heading mb-3 leading-snug md:leading-normal">Quick Links</h3>
+            <h3 className="text-base font-semibold text-blue mb-3 leading-snug md:leading-normal">Quick Links</h3>
             <ul className="space-y-0.5 md:space-y-1">
-              <li><a href="#gallery" className="text-gray-text hover:text-gray-heading transition-all duration-300 text-base min-h-[44px] inline-flex items-center leading-snug md:leading-normal">Gallery</a></li>
-              <li><a href="#faq" className="text-gray-text hover:text-gray-heading transition-all duration-300 text-base min-h-[44px] inline-flex items-center leading-snug md:leading-normal">FAQ</a></li>
+              <li><a href="#gallery" className="text-blue hover:text-blue transition-all duration-300 text-base min-h-[44px] inline-flex items-center leading-snug md:leading-normal">Gallery</a></li>
+              <li><a href="#faq" className="text-blue hover:text-blue transition-all duration-300 text-base min-h-[44px] inline-flex items-center leading-snug md:leading-normal">FAQ</a></li>
             </ul>
           </div>
           <div className="space-y-4 md:space-y-0">
-            <h3 className="text-base font-semibold text-gray-heading mb-1 md:mb-3 leading-snug md:leading-normal" style={{ fontFamily: 'Inter, sans-serif' }}>Contact Us</h3>
+            <h3 className="text-base font-semibold text-blue mb-1 md:mb-3 leading-snug md:leading-normal" style={{ fontFamily: 'Inter, sans-serif' }}>Contact Us</h3>
             <ul className="space-y-px md:space-y-1">
               <li className="flex items-start min-h-[44px] leading-snug md:leading-normal">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-3 text-[var(--color-brand-accent)] flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -72,7 +72,7 @@ const FooterSection = () => {
                   href={mapUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-text text-base md:text-lg hover:text-gray-heading transition min-h-[44px] inline-flex items-center leading-snug md:leading-normal"
+                  className="text-blue text-base md:text-lg hover:text-blue transition min-h-[44px] inline-flex items-center leading-snug md:leading-normal"
                 >
                   PO BOX 2607 Bandera, TX, United States, Texas 78003
                 </a>
@@ -83,7 +83,7 @@ const FooterSection = () => {
                 </svg>
                 <a
                   href="tel:830-444-5195"
-                  className="text-gray-text text-base md:text-lg hover:text-gray-heading transition min-h-[44px] inline-flex items-center leading-snug md:leading-normal"
+                  className="text-blue text-base md:text-lg hover:text-blue transition min-h-[44px] inline-flex items-center leading-snug md:leading-normal"
                 >
                   830-444-5195
                 </a>
@@ -94,21 +94,21 @@ const FooterSection = () => {
                 </svg>
                 <a
                   href="mailto:info@thcp.com"
-                  className="text-gray-text text-base hover:text-gray-heading transition min-h-[44px] inline-flex items-center leading-snug md:leading-normal"
+                  className="text-blue text-base hover:text-blue transition min-h-[44px] inline-flex items-center leading-snug md:leading-normal"
                 >
                   info@thcp.com
                 </a>
               </li>
               <li className="flex items-center min-h-[44px] leading-snug md:leading-normal">
                 <Stamp className="h-5 w-5 mr-3 text-[var(--color-brand-accent)] flex-shrink-0" />
-                <span className="text-gray-text text-base leading-snug md:leading-normal">Mon-Fri: 9am-5pm CST</span>
+                <span className="text-blue text-base leading-snug md:leading-normal">Mon-Fri: 9am-5pm CST</span>
               </li>
             </ul>
           </div>
         </div>
         <div className="border-t border-gray-border mt-4 md:mt-10 pt-2 pb-1 md:py-4">
           <div className="flex flex-col items-center text-center md:flex-row md:justify-between md:items-center">
-            <p className="text-gray-text text-xs mb-1 md:mb-0">
+            <p className="text-blue text-xs mb-1 md:mb-0">
               © {new Date().getFullYear()} Your Company LLC. All rights reserved.
             </p>
             <div className="flex flex-col space-y-0.5 md:space-y-0 md:flex-row md:space-x-6 items-center text-center w-full md:w-auto">

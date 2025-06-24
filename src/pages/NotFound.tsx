@@ -13,10 +13,10 @@ const NotFound = () => {
   }, [location.pathname]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-lightest">
+    <div className="min-h-screen flex items-center justify-center bg-tan">
       <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4 text-gray-heading">h1 Header</h1>
-        <p className="text-xl text-gray-text mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <h1 className="text-4xl font-bold mb-4 text-blue">h1 Header</h1>
+        <p className="text-xl text-blue mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
         <Button asChild variant="secondary">
           <a href="/">
             Return to Home

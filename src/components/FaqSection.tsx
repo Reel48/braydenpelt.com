@@ -25,11 +25,11 @@ const FaqSection = () => {
   };
 
   return (
-    <section id="faq" className="py-10 bg-gray-lightest">
+    <section id="faq" className="py-10 bg-tan">
       <div className="container-custom">
         <div className="text-center mb-10">
-          <h1 className="faq-header font-semibold mb-4 md:mb-6 text-gray-heading tracking-normal">Frequently Asked Questions</h1>
-          <p className="text-base md:text-lg max-w-3xl mx-auto leading-relaxed text-gray-text mb-8" style={{ color: 'var(--color-brand-accent)' }}>
+          <h1 className="faq-header font-semibold mb-4 md:mb-6 text-blue tracking-normal">Frequently Asked Questions</h1>
+          <p className="text-base md:text-lg max-w-3xl mx-auto leading-relaxed text-blue mb-8" style={{ color: 'var(--color-brand-accent)' }}>
             Find answers to common questions about our plumbing services, service area, and payment options.
           </p>
         </div>
@@ -38,10 +38,10 @@ const FaqSection = () => {
           {faqs.map((faq, index) => (
             <div 
               key={index}
-              className="border border-gray-border rounded-xl overflow-hidden shadow-sm md:hover:shadow-md transition-all duration-300"
+              className="border border-blue rounded-xl overflow-hidden shadow-sm md:hover:shadow-md transition-all duration-300"
             >
               <button
-                className="w-full text-left p-4 md:p-6 min-h-[44px] bg-white flex justify-between items-center md:hover:bg-gray-lightest transition-all duration-300"
+                className="w-full text-left p-4 md:p-6 min-h-[44px] bg-white flex justify-between items-center md:hover:bg-tan transition-all duration-300"
                 onClick={() => toggleFaq(index)}
               >
                 <span className="font-semibold text-base md:text-lg" style={{ color: 'var(--color-brand-accent)' }}>{faq.question}</span>
@@ -70,7 +70,7 @@ const FaqSection = () => {
                   openIndex === index ? "max-h-96 p-4 md:p-6" : "max-h-0"
                 )}
               >
-                <p className="text-gray-text text-base md:text-lg leading-relaxed">{faq.answer}</p>
+                <p className="text-blue text-base md:text-lg leading-relaxed">{faq.answer}</p>
               </div>
             </div>
           ))}

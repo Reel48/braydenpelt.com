@@ -17,7 +17,7 @@ const HeroSection = () => {
           // All styling is now handled by consistent Tailwind classes
           className="block h-auto w-full max-w-[420px] mx-auto mt-8 mb-8 md:hidden"
         />
-        <h1 className="font-semibold mb-4 md:mb-6 text-gray-heading">Your Trusted Plumbing Expert in the Texas Hill Country</h1>
+        <h1 className="font-semibold mb-4 md:mb-6 text-blue">Your Trusted Plumbing Expert in the Texas Hill Country</h1>
         <p>Reliable, professional, and affordable plumbing solutions for your home and business.</p>
         <div className="hero-ctas">
           <a href="#contact" className="btn-primary">Schedule Service Now</a>

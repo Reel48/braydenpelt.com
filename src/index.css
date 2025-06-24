@@ -1702,3 +1702,58 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 1.7em;
   }
 }
+
+/* Letterboxd Movies Section Styles */
+#letterboxd-embed-wrapper-tc {
+  /* Dimensions & Spacing */
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2.5rem;
+
+  /* Appearance */
+  background-color: var(--color-gray-lightest);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--color-gray-border);
+
+  /* Loading message styling */
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'TAYLennon', sans-serif !important;
+  color: var(--color-gray-text);
+  font-style: italic;
+  transition: all 0.5s ease-in-out;
+}
+
+#letterboxd-embed-wrapper-tc h1,
+#letterboxd-embed-wrapper-tc h2,
+#letterboxd-embed-wrapper-tc h3,
+#letterboxd-embed-wrapper-tc h4,
+#letterboxd-embed-wrapper-tc h5,
+#letterboxd-embed-wrapper-tc h6 {
+  font-family: 'TAYLennon', sans-serif !important;
+  color: var(--color-gray-heading);
+}
+
+#letterboxd-embed-wrapper-tc p,
+#letterboxd-embed-wrapper-tc li,
+#letterboxd-embed-wrapper-tc span,
+#letterboxd-embed-wrapper-tc div {
+  font-family: 'TAYLennon', sans-serif !important;
+  color: var(--color-gray-text);
+  line-height: 1.6;
+}
+
+#letterboxd-embed-wrapper-tc a {
+  color: var(--color-brand-accent);
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+  font-family: 'TAYLennon', sans-serif !important;
+}
+
+#letterboxd-embed-wrapper-tc a:hover {
+  text-decoration: underline;
+}

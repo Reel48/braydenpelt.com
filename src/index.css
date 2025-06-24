@@ -67,19 +67,20 @@
 
 /* Base Styles */
 body {
-  @apply bg-gray-lightest text-gray-text antialiased text-base;
-  font-family: 'TAYLennon', sans-serif !important;
-  transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   background-color: var(--color-tan);
   color: var(--color-blue);
+  font-family: 'TAYLennon', sans-serif !important;
+  font-size: 1rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Remove any alternating backgrounds */
 section {
-  @apply bg-white;
+  background-color: var(--color-white);
   position: relative;
   z-index: 1;
-  background-color: var(--color-white) !important;
 }
 
 /* Override any section-specific backgrounds */
@@ -93,15 +94,13 @@ section {
 #testimonials,
 #gallery,
 #contact {
-  @apply bg-white;
-  background-color: var(--color-white) !important;
+  background-color: var(--color-white);
 }
 
 /* Keep footer dark */
 footer {
-  @apply bg-gray-deep text-gray-lightest;
-  background-color: var(--color-blue) !important;
-  color: var(--color-white) !important;
+  background-color: var(--color-blue);
+  color: var(--color-white);
 }
 
 h1, h2, h3, h4, h5, h6, p, blockquote, a, .nav-link {
@@ -170,8 +169,10 @@ p {
 
 /* Global Blockquote Styles */
 blockquote {
-  font-family: 'TAYLennon', sans-serif !important;
-  @apply italic border-l-4 border-gray-border pl-4 my-6;
+  font-style: italic;
+  border-left: 4px solid var(--color-blue);
+  padding-left: 1rem;
+  margin: 1.5rem 0;
 }
 
 @media (min-width: 768px) {
@@ -197,7 +198,7 @@ a {
 }
 
 hr {
-  @apply border-gray-border;
+  border-color: var(--color-blue);
 }
 
 /* Utility Classes */
@@ -240,13 +241,18 @@ hr {
 input,
 textarea,
 select {
-  @apply bg-white text-gray-heading border border-gray-border rounded-md px-3 py-2 transition-all duration-200;
+  background-color: var(--color-white);
+  color: var(--color-blue);
+  border: 1px solid var(--color-blue);
+  border-radius: 0.375rem;
+  padding: 0.75rem 1rem;
+  transition: all 0.2s;
 }
 
 input:hover,
 textarea:hover,
 select:hover {
-  @apply border-gray-text;
+  border-color: var(--color-green);
 }
 
 input:focus,
@@ -259,25 +265,41 @@ select:focus {
 
 /* Message States */
 .message-success {
-  @apply bg-success text-white border border-success;
+  background-color: var(--color-green);
+  color: var(--color-white);
+  border: 1px solid var(--color-green);
 }
 
 .message-error {
-  @apply bg-error text-white border border-error;
+  background-color: var(--color-blue);
+  color: var(--color-white);
+  border: 1px solid var(--color-blue);
 }
 
 .message-warning {
-  @apply bg-warning text-white border border-warning;
+  background-color: var(--color-tan);
+  color: var(--color-blue);
+  border: 1px solid var(--color-tan);
 }
 
 .message-info {
-  @apply bg-info text-white border border-info;
+  background-color: var(--color-blue);
+  color: var(--color-white);
+  border: 1px solid var(--color-blue);
 }
 
 /* Card Styles */
 .card {
-  @apply bg-white rounded-lg shadow-sm transition-all duration-200
-         hover:shadow-md hover:translate-y-[-2px];
+  background-color: var(--color-white);
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.2s, transform 0.2s;
+  will-change: box-shadow, transform;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
 }
 
 /* Navigation Styles */

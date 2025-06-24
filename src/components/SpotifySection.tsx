@@ -10,7 +10,7 @@ const SpotifySection = () => {
   ];
 
   return (
-    <section style={{ backgroundColor: 'var(--color-brand-custom-order)' }} className="py-20">
+    <section style={{ backgroundColor: 'var(--color-blue)' }} className="py-20">
       <div className="container mx-auto px-4">
         <div className="flex justify-center mb-12">
           <img src="/spotify_logo_pelt.png" alt="Spotify Logo Pelt" className="h-24" />

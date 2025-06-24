@@ -28,7 +28,7 @@ const MoviesSection = () => {
           <div className="flex flex-row justify-center items-center gap-6 w-full overflow-x-auto" style={{ flexWrap: 'nowrap' }}>
             <img src="/movie_posters/barry_lyndon.png" alt="Barry Lyndon" className="h-32 w-24 object-cover rounded-lg shadow" />
             <img src="/movie_posters/grand_budapest_hotel.png" alt="The Grand Budapest Hotel" className="h-32 w-24 object-cover rounded-lg shadow" />
-            <img src="/movie_posters/la-la-land.png" alt="La La Land" className="h-32 w-24 object-cover rounded-lg shadow" />
+            <img src="/movie_posters/la_la_land.png" alt="La La Land" className="h-32 w-24 object-cover rounded-lg shadow" />
             <img src="/movie_posters/life_is_beautiful.png" alt="Life is Beautiful" className="h-32 w-24 object-cover rounded-lg shadow" />
           </div>
         </div>

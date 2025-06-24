@@ -206,7 +206,7 @@ export default function Navbar() {
           aria-label="Go to homepage"
         >
           <img
-            src={"/BraydenPeltTextLogo.png"}
+            src={"/braydenpeltlogo.png"}
             alt="Brayden Pelt Logo"
             style={{ height: '43px' }}
             draggable={false}
@@ -285,7 +285,7 @@ export default function Navbar() {
               <Link to="/" className="flex-shrink-0 flex items-center">
                 <span className="navbar-logo">
                   <img
-                    src={"/BraydenPeltTextLogo.png"}
+                    src={"/braydenpeltlogo.png"}
                     alt="Brayden Pelt Logo"
                     draggable={false}
                     style={{ filter: 'none' }}

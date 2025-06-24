@@ -22,7 +22,7 @@
 
 :root {
   /* Core Palette */
-  --color-gray-lightest: #fff4e7; /* Cream */
+  --color-gray-lightest: #fff; /* White (was Cream) */
   --color-gray-light: #a5cbeb;    /* Light Blue */
   --color-gray-border: #a5cbeb;   /* Light Blue (used for borders) */
   --color-gray-text: #292c2f;     /* Black */
@@ -88,7 +88,7 @@ body {
 
 /* Remove any alternating backgrounds */
 section {
-  @apply bg-gray-lightest;
+  @apply bg-white;
   position: relative;
   z-index: 1;
 }
@@ -104,7 +104,7 @@ section {
 #testimonials,
 #gallery,
 #contact {
-  @apply bg-gray-lightest;
+  @apply bg-white;
 }
 
 /* Keep footer dark */

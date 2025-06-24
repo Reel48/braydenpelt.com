@@ -26,10 +26,10 @@ const MoviesSection = () => {
         <div className="mt-16">
           <h2 className="text-center text-2xl font-bold mb-8" style={{ fontFamily: 'TAYLennon, sans-serif', color: 'var(--color-green)' }}>Favorite Films</h2>
           <div className="flex flex-row justify-center items-center gap-6 w-full overflow-x-auto" style={{ flexWrap: 'nowrap' }}>
-            <img src="/movie_posters/barry_lyndon.png" alt="Barry Lyndon" className="h-32 w-24 object-cover rounded-lg shadow" />
-            <img src="/movie_posters/grand_budapest_hotel.png" alt="The Grand Budapest Hotel" className="h-32 w-24 object-cover rounded-lg shadow" />
-            <img src="/movie_posters/la_la_land.png" alt="La La Land" className="h-32 w-24 object-cover rounded-lg shadow" />
-            <img src="/movie_posters/life_is_beautiful.png" alt="Life is Beautiful" className="h-32 w-24 object-cover rounded-lg shadow" />
+            <img src="/movie_posters/bl_poster.png" alt="Barry Lyndon" className="h-32 w-24 object-cover rounded-lg shadow" />
+            <img src="/movie_posters/gbh_poster.png" alt="The Grand Budapest Hotel" className="h-32 w-24 object-cover rounded-lg shadow" />
+            <img src="/movie_posters/lll_poster.png" alt="La La Land" className="h-32 w-24 object-cover rounded-lg shadow" />
+            <img src="/movie_posters/lib_poster.png" alt="Life is Beautiful" className="h-32 w-24 object-cover rounded-lg shadow" />
           </div>
         </div>
       </div>

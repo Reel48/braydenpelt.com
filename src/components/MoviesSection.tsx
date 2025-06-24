@@ -24,12 +24,12 @@ const MoviesSection = () => {
         </div>
         <div id="letterboxd-embed-wrapper-tc" className="embed-green-bg">Loading...</div>
         <div className="mt-16">
-          <h2 className="text-center text-2xl font-bold mb-8" style={{ fontFamily: 'TAYLennon, sans-serif', color: 'var(--color-blue)' }}>Favorite Films</h2>
+          <h2 className="text-center text-2xl font-bold mb-8" style={{ fontFamily: 'TAYLennon, sans-serif', color: 'var(--color-green)' }}>Favorite Films</h2>
           <div className="flex flex-row justify-center items-center gap-6 w-full overflow-x-auto" style={{ flexWrap: 'nowrap' }}>
-            <img src="/placeholder1.png" alt="Favorite Film 1" className="h-32 w-24 object-cover rounded-lg shadow" />
-            <img src="/placeholder2.png" alt="Favorite Film 2" className="h-32 w-24 object-cover rounded-lg shadow" />
-            <img src="/placeholder3.png" alt="Favorite Film 3" className="h-32 w-24 object-cover rounded-lg shadow" />
-            <img src="/placeholder4.png" alt="Favorite Film 4" className="h-32 w-24 object-cover rounded-lg shadow" />
+            <img src="/movie_posters/barry_lyndon.png" alt="Barry Lyndon" className="h-32 w-24 object-cover rounded-lg shadow" />
+            <img src="/movie_posters/grand_budapest_hotel.png" alt="The Grand Budapest Hotel" className="h-32 w-24 object-cover rounded-lg shadow" />
+            <img src="/movie_posters/la-la-land.png" alt="La La Land" className="h-32 w-24 object-cover rounded-lg shadow" />
+            <img src="/movie_posters/life_is_beautiful.png" alt="Life is Beautiful" className="h-32 w-24 object-cover rounded-lg shadow" />
           </div>
         </div>
       </div>

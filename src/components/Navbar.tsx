@@ -199,8 +199,8 @@ export default function Navbar() {
       >
         {/* Left-side placeholder to balance the hamburger button, ensuring the logo is truly centered */}
         <img
-          src="/braydenpeltlogo.png"
-          alt="Brayden Pelt Logo"
+          src="/braydenlogo.png"
+          alt="Brayden Logo"
           className="navbar-logo-img"
           style={{ height: '48px', width: 'auto', display: 'block' }}
         />
@@ -277,8 +277,8 @@ export default function Navbar() {
               <Link to="/" className="flex-shrink-0 flex items-center">
                 <span className="navbar-logo">
                   <img
-                    src={"/braydenpeltlogo.png"}
-                    alt="Brayden Pelt Logo"
+                    src={"/braydenlogo.png"}
+                    alt="Brayden Logo"
                     draggable={false}
                     style={{ filter: 'none' }}
                   />

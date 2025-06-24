@@ -10,14 +10,16 @@ const SpotifySection = () => {
   ];
 
   return (
-    <section style={{ backgroundColor: '#292c2f' }} className="py-20">
+    <section style={{ backgroundColor: 'var(--color-brand-custom-order)' }} className="py-20">
       <div className="container mx-auto px-4">
         <div className="flex justify-center mb-12">
           <img src="/spotify_logo_pelt.png" alt="Spotify Logo Pelt" className="h-24" />
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 place-items-center">
           {playlistUrls.map((url, index) => (
-            <Spotify key={index} link={url} />
+            <div key={index} className="spotify-embed-bg-white">
+              <Spotify link={url} />
+            </div>
           ))}
         </div>
       </div>

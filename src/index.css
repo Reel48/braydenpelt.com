@@ -203,7 +203,6 @@ hr {
 /* Utility Classes */
 @layer base {
   * {
-    @apply border-border;
   }
   
   .section-padding {

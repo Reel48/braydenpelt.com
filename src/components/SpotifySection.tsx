@@ -20,7 +20,7 @@ const SpotifySection = () => {
             style={{ borderRadius: '12px' }}
             src="https://open.spotify.com/embed/playlist/4TfPPw4bFSdS8wll6PY5rW?utm_source=generator&theme=0"
             width="100%"
-            height="352"
+            height="704"
             frameBorder="0"
             allowFullScreen
             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
@@ -31,7 +31,7 @@ const SpotifySection = () => {
             style={{ borderRadius: '12px' }}
             src="https://open.spotify.com/embed/playlist/0sgca4DLP195nWzRbkN8ZB?utm_source=generator&theme=0"
             width="100%"
-            height="352"
+            height="704"
             frameBorder="0"
             allowFullScreen
             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
@@ -42,7 +42,7 @@ const SpotifySection = () => {
             style={{ borderRadius: '12px' }}
             src="https://open.spotify.com/embed/playlist/0eYoFYhpqZ3flBUdCfaKAY?utm_source=generator&theme=0"
             width="100%"
-            height="352"
+            height="704"
             frameBorder="0"
             allowFullScreen
             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"

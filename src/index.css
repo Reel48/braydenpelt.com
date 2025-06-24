@@ -1712,7 +1712,8 @@ h1, h2, h3, h4, h5, h6 {
   padding: 2.5rem;
 
   /* Appearance */
-  background-color: var(--color-gray-lightest);
+  background-color: var(--color-blue) !important;
+  color: var(--color-tan) !important;
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   border: 1px solid var(--color-gray-border);
@@ -1723,7 +1724,6 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   justify-content: center;
   font-family: 'TAYLennon', sans-serif !important;
-  color: var(--color-gray-text);
   font-style: italic;
   transition: all 0.5s ease-in-out;
 }
@@ -1748,12 +1748,22 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #letterboxd-embed-wrapper-tc a {
-  color: var(--color-brand-accent);
+  color: var(--color-tan) !important;
   text-decoration: none;
   transition: color 0.2s ease-in-out;
   font-family: 'TAYLennon', sans-serif !important;
 }
 
 #letterboxd-embed-wrapper-tc a:hover {
-  text-decoration: underline;
+  color: var(--color-brand-accent-hover) !important;
+}
+
+/* Force stars (commonly SVGs or .star, .rating, .stars classes) to be white */
+#letterboxd-embed-wrapper-tc svg,
+#letterboxd-embed-wrapper-tc .star,
+#letterboxd-embed-wrapper-tc .stars,
+#letterboxd-embed-wrapper-tc .rating {
+  color: #fff !important;
+  fill: #fff !important;
+  stroke: #fff !important;
 }

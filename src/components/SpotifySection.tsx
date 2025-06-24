@@ -17,9 +17,7 @@ const SpotifySection = () => {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 place-items-center">
           {playlistUrls.map((url, index) => (
-            <div key={index} className="spotify-embed-bg-white">
-              <Spotify link={url} />
-            </div>
+            <Spotify key={index} link={url} />
           ))}
         </div>
       </div>

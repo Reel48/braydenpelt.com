@@ -1688,13 +1688,3 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 1.7em;
   }
 }
-
-.spotify-embed-bg-white {
-  background: #fff;
-  border-radius: 1rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  padding: 1.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}

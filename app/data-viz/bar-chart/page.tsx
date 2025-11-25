@@ -1,5 +1,10 @@
-import HighchartsChart from '@/components/HighchartsChart'
+import dynamic from 'next/dynamic'
 import Highcharts from 'highcharts'
+
+const HighchartsChart = dynamic(() => import('@/components/HighchartsChart'), {
+  ssr: false,
+  loading: () => <div className="w-full h-96 flex items-center justify-center"><p className="text-gray-500">Loading chart...</p></div>,
+})
 
 export default function BarChartPage() {
   const options: Highcharts.Options = {

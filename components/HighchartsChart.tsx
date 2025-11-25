@@ -13,68 +13,47 @@ export default function HighchartsChart({ options, title }: HighchartsChartProps
   const chartRef = useRef<HighchartsReact.RefObject>(null)
 
   useEffect(() => {
-    // Ensure Highcharts is available
-    if (typeof window !== 'undefined' && chartRef.current?.chart) {
-      chartRef.current.chart.reflow()
+    // Reflow chart on window resize
+    const handleResize = () => {
+      if (chartRef.current?.chart) {
+        chartRef.current.chart.reflow()
+      }
     }
+    
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
   }, [])
 
-  const defaultOptions: Highcharts.Options = {
+  // Merge options - user options take precedence, but apply defaults
+  const mergedOptions: Highcharts.Options = {
+    ...options,
     chart: {
       backgroundColor: 'transparent',
       style: {
         fontFamily: 'inherit',
       },
+      ...options.chart,
     },
     credits: {
       enabled: false,
+      ...options.credits,
     },
-    title: {
-      text: title || '',
-      style: {
-        color: '#1f2937',
-      },
-    },
+    title: title 
+      ? { ...options.title, text: title }
+      : options.title,
     legend: {
       itemStyle: {
         color: '#4b5563',
       },
+      ...options.legend,
     },
-    ...options,
-  }
-
-  // Apply dark mode styles if needed
-  if (typeof window !== 'undefined') {
-    const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-    if (isDark) {
-      defaultOptions.title!.style!.color = '#f3f4f6'
-      defaultOptions.legend!.itemStyle!.color = '#d1d5db'
-      defaultOptions.xAxis = {
-        ...defaultOptions.xAxis,
-        labels: {
-          style: { color: '#d1d5db' },
-        },
-        title: {
-          style: { color: '#d1d5db' },
-        },
-      }
-      defaultOptions.yAxis = {
-        ...defaultOptions.yAxis,
-        labels: {
-          style: { color: '#d1d5db' },
-        },
-        title: {
-          style: { color: '#d1d5db' },
-        },
-      }
-    }
   }
 
   return (
-    <div className="w-full">
+    <div className="w-full" style={{ minHeight: '400px' }}>
       <HighchartsReact
         highcharts={Highcharts}
-        options={defaultOptions}
+        options={mergedOptions}
         ref={chartRef}
       />
     </div>

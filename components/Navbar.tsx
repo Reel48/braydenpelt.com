@@ -19,7 +19,7 @@ export default function Navbar() {
     <nav className="bg-white dark:bg-gray-900 shadow-md sticky top-0 z-50">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-16">
-          <Link href="/" className="text-2xl font-bold text-primary-600">
+          <Link href="/" className="text-2xl font-bold text-anchor-navy dark:text-primary-blue">
             Brayden Pelt
           </Link>
 
@@ -31,8 +31,8 @@ export default function Navbar() {
                 href={link.href}
                 className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                   pathname === link.href
-                    ? 'text-primary-600 bg-primary-50 dark:bg-primary-900/20'
-                    : 'text-gray-700 dark:text-gray-300 hover:text-primary-600 hover:bg-gray-100 dark:hover:bg-gray-800'
+                    ? 'text-primary-blue bg-slate-grey dark:bg-anchor-navy/30'
+                    : 'text-anchor-navy dark:text-gray-300 hover:text-primary-blue hover:bg-slate-grey dark:hover:bg-gray-800'
                 }`}
               >
                 {link.label}
@@ -74,8 +74,8 @@ export default function Navbar() {
                 onClick={() => setIsOpen(false)}
                 className={`block px-3 py-2 rounded-md text-base font-medium ${
                   pathname === link.href
-                    ? 'text-primary-600 bg-primary-50 dark:bg-primary-900/20'
-                    : 'text-gray-700 dark:text-gray-300 hover:text-primary-600 hover:bg-gray-100 dark:hover:bg-gray-800'
+                    ? 'text-primary-blue bg-slate-grey dark:bg-anchor-navy/30'
+                    : 'text-anchor-navy dark:text-gray-300 hover:text-primary-blue hover:bg-slate-grey dark:hover:bg-gray-800'
                 }`}
               >
                 {link.label}

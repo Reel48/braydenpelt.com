@@ -37,7 +37,7 @@ export default async function ArticlePage({
               {article.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="px-3 py-1 bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300 text-sm rounded-full"
+                  className="px-3 py-1 bg-slate-grey dark:bg-anchor-navy/50 text-anchor-navy dark:text-primary-blue text-sm rounded-full"
                 >
                   {tag}
                 </span>
@@ -51,9 +51,9 @@ export default async function ArticlePage({
         className="prose prose-lg dark:prose-invert max-w-none
           prose-headings:text-gray-900 dark:prose-headings:text-gray-100
           prose-p:text-gray-700 dark:prose-p:text-gray-300
-          prose-a:text-primary-600 dark:prose-a:text-primary-400
+          prose-a:text-primary-blue dark:prose-a:text-secondary-blue
           prose-strong:text-gray-900 dark:prose-strong:text-gray-100
-          prose-code:text-primary-600 dark:prose-code:text-primary-400
+          prose-code:text-primary-blue dark:prose-code:text-secondary-blue
           prose-pre:bg-gray-900 dark:prose-pre:bg-gray-800"
         dangerouslySetInnerHTML={{ __html: contentHtml }}
       />

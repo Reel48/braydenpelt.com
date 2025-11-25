@@ -30,7 +30,7 @@ export default function BarChartPage() {
         name: 'Data Series',
         type: 'column',
         data: [45, 78, 52, 89, 65],
-        color: '#0ea5e9',
+        color: '#2a94d6',
       },
     ],
     plotOptions: {

@@ -43,7 +43,7 @@ export default function HighchartsChart({ options, title }: HighchartsChartProps
       : options.title,
     legend: {
       itemStyle: {
-        color: '#4b5563',
+        color: '#344a5f',
       },
       ...options.legend,
     },

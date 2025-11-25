@@ -8,7 +8,7 @@ export default async function Home() {
   return (
     <div className="container mx-auto px-4 py-16">
       <section className="text-center mb-16">
-        <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-primary-600 to-primary-400 bg-clip-text text-transparent">
+        <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-anchor-navy to-primary-blue bg-clip-text text-transparent">
           Welcome to My Website
         </h1>
         <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
@@ -20,39 +20,39 @@ export default async function Home() {
       <section className="mb-16">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           <div className="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg">
-            <h2 className="text-2xl font-semibold mb-3 text-primary-600">Articles</h2>
+            <h2 className="text-2xl font-semibold mb-3 text-anchor-navy dark:text-primary-blue">Articles</h2>
             <p className="text-gray-600 dark:text-gray-300">
               Read my latest thoughts and insights on various topics.
             </p>
             <Link 
               href="/articles" 
-              className="text-primary-600 hover:text-primary-700 font-medium mt-4 inline-block"
+              className="text-primary-blue hover:text-anchor-navy dark:hover:text-secondary-blue font-medium mt-4 inline-block"
             >
               View All Articles →
             </Link>
           </div>
 
           <div className="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg">
-            <h2 className="text-2xl font-semibold mb-3 text-primary-600">Data Viz</h2>
+            <h2 className="text-2xl font-semibold mb-3 text-anchor-navy dark:text-primary-blue">Data Viz</h2>
             <p className="text-gray-600 dark:text-gray-300">
               Interactive charts and data visualizations powered by Highcharts.
             </p>
             <Link 
               href="/data-viz" 
-              className="text-primary-600 hover:text-primary-700 font-medium mt-4 inline-block"
+              className="text-primary-blue hover:text-anchor-navy dark:hover:text-secondary-blue font-medium mt-4 inline-block"
             >
               Explore Visualizations →
             </Link>
           </div>
 
           <div className="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg">
-            <h2 className="text-2xl font-semibold mb-3 text-primary-600">About</h2>
+            <h2 className="text-2xl font-semibold mb-3 text-anchor-navy dark:text-primary-blue">About</h2>
             <p className="text-gray-600 dark:text-gray-300">
               Learn more about me, my background, and what I&apos;m working on.
             </p>
             <Link 
               href="/about" 
-              className="text-primary-600 hover:text-primary-700 font-medium mt-4 inline-block"
+              className="text-primary-blue hover:text-anchor-navy dark:hover:text-secondary-blue font-medium mt-4 inline-block"
             >
               Learn More →
             </Link>

@@ -1,9 +1,9 @@
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-white py-8 mt-auto">
+    <footer className="bg-anchor-navy text-white py-8 mt-auto">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-400 mb-4 md:mb-0">
+          <p className="text-gray-300 mb-4 md:mb-0">
             © {new Date().getFullYear()} Brayden Pelt. All rights reserved.
           </p>
           <div className="flex space-x-6">
@@ -11,7 +11,7 @@ export default function Footer() {
               href="https://github.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-400 hover:text-white transition-colors"
+              className="text-gray-300 hover:text-primary-blue transition-colors"
             >
               GitHub
             </a>
@@ -19,7 +19,7 @@ export default function Footer() {
               href="https://linkedin.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-400 hover:text-white transition-colors"
+              className="text-gray-300 hover:text-primary-blue transition-colors"
             >
               LinkedIn
             </a>
@@ -27,7 +27,7 @@ export default function Footer() {
               href="https://twitter.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-400 hover:text-white transition-colors"
+              className="text-gray-300 hover:text-primary-blue transition-colors"
             >
               Twitter
             </a>

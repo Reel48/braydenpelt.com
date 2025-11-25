@@ -39,7 +39,7 @@ export default function ArticlesPage() {
                     {article.tags.slice(0, 2).map((tag) => (
                       <span
                         key={tag}
-                        className="px-2 py-1 bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300 text-xs rounded"
+                        className="px-2 py-1 bg-slate-grey dark:bg-anchor-navy/50 text-anchor-navy dark:text-primary-blue text-xs rounded"
                       >
                         {tag}
                       </span>

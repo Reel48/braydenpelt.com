@@ -40,8 +40,12 @@ export default function GraphPreview({ type, title, href, description }: GraphPr
       case 'line':
         return {
           ...baseOptions,
+          chart: {
+            ...baseOptions.chart,
+            type: 'column',
+          },
           xAxis: {
-            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+            categories: ['2023', '2024', '2025', '2026'],
             labels: { enabled: false },
             title: { text: '' },
             lineWidth: 0,
@@ -54,16 +58,10 @@ export default function GraphPreview({ type, title, href, description }: GraphPr
           },
           series: [
             {
-              name: 'Series 1',
-              type: 'line',
-              data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0],
+              name: 'Energy (TWh)',
+              type: 'column',
+              data: [147, 178, 224, 292],
               color: '#3b82f6',
-            },
-            {
-              name: 'Series 2',
-              type: 'line',
-              data: [65.2, 58.6, 32.4, 35.5, 48.9, 38.8],
-              color: '#06b6d4',
             },
           ],
         }

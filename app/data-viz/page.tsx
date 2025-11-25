@@ -2,34 +2,10 @@ import GraphPreview from '@/components/GraphPreview'
 
 const graphs = [
   {
-    title: 'US Power Grids',
-    description: 'Map showing the three main power grid interconnections in America',
-    href: '/data-viz/power-grids',
-    type: 'map' as const,
-  },
-  {
-    title: 'Sample Line Chart',
-    description: 'A simple line chart showing sample data over time',
-    href: '/data-viz/line-chart',
+    title: 'US Data Center Energy Consumption',
+    description: 'Projected growth of data center energy consumption and share of total US power demand (2023-2030)',
+    href: '/data-viz/data-center-energy',
     type: 'line' as const,
-  },
-  {
-    title: 'Sample Bar Chart',
-    description: 'A bar chart comparing different categories',
-    href: '/data-viz/bar-chart',
-    type: 'bar' as const,
-  },
-  {
-    title: 'Sample Pie Chart',
-    description: 'A pie chart showing distribution of data',
-    href: '/data-viz/pie-chart',
-    type: 'pie' as const,
-  },
-  {
-    title: 'Sample Area Chart',
-    description: 'An area chart with multiple series',
-    href: '/data-viz/area-chart',
-    type: 'area' as const,
   },
 ]
 

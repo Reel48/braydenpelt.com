@@ -57,6 +57,13 @@ export default async function ArticlePage({
         contentParts.push(
           <div key={`graph-${part.id}-${i}`} className="my-8">
             <GraphComponent />
+            {graph.source && (
+              <div className="mt-4 p-3 bg-gray-50 dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700">
+                <p className="text-sm text-gray-600 dark:text-gray-400 italic">
+                  {graph.source}
+                </p>
+              </div>
+            )}
           </div>
         )
       } else {

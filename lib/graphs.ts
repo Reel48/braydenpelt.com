@@ -23,6 +23,7 @@ export interface GraphDefinition {
   component: ComponentType // React component that renders the graph
   href?: string // Optional: URL for standalone graph page (if multiple graphs share a page, use same href)
   previewData?: any // Optional: custom preview data for GraphPreview
+  source?: string // Optional: Source citation for the graph
 }
 
 // Central registry of all graphs
@@ -34,6 +35,7 @@ export const graphs: GraphDefinition[] = [
     type: 'line',
     component: DataCenterEnergyConsumptionChart,
     href: '/data-viz/data-center-energy',
+    source: 'Source: Global Energy Perspective 2023, McKinsey, October 18, 2023; McKinsey analysis',
   },
   {
     id: 'data-center-share',
@@ -42,6 +44,7 @@ export const graphs: GraphDefinition[] = [
     type: 'line',
     component: DataCenterShareChart,
     href: '/data-viz/data-center-energy',
+    source: 'Source: Global Energy Perspective 2023, McKinsey, October 18, 2023; McKinsey analysis',
   },
 ]
 

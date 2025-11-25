@@ -9,11 +9,11 @@ tags: [data-centers, energy, technology, infrastructure]
 
 Goldman Sachs Research forecasts that U.S. data center demand will reach 45 GW by 2030, driven by a 15% Compound Annual Growth Rate (CAGR) in power demand specifically for AI.
 
-McKinsey's predictions are similar, projecting a 2.7x increase in terawatt-hours of electricity demand by 2030 (figure 1).
+McKinsey's predictions are similar, projecting a 2.7x increase in terawatt-hours of data center electricity demand by 2030.
 
 <!--GRAPH:data-center-energy-consumption-->
 
-They go on to predict that the share of total US power demanded by AI data centers will also grow 2.25x in the same time period (figure 2).
+They go on to predict that the share of total US power demanded by HPC data centers will also grow 2.25x in the same time period.
 
 <!--GRAPH:data-center-share-->
 

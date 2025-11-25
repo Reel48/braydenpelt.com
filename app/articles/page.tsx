@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { getArticles } from '@/lib/articles'
 import { format } from 'date-fns'
+import Tag from '@/components/Tag'
 
 export default function ArticlesPage() {
   const articles = getArticles()
@@ -37,12 +38,9 @@ export default function ArticlesPage() {
                 {article.tags && article.tags.length > 0 && (
                   <div className="flex gap-2 flex-wrap">
                     {article.tags.slice(0, 2).map((tag) => (
-                      <span
-                        key={tag}
-                        className="px-2.5 py-1 text-primary-blue bg-[#2a94d6]/10 dark:bg-[#2a94d6]/20 text-xs font-medium rounded-full"
-                      >
+                      <Tag key={tag} size="sm">
                         {tag}
-                      </span>
+                      </Tag>
                     ))}
                   </div>
                 )}

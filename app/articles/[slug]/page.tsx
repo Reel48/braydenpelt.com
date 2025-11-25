@@ -3,6 +3,7 @@ import { getArticleSlugs, getArticleBySlug } from '@/lib/articles'
 import { format } from 'date-fns'
 import { remark } from 'remark'
 import html from 'remark-html'
+import Tag from '@/components/Tag'
 
 export async function generateStaticParams() {
   const slugs = getArticleSlugs()
@@ -35,12 +36,9 @@ export default async function ArticlePage({
           {article.tags && article.tags.length > 0 && (
             <div className="flex gap-2 flex-wrap">
               {article.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="px-3 py-1.5 text-primary-blue bg-[#2a94d6]/10 dark:bg-[#2a94d6]/20 text-sm font-medium rounded-full"
-                >
+                <Tag key={tag} size="md">
                   {tag}
-                </span>
+                </Tag>
               ))}
             </div>
           )}

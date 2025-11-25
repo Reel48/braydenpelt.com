@@ -13,12 +13,12 @@ export default function DataCenterEnergyPage() {
   const energyConsumption = [147, 178, 224, 292, 371, 450, 513, 606] // TWh
   const shareOfTotal = [3.7, 4.3, 5.2, 6.5, 8.0, 9.3, 10.3, 11.7] // Percentage
 
-  const options: Highcharts.Options = {
+  const energyOptions: Highcharts.Options = {
     chart: {
-      type: 'column',
+      type: 'line',
     },
     title: {
-      text: 'US Data Center Energy Consumption',
+      text: 'US Data Center Energy Consumption (TWh)',
     },
     xAxis: {
       categories: years.map(String),
@@ -26,60 +26,76 @@ export default function DataCenterEnergyPage() {
         text: 'Year',
       },
     },
-    yAxis: [
-      {
-        title: {
-          text: 'Energy Consumption (TWh)',
-        },
-        labels: {
-          format: '{value} TWh',
-        },
+    yAxis: {
+      title: {
+        text: 'Energy Consumption (TWh)',
       },
-      {
-        title: {
-          text: 'Share of Total US Power Demand (%)',
-        },
-        labels: {
-          format: '{value}%',
-        },
-        opposite: true,
+      labels: {
+        format: '{value} TWh',
       },
-    ],
+    },
     tooltip: {
-      shared: true,
       formatter: function (this: any): string {
-        const point = this.points?.[0]
-        const point2 = this.points?.[1]
-        if (!point || !point2) return ''
-        return `
-          <b>${point.category}</b><br/>
-          Energy Consumption: <b>${point.y} TWh</b><br/>
-          Share of Total: <b>${point2.y}%</b>
-        `
+        return `<b>${this.x}</b><br/>Energy Consumption: <b>${this.y} TWh</b>`
       },
     },
     series: [
       {
         name: 'Energy Consumption (TWh)',
-        type: 'column',
+        type: 'line',
         data: energyConsumption,
         color: '#3b82f6', // blue-500
-        yAxis: 0,
+        marker: {
+          enabled: true,
+          radius: 5,
+        },
       },
+    ],
+    legend: {
+      enabled: false,
+    },
+  }
+
+  const shareOptions: Highcharts.Options = {
+    chart: {
+      type: 'line',
+    },
+    title: {
+      text: 'Share of Total US Power Demand (%)',
+    },
+    xAxis: {
+      categories: years.map(String),
+      title: {
+        text: 'Year',
+      },
+    },
+    yAxis: {
+      title: {
+        text: 'Share of Total US Power Demand (%)',
+      },
+      labels: {
+        format: '{value}%',
+      },
+    },
+    tooltip: {
+      formatter: function (this: any): string {
+        return `<b>${this.x}</b><br/>Share of Total: <b>${this.y}%</b>`
+      },
+    },
+    series: [
       {
         name: 'Share of Total US Power Demand (%)',
         type: 'line',
         data: shareOfTotal,
         color: '#22c55e', // green-500
-        yAxis: 1,
         marker: {
           enabled: true,
-          radius: 4,
+          radius: 5,
         },
       },
     ],
     legend: {
-      enabled: true,
+      enabled: false,
     },
   }
 
@@ -90,8 +106,20 @@ export default function DataCenterEnergyPage() {
         Projected growth of data center energy consumption and its share of total US power demand from 2023 to 2030.
       </p>
       
-      <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg mb-8">
-        <HighchartsChart options={options} />
+      <div className="space-y-8 mb-8">
+        <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
+          <HighchartsChart options={energyOptions} />
+        </div>
+
+        <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
+          <HighchartsChart options={shareOptions} />
+        </div>
+      </div>
+
+      <div className="mb-8 p-4 bg-gray-50 dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700">
+        <p className="text-sm text-gray-600 dark:text-gray-400 italic">
+          Source: Global Energy Perspective 2023, McKinsey, October 18, 2023; McKinsey analysis
+        </p>
       </div>
 
       <div className="mt-8 prose dark:prose-invert">

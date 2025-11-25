@@ -1,13 +1,9 @@
 ---
 title: On Data Centers
-date: 2024-12-19
+date: 2025-11-25
 excerpt: Exploring the rapid growth of data center energy consumption and its implications for the future of US power infrastructure.
 tags: [data-centers, energy, technology, infrastructure]
 ---
-
-**On Data Centers**
-
-Brayden Pelt
 
 ## Power Scarcity
 
@@ -21,7 +17,7 @@ They go on to predict that the share of total US power demanded by AI data cente
 
 <!--GRAPH:data-center-share-->
 
-*To put this in perspective, the entire current installed base of U.S. data centers is being tasked with doubling or tripling its capacity within a decade.* The bottleneck is physical: transformers, substations, and high-voltage transmission lines have lead times ranging from 3 to 7 years. Consequently, existing energized sites—even those originally built for lower-tier workloads like crypto mining—have accrued a massive "time-to-market" premium.
+**To put this in perspective, the entire current installed base of U.S. data centers is being tasked with doubling or tripling its capacity within a decade.** The bottleneck is physical: transformers, substations, and high-voltage transmission lines have lead times ranging from 3 to 7 years. Consequently, existing energized sites—even those originally built for lower-tier workloads like crypto mining—have accrued a massive "time-to-market" premium.
 
 The fundamental constraint is no longer silicon availability, but power availability. While NVIDIA has ramped up production of H100 and Blackwell GPUs, the timeline to energize a new data center has lengthened significantly. In major markets like Northern Virginia, vacancy rates have plummeted to near-zero levels (1.6% in H1 2025), and power utilities are imposing multi-year wait times for new transmission connections.
 

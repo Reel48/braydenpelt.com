@@ -11,7 +11,7 @@ export default function Footer() {
               href="https://github.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-300 hover:text-primary-blue transition-colors"
+              className="text-gray-300 hover:text-white transition-colors"
             >
               GitHub
             </a>
@@ -19,7 +19,7 @@ export default function Footer() {
               href="https://linkedin.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-300 hover:text-primary-blue transition-colors"
+              className="text-gray-300 hover:text-white transition-colors"
             >
               LinkedIn
             </a>
@@ -27,7 +27,7 @@ export default function Footer() {
               href="https://twitter.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-300 hover:text-primary-blue transition-colors"
+              className="text-gray-300 hover:text-white transition-colors"
             >
               Twitter
             </a>

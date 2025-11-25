@@ -45,11 +45,11 @@ export default function Tag({ children, size = 'md' }: TagProps) {
 
   return (
     <span
-      className={`${sizeClasses[size]} text-primary-blue font-medium rounded-full`}
+      className={`${sizeClasses[size]} text-anchor-navy dark:text-gray-200 font-medium rounded-full`}
       style={{
         backgroundColor: isDark 
-          ? 'rgba(42, 148, 214, 0.2)' 
-          : 'rgba(42, 148, 214, 0.1)',
+          ? 'rgba(52, 74, 95, 0.2)' 
+          : 'rgba(52, 74, 95, 0.1)',
       }}
     >
       {children}

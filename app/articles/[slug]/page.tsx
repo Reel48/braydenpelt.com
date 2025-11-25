@@ -33,11 +33,11 @@ export default async function ArticlePage({
             {format(new Date(article.date), 'MMMM d, yyyy')}
           </time>
           {article.tags && article.tags.length > 0 && (
-            <div className="flex gap-2">
+            <div className="flex gap-2 flex-wrap">
               {article.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="px-3 py-1 bg-slate-grey dark:bg-anchor-navy/50 text-anchor-navy dark:text-primary-blue text-sm rounded-full"
+                  className="px-3 py-1.5 text-primary-blue bg-primary-blue/10 dark:bg-primary-blue/20 text-sm font-medium rounded-full"
                 >
                   {tag}
                 </span>

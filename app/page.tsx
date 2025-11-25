@@ -12,7 +12,7 @@ export default async function Home() {
           Welcome to My Website
         </h1>
         <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-          I'm Brayden Pelt. This is my personal space for sharing articles, 
+          I&apos;m Brayden Pelt. This is my personal space for sharing articles, 
           data visualizations, and more.
         </p>
       </section>
@@ -48,7 +48,7 @@ export default async function Home() {
           <div className="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg">
             <h2 className="text-2xl font-semibold mb-3 text-primary-600">About</h2>
             <p className="text-gray-600 dark:text-gray-300">
-              Learn more about me, my background, and what I'm working on.
+              Learn more about me, my background, and what I&apos;m working on.
             </p>
             <Link 
               href="/about" 

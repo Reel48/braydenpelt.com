@@ -2,11 +2,36 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 export default function Navbar() {
   const pathname = usePathname()
   const [isOpen, setIsOpen] = useState(false)
+  const [isDark, setIsDark] = useState(false)
+
+  useEffect(() => {
+    const checkDarkMode = () => {
+      setIsDark(
+        window.matchMedia('(prefers-color-scheme: dark)').matches ||
+        document.documentElement.classList.contains('dark')
+      )
+    }
+    
+    checkDarkMode()
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
+    mediaQuery.addEventListener('change', checkDarkMode)
+    
+    const observer = new MutationObserver(checkDarkMode)
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class'],
+    })
+    
+    return () => {
+      mediaQuery.removeEventListener('change', checkDarkMode)
+      observer.disconnect()
+    }
+  }, [])
 
   const navLinks = [
     { href: '/', label: 'Home' },
@@ -31,9 +56,26 @@ export default function Navbar() {
                 href={link.href}
                 className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                   pathname === link.href
-                    ? 'text-primary-blue bg-slate-grey dark:bg-anchor-navy/30'
-                    : 'text-anchor-navy dark:text-gray-300 hover:text-primary-blue hover:bg-slate-grey dark:hover:bg-gray-800'
+                    ? 'text-primary-blue'
+                    : 'text-anchor-navy dark:text-gray-300 hover:text-primary-blue'
                 }`}
+                style={{
+                  backgroundColor: pathname === link.href
+                    ? isDark ? 'rgba(42, 148, 214, 0.2)' : 'rgba(42, 148, 214, 0.1)'
+                    : 'transparent',
+                }}
+                onMouseEnter={(e) => {
+                  if (pathname !== link.href) {
+                    e.currentTarget.style.backgroundColor = isDark 
+                      ? 'rgba(42, 148, 214, 0.2)' 
+                      : 'rgba(42, 148, 214, 0.1)'
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (pathname !== link.href) {
+                    e.currentTarget.style.backgroundColor = 'transparent'
+                  }
+                }}
               >
                 {link.label}
               </Link>
@@ -72,11 +114,28 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className={`block px-3 py-2 rounded-md text-base font-medium ${
+                className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${
                   pathname === link.href
-                    ? 'text-primary-blue bg-slate-grey dark:bg-anchor-navy/30'
-                    : 'text-anchor-navy dark:text-gray-300 hover:text-primary-blue hover:bg-slate-grey dark:hover:bg-gray-800'
+                    ? 'text-primary-blue'
+                    : 'text-anchor-navy dark:text-gray-300'
                 }`}
+                style={{
+                  backgroundColor: pathname === link.href
+                    ? isDark ? 'rgba(42, 148, 214, 0.2)' : 'rgba(42, 148, 214, 0.1)'
+                    : 'transparent',
+                }}
+                onMouseEnter={(e) => {
+                  if (pathname !== link.href) {
+                    e.currentTarget.style.backgroundColor = isDark 
+                      ? 'rgba(42, 148, 214, 0.2)' 
+                      : 'rgba(42, 148, 214, 0.1)'
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (pathname !== link.href) {
+                    e.currentTarget.style.backgroundColor = 'transparent'
+                  }
+                }}
               >
                 {link.label}
               </Link>

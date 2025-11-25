@@ -8,7 +8,7 @@ export default function ArticlesPage() {
 
   return (
     <div className="container mx-auto px-4 py-16">
-      <h1 className="text-4xl font-bold mb-8">Articles</h1>
+      <h1 className="text-4xl font-bold mb-8 text-anchor-navy dark:text-gray-100">Articles</h1>
       
       {articles.length === 0 ? (
         <div className="text-center py-16">
@@ -25,9 +25,9 @@ export default function ArticlesPage() {
             <Link
               key={article.slug}
               href={`/articles/${article.slug}`}
-              className="block p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
+              className="block p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 border border-gray-100 dark:border-gray-700 group"
             >
-              <h2 className="text-2xl font-semibold mb-2">{article.title}</h2>
+              <h2 className="text-2xl font-semibold mb-2 text-anchor-navy dark:text-gray-100 group-hover:text-anchor-navy/80 transition-colors">{article.title}</h2>
               <p className="text-gray-600 dark:text-gray-300 mb-4">
                 {article.excerpt}
               </p>

@@ -4,7 +4,7 @@ import { format } from 'date-fns'
 import { remark } from 'remark'
 import html from 'remark-html'
 import Tag from '@/components/Tag'
-import { DataCenterEnergyConsumptionChart, DataCenterShareChart } from '@/components/DataCenterEnergyChart'
+import { getGraphById } from '@/lib/graphs'
 
 export async function generateStaticParams() {
   const slugs = getArticleSlugs()
@@ -28,26 +28,42 @@ export default async function ArticlePage({
   const processedContent = await remark().use(html).process(contentWithMarkers)
   let contentHtml = processedContent.toString()
 
-  // Split content by graph markers (HTML comments are preserved in remark-html output)
-  const graphMarkerRegex = /(<!--GRAPH:data-center-energy-consumption-->|<!--GRAPH:data-center-share-->)/g
-  const parts = contentHtml.split(graphMarkerRegex)
-  const contentParts: (string | JSX.Element)[] = []
+  // Match graph markers: <!--GRAPH:graph-id-->
+  const graphMarkerRegex = /<!--GRAPH:([a-z0-9-]+)-->/g
+  const parts: (string | { type: 'graph'; id: string })[] = []
+  let lastIndex = 0
+  let match
 
+  // Find all graph markers and split content
+  while ((match = graphMarkerRegex.exec(contentHtml)) !== null) {
+    // Add content before the marker
+    if (match.index > lastIndex) {
+      parts.push(contentHtml.substring(lastIndex, match.index))
+    }
+    // Add the graph marker
+    parts.push({ type: 'graph', id: match[1] })
+    lastIndex = match.index + match[0].length
+  }
+  // Add remaining content
+  if (lastIndex < contentHtml.length) {
+    parts.push(contentHtml.substring(lastIndex))
+  }
+
+  // Convert parts to React elements
+  const contentParts: (string | JSX.Element)[] = []
   for (let i = 0; i < parts.length; i++) {
     const part = parts[i]
-    if (part === '<!--GRAPH:data-center-energy-consumption-->') {
-      contentParts.push(
-        <div key={`graph-energy-${i}`} className="my-8">
-          <DataCenterEnergyConsumptionChart />
-        </div>
-      )
-    } else if (part === '<!--GRAPH:data-center-share-->') {
-      contentParts.push(
-        <div key={`graph-share-${i}`} className="my-8">
-          <DataCenterShareChart />
-        </div>
-      )
-    } else if (part.trim()) {
+    if (typeof part === 'object' && part.type === 'graph') {
+      const graph = getGraphById(part.id)
+      if (graph) {
+        const GraphComponent = graph.component
+        contentParts.push(
+          <div key={`graph-${part.id}-${i}`} className="my-8">
+            <GraphComponent />
+          </div>
+        )
+      }
+    } else if (typeof part === 'string' && part.trim()) {
       contentParts.push(part)
     }
   }

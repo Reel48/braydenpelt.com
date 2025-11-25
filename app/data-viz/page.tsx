@@ -1,15 +1,20 @@
 import GraphPreview from '@/components/GraphPreview'
-
-const graphs = [
-  {
-    title: 'US Data Center Energy Consumption',
-    description: 'Projected growth of data center energy consumption and share of total US power demand (2023-2030)',
-    href: '/data-viz/data-center-energy',
-    type: 'line' as const,
-  },
-]
+import { getAllGraphs } from '@/lib/graphs'
 
 export default function GraphsPage() {
+  const graphs = getAllGraphs()
+  
+  // Group graphs by href to show combined graphs on the same card
+  const graphGroups = new Map<string, typeof graphs>()
+  
+  graphs.forEach((graph) => {
+    const href = graph.href || `/data-viz/${graph.id}`
+    if (!graphGroups.has(href)) {
+      graphGroups.set(href, [])
+    }
+    graphGroups.get(href)!.push(graph)
+  })
+
   return (
     <div className="container mx-auto px-4 py-16">
       <h1 className="text-4xl font-bold mb-4 text-primary dark:text-gray-100">Graphs</h1>
@@ -18,15 +23,26 @@ export default function GraphsPage() {
       </p>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {graphs.map((graph) => (
-          <GraphPreview
-            key={graph.href}
-            type={graph.type}
-            title={graph.title}
-            href={graph.href}
-            description={graph.description}
-          />
-        ))}
+        {Array.from(graphGroups.entries()).map(([href, groupGraphs]) => {
+          // Use the first graph in the group for preview
+          const primaryGraph = groupGraphs[0]
+          const combinedTitle = groupGraphs.length > 1 
+            ? groupGraphs.map(g => g.title).join(' & ')
+            : primaryGraph.title
+          const combinedDescription = groupGraphs.length > 1
+            ? groupGraphs.map(g => g.description).join(' ')
+            : primaryGraph.description
+
+          return (
+            <GraphPreview
+              key={href}
+              type={primaryGraph.type}
+              title={combinedTitle}
+              href={href}
+              description={combinedDescription}
+            />
+          )
+        })}
       </div>
     </div>
   )

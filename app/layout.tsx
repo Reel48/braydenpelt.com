@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Lora, Source Sans Pro } from 'next/font/google'
+import { Lora, Source_Sans_3 } from 'next/font/google'
 import './globals.css'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
@@ -11,7 +11,7 @@ const lora = Lora({
   display: 'swap',
 })
 
-const sourceSansPro = Source Sans Pro({
+const sourceSansPro = Source_Sans_3({
   subsets: ['latin'],
   weight: ['400', '600', '700'],
   variable: '--font-heading',

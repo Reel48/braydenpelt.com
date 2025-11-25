@@ -2,6 +2,12 @@ import GraphPreview from '@/components/GraphPreview'
 
 const graphs = [
   {
+    title: 'US Power Grids',
+    description: 'Map showing the three main power grid interconnections in America',
+    href: '/data-viz/power-grids',
+    type: 'map' as const,
+  },
+  {
     title: 'Sample Line Chart',
     description: 'A simple line chart showing sample data over time',
     href: '/data-viz/line-chart',

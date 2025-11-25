@@ -8,7 +8,7 @@ const HighchartsChart = dynamic(() => import('@/components/HighchartsChart'), {
 })
 
 interface GraphPreviewProps {
-  type: 'line' | 'bar' | 'pie' | 'area'
+  type: 'line' | 'bar' | 'pie' | 'area' | 'map'
   title: string
   href: string
   description: string
@@ -144,6 +144,39 @@ export default function GraphPreview({ type, title, href, description }: GraphPr
               type: 'area',
               data: [65.2, 58.6, 32.4, 35.5, 48.9, 38.8],
               color: '#06b6d4',
+            },
+          ],
+        }
+      case 'map':
+        // For map preview, show a simple placeholder since maps require special setup
+        return {
+          chart: {
+            type: 'bar',
+            height: 200,
+            spacing: [10, 10, 10, 10],
+          },
+          title: { text: '' },
+          credits: { enabled: false },
+          legend: { enabled: false },
+          tooltip: { enabled: false },
+          xAxis: {
+            categories: ['ERCOT', 'Eastern', 'Western'],
+            labels: { enabled: false },
+            lineWidth: 0,
+            tickWidth: 0,
+          },
+          yAxis: {
+            labels: { enabled: false },
+            gridLineWidth: 0,
+          },
+          series: [
+            {
+              type: 'column',
+              data: [
+                { y: 1, color: '#3b82f6' },
+                { y: 2, color: '#22c55e' },
+                { y: 3, color: '#eab308' },
+              ],
             },
           ],
         }

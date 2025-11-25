@@ -7,6 +7,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        body: ['var(--font-body)', 'Georgia', 'serif'],
+        heading: ['var(--font-heading)', 'Arial', 'Helvetica', 'sans-serif'],
+      },
       colors: {
         // Main Colors
         'anchor-navy': '#344a5f',

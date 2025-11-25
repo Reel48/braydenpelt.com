@@ -28,7 +28,7 @@ export default async function ArticlePage({
   return (
     <article className="container mx-auto px-4 py-16 max-w-4xl">
       <header className="mb-8">
-        <h1 className="text-4xl font-bold mb-4">{article.title}</h1>
+        <h1 className="text-4xl font-bold mb-4 font-heading">{article.title}</h1>
         <div className="flex items-center gap-4 text-gray-600 dark:text-gray-400">
           <time dateTime={article.date}>
             {format(new Date(article.date), 'MMMM d, yyyy')}
@@ -47,12 +47,13 @@ export default async function ArticlePage({
 
       <div
         className="prose prose-lg dark:prose-invert max-w-none
-          prose-headings:text-gray-900 dark:prose-headings:text-gray-100
-          prose-p:text-gray-700 dark:prose-p:text-gray-300
+          prose-headings:font-heading prose-headings:text-gray-900 dark:prose-headings:text-gray-100
+          prose-p:font-body prose-p:text-gray-700 dark:prose-p:text-gray-300
           prose-a:text-anchor-navy dark:prose-a:text-gray-300
           prose-strong:text-gray-900 dark:prose-strong:text-gray-100
           prose-code:text-anchor-navy dark:prose-code:text-gray-300
-          prose-pre:bg-gray-900 dark:prose-pre:bg-gray-800"
+          prose-pre:bg-gray-900 dark:prose-pre:bg-gray-800
+          prose-li:font-body"
         dangerouslySetInnerHTML={{ __html: contentHtml }}
       />
     </article>

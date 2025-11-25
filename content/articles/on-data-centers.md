@@ -5,33 +5,25 @@ excerpt: Exploring the rapid growth of data center energy consumption and its im
 tags: [data-centers, energy, technology, infrastructure]
 ---
 
-Data centers have become the backbone of our digital economy, powering everything from cloud computing to artificial intelligence. However, this growth comes with significant energy implications that demand our attention.
+**On Data Centers**
 
-## The Energy Challenge
+Brayden Pelt
 
-Recent projections show that US data center energy consumption is expected to grow dramatically over the next several years. From 147 TWh in 2023, consumption is projected to reach 606 TWh by 2030—a more than fourfold increase in just seven years.
+## Power Scarcity
 
-This growth isn't just about absolute numbers. The share of total US power demand attributed to data centers is also rising rapidly, from 3.7% in 2023 to an estimated 11.7% by 2030. This represents a fundamental shift in how we consume electricity as a nation.
+Goldman Sachs Research forecasts that U.S. data center demand will reach 45 GW by 2030, driven by a 15% Compound Annual Growth Rate (CAGR) in power demand specifically for AI.
 
-## What's Driving This Growth?
+McKinsey's predictions are similar, projecting a 2.7x increase in terawatt-hours of electricity demand by 2030 (figure 1).
 
-Several factors are contributing to this surge:
+<!--GRAPH:data-center-energy-consumption-->
 
-- **AI and Machine Learning**: Training and running large language models and AI systems require massive computational resources
-- **Cloud Computing Expansion**: More businesses and individuals are moving to cloud-based services
-- **Streaming and Content Delivery**: The demand for high-quality video streaming continues to grow
-- **Internet of Things**: Billions of connected devices generating and processing data
+They go on to predict that the share of total US power demanded by AI data centers will also grow 2.25x in the same time period (figure 2).
 
-## Implications for Infrastructure
+<!--GRAPH:data-center-share-->
 
-This growth trajectory raises important questions about:
+*To put this in perspective, the entire current installed base of U.S. data centers is being tasked with doubling or tripling its capacity within a decade.* The bottleneck is physical: transformers, substations, and high-voltage transmission lines have lead times ranging from 3 to 7 years. Consequently, existing energized sites—even those originally built for lower-tier workloads like crypto mining—have accrued a massive "time-to-market" premium.
 
-- **Grid Capacity**: Can our power infrastructure handle this increased demand?
-- **Renewable Energy**: How quickly can we transition data centers to renewable sources?
-- **Efficiency Improvements**: What role can better hardware and software optimization play?
-- **Geographic Distribution**: How should we think about data center placement relative to power generation?
+The fundamental constraint is no longer silicon availability, but power availability. While NVIDIA has ramped up production of H100 and Blackwell GPUs, the timeline to energize a new data center has lengthened significantly. In major markets like Northern Virginia, vacancy rates have plummeted to near-zero levels (1.6% in H1 2025), and power utilities are imposing multi-year wait times for new transmission connections.
 
-## Looking Ahead
-
-The data center energy challenge is real and growing. Addressing it will require a combination of technological innovation, policy decisions, and infrastructure investment. As we continue to build our digital future, we must also build a sustainable energy foundation to support it.
+**With 1 GW of total capacity at its Corsicana facility, Riot possesses one of the most valuable undeveloped power assets in North America.**
 

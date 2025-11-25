@@ -34,7 +34,7 @@ export default async function Home() {
           </div>
 
           <div className="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 border border-gray-100 dark:border-gray-700">
-            <h2 className="text-2xl font-semibold mb-3 text-primary dark:text-gray-100">Data Viz</h2>
+            <h2 className="text-2xl font-semibold mb-3 text-primary dark:text-gray-100">Graphs</h2>
             <p className="text-gray-600 dark:text-gray-300 mb-4">
               Interactive charts and data visualizations powered by Highcharts.
             </p>
@@ -42,7 +42,7 @@ export default async function Home() {
               href="/data-viz" 
               className="text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-gray-200 font-medium mt-4 inline-block transition-colors group"
             >
-              Explore Visualizations 
+              Explore Graphs 
               <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
             </Link>
           </div>

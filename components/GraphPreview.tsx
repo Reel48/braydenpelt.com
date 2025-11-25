@@ -1,0 +1,170 @@
+'use client'
+
+import dynamic from 'next/dynamic'
+import Highcharts from 'highcharts'
+
+const HighchartsChart = dynamic(() => import('@/components/HighchartsChart'), {
+  ssr: false,
+})
+
+interface GraphPreviewProps {
+  type: 'line' | 'bar' | 'pie' | 'area'
+  title: string
+  href: string
+  description: string
+}
+
+export default function GraphPreview({ type, title, href, description }: GraphPreviewProps) {
+  const getPreviewOptions = (): Highcharts.Options => {
+    const baseOptions: Highcharts.Options = {
+      chart: {
+        type: type === 'bar' ? 'column' : type,
+        height: 200,
+        spacing: [10, 10, 10, 10],
+      },
+      title: {
+        text: '',
+      },
+      credits: {
+        enabled: false,
+      },
+      legend: {
+        enabled: false,
+      },
+      tooltip: {
+        enabled: false,
+      },
+    }
+
+    switch (type) {
+      case 'line':
+        return {
+          ...baseOptions,
+          xAxis: {
+            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+            labels: { enabled: false },
+            title: { text: '' },
+            lineWidth: 0,
+            tickWidth: 0,
+          },
+          yAxis: {
+            labels: { enabled: false },
+            title: { text: '' },
+            gridLineWidth: 0,
+          },
+          series: [
+            {
+              name: 'Series 1',
+              type: 'line',
+              data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0],
+              color: '#3b82f6',
+            },
+            {
+              name: 'Series 2',
+              type: 'line',
+              data: [65.2, 58.6, 32.4, 35.5, 48.9, 38.8],
+              color: '#06b6d4',
+            },
+          ],
+        }
+      case 'bar':
+        return {
+          ...baseOptions,
+          xAxis: {
+            categories: ['A', 'B', 'C', 'D', 'E'],
+            labels: { enabled: false },
+            title: { text: '' },
+            lineWidth: 0,
+            tickWidth: 0,
+          },
+          yAxis: {
+            labels: { enabled: false },
+            title: { text: '' },
+            gridLineWidth: 0,
+          },
+          series: [
+            {
+              name: 'Data',
+              type: 'column',
+              data: [45, 78, 52, 89, 65],
+              color: '#3b82f6',
+            },
+          ],
+        }
+      case 'pie':
+        return {
+          ...baseOptions,
+          plotOptions: {
+            pie: {
+              dataLabels: { enabled: false },
+            },
+          },
+          series: [
+            {
+              name: 'Share',
+              type: 'pie',
+              data: [
+                { name: 'A', y: 35, color: '#3b82f6' },
+                { name: 'B', y: 25, color: '#a855f7' },
+                { name: 'C', y: 20, color: '#22c55e' },
+                { name: 'D', y: 20, color: '#eab308' },
+              ],
+            },
+          ],
+        }
+      case 'area':
+        return {
+          ...baseOptions,
+          xAxis: {
+            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+            labels: { enabled: false },
+            title: { text: '' },
+            lineWidth: 0,
+            tickWidth: 0,
+          },
+          yAxis: {
+            labels: { enabled: false },
+            title: { text: '' },
+            gridLineWidth: 0,
+          },
+          plotOptions: {
+            area: {
+              stacking: 'normal',
+            },
+          },
+          series: [
+            {
+              name: 'Series 1',
+              type: 'area',
+              data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0],
+              color: '#3b82f6',
+            },
+            {
+              name: 'Series 2',
+              type: 'area',
+              data: [65.2, 58.6, 32.4, 35.5, 48.9, 38.8],
+              color: '#06b6d4',
+            },
+          ],
+        }
+      default:
+        return baseOptions
+    }
+  }
+
+  return (
+    <a
+      href={href}
+      className="block p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 border border-gray-100 dark:border-gray-700 group"
+    >
+      <h2 className="text-xl font-semibold mb-2 text-primary dark:text-gray-100 group-hover:text-primary/80 transition-colors">
+        {title}
+      </h2>
+      <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm">{description}</p>
+      <div className="w-full h-48 bg-gray-50 dark:bg-gray-900 rounded border border-gray-200 dark:border-gray-700 overflow-hidden">
+        <HighchartsChart options={getPreviewOptions()} />
+      </div>
+    </a>
+  )
+}
+

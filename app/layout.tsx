@@ -4,17 +4,17 @@ import './globals.css'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 
-// McKinsey-style typography: serif for body, sans-serif for headings
+// McKinsey-style typography: serif for headings, sans-serif for body
 const lora = Lora({
   subsets: ['latin'],
-  variable: '--font-body',
+  variable: '--font-heading',
   display: 'swap',
 })
 
 const sourceSansPro = Source_Sans_3({
   subsets: ['latin'],
   weight: ['400', '600', '700'],
-  variable: '--font-heading',
+  variable: '--font-body',
   display: 'swap',
 })
 

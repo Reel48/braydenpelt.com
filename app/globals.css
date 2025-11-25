@@ -28,12 +28,12 @@ body {
 
 @layer base {
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-heading), Arial, Helvetica, sans-serif;
+    font-family: var(--font-heading), Georgia, serif;
     font-weight: 600;
   }
   
   body {
-    font-family: var(--font-body), Georgia, serif;
+    font-family: var(--font-body), Arial, Helvetica, sans-serif;
   }
 }
 

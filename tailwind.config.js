@@ -8,8 +8,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        body: ['var(--font-body)', 'Georgia', 'serif'],
-        heading: ['var(--font-heading)', 'Arial', 'Helvetica', 'sans-serif'],
+        body: ['var(--font-body)', 'Arial', 'Helvetica', 'sans-serif'],
+        heading: ['var(--font-heading)', 'Georgia', 'serif'],
       },
       colors: {
         // Main Colors

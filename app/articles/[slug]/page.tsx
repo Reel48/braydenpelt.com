@@ -53,7 +53,7 @@ export default async function ArticlePage({
           prose-strong:text-gray-900 dark:prose-strong:text-gray-100
           prose-code:text-anchor-navy dark:prose-code:text-gray-300
           prose-pre:bg-gray-900 dark:prose-pre:bg-gray-800
-          prose-li:font-body"
+          prose-li:font-body prose-ul:font-body prose-ol:font-body"
         dangerouslySetInnerHTML={{ __html: contentHtml }}
       />
     </article>

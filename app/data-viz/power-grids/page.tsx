@@ -156,13 +156,13 @@ export default function PowerGridsPage() {
         },
         tooltip: {
           pointFormat: '{point.name}: <b>{point.value}</b><br/>',
-          formatter: function () {
+          formatter: function (): string {
             const gridNames: { [key: number]: string } = {
               1: 'ERCOT',
               2: 'Eastern Interconnection',
               3: 'Western Interconnection',
             }
-            return `<b>${this.point.properties?.name || 'State'}</b><br/>${gridNames[this.point.value as number] || 'Unknown'}`
+            return `<b>${(this.point as any).properties?.name || 'State'}</b><br/>${gridNames[(this.point as any).value as number] || 'Unknown'}`
           },
         },
       },

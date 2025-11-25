@@ -23,37 +23,34 @@ export default async function ArticlePage({
     notFound()
   }
 
-  // Process markdown content, preserving graph markers
-  const contentWithMarkers = article.content
-  const processedContent = await remark().use(html).process(contentWithMarkers)
-  let contentHtml = processedContent.toString()
-
-  // Match graph markers: <!--GRAPH:graph-id-->
+  // Extract graph markers BEFORE processing markdown to HTML
+  // This ensures HTML comments aren't stripped by remark-html
   const graphMarkerRegex = /<!--GRAPH:([a-z0-9-]+)-->/g
   const parts: (string | { type: 'graph'; id: string })[] = []
   let lastIndex = 0
   let match
 
-  // Find all graph markers and split content
-  while ((match = graphMarkerRegex.exec(contentHtml)) !== null) {
+  // Find all graph markers in the raw markdown content
+  while ((match = graphMarkerRegex.exec(article.content)) !== null) {
     // Add content before the marker
     if (match.index > lastIndex) {
-      parts.push(contentHtml.substring(lastIndex, match.index))
+      parts.push(article.content.substring(lastIndex, match.index))
     }
     // Add the graph marker
     parts.push({ type: 'graph', id: match[1] })
     lastIndex = match.index + match[0].length
   }
   // Add remaining content
-  if (lastIndex < contentHtml.length) {
-    parts.push(contentHtml.substring(lastIndex))
+  if (lastIndex < article.content.length) {
+    parts.push(article.content.substring(lastIndex))
   }
 
-  // Convert parts to React elements
+  // Process each text part through remark, keeping graph markers separate
   const contentParts: (string | JSX.Element)[] = []
   for (let i = 0; i < parts.length; i++) {
     const part = parts[i]
     if (typeof part === 'object' && part.type === 'graph') {
+      // This is a graph marker - render the graph component
       const graph = getGraphById(part.id)
       if (graph) {
         const GraphComponent = graph.component
@@ -62,9 +59,17 @@ export default async function ArticlePage({
             <GraphComponent />
           </div>
         )
+      } else {
+        // Graph not found - log warning or show placeholder
+        console.warn(`Graph with id "${part.id}" not found in registry`)
       }
     } else if (typeof part === 'string' && part.trim()) {
-      contentParts.push(part)
+      // Process this text part through remark
+      const processedContent = await remark().use(html).process(part)
+      const contentHtml = processedContent.toString()
+      if (contentHtml.trim()) {
+        contentParts.push(contentHtml)
+      }
     }
   }
 
@@ -100,6 +105,7 @@ export default async function ArticlePage({
           if (typeof part === 'string') {
             return <div key={`content-${index}`} dangerouslySetInnerHTML={{ __html: part }} />
           }
+          // This is a React element (graph component)
           return part
         })}
       </div>

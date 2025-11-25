@@ -36,9 +36,17 @@ export default async function ArticlePage({
   for (let i = 0; i < parts.length; i++) {
     const part = parts[i]
     if (part === '<!--GRAPH:data-center-energy-consumption-->') {
-      contentParts.push(<DataCenterEnergyConsumptionChart key={`graph-energy-${i}`} />)
+      contentParts.push(
+        <div key={`graph-energy-${i}`} className="my-8">
+          <DataCenterEnergyConsumptionChart />
+        </div>
+      )
     } else if (part === '<!--GRAPH:data-center-share-->') {
-      contentParts.push(<DataCenterShareChart key={`graph-share-${i}`} />)
+      contentParts.push(
+        <div key={`graph-share-${i}`} className="my-8">
+          <DataCenterShareChart />
+        </div>
+      )
     } else if (part.trim()) {
       contentParts.push(part)
     }

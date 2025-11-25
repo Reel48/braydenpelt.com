@@ -56,7 +56,7 @@ export function DataCenterEnergyConsumptionChart() {
   }
 
   return (
-    <div className="my-8 bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
+    <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
       <HighchartsChart options={options} />
     </div>
   )
@@ -110,7 +110,7 @@ export function DataCenterShareChart() {
   }
 
   return (
-    <div className="my-8 bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
+    <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
       <HighchartsChart options={options} />
     </div>
   )

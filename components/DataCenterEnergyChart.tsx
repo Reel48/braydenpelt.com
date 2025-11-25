@@ -14,7 +14,7 @@ export function DataCenterEnergyConsumptionChart() {
 
   const options: Highcharts.Options = {
     chart: {
-      type: 'line',
+      type: 'area',
     },
     title: {
       text: 'US Data Center Energy Consumption (TWh)',
@@ -38,16 +38,21 @@ export function DataCenterEnergyConsumptionChart() {
         return `<b>${this.x}</b><br/>Energy Consumption: <b>${this.y} TWh</b>`
       },
     },
-    series: [
-      {
-        name: 'Energy Consumption (TWh)',
-        type: 'line',
-        data: energyConsumption,
-        color: '#3b82f6', // blue-500
+    plotOptions: {
+      area: {
+        fillOpacity: 0.5,
         marker: {
           enabled: true,
           radius: 5,
         },
+      },
+    },
+    series: [
+      {
+        name: 'Energy Consumption (TWh)',
+        type: 'area',
+        data: energyConsumption,
+        color: '#3b82f6', // blue-500
       },
     ],
     legend: {
@@ -68,7 +73,7 @@ export function DataCenterShareChart() {
 
   const options: Highcharts.Options = {
     chart: {
-      type: 'line',
+      type: 'area',
     },
     title: {
       text: 'Share of Total US Power Demand (%)',
@@ -92,16 +97,21 @@ export function DataCenterShareChart() {
         return `<b>${this.x}</b><br/>Share of Total: <b>${this.y}%</b>`
       },
     },
-    series: [
-      {
-        name: 'Share of Total US Power Demand (%)',
-        type: 'line',
-        data: shareOfTotal,
-        color: '#22c55e', // green-500
+    plotOptions: {
+      area: {
+        fillOpacity: 0.5,
         marker: {
           enabled: true,
           radius: 5,
         },
+      },
+    },
+    series: [
+      {
+        name: 'Share of Total US Power Demand (%)',
+        type: 'area',
+        data: shareOfTotal,
+        color: '#22c55e', // green-500
       },
     ],
     legend: {

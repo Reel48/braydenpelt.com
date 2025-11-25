@@ -1,5 +1,5 @@
 ---
-title: On Data Centers
+title: The Current State of Data Center Infrastructure
 date: 2025-11-25
 excerpt: Exploring the rapid growth of data center energy consumption and its implications for the future of US power infrastructure.
 tags: [data-centers, energy, technology, infrastructure]

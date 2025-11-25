@@ -44,7 +44,7 @@ export default function Navbar() {
     <nav className="bg-white dark:bg-gray-900 shadow-md sticky top-0 z-50">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-16">
-          <Link href="/" className="text-2xl font-bold text-anchor-navy dark:text-primary-blue">
+          <Link href="/" className="text-2xl font-bold text-primary dark:text-blue-500">
             Brayden Pelt
           </Link>
 
@@ -56,19 +56,19 @@ export default function Navbar() {
                 href={link.href}
                 className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                   pathname === link.href
-                    ? 'text-primary-blue'
-                    : 'text-anchor-navy dark:text-gray-300 hover:text-primary-blue'
+                    ? 'text-blue-500'
+                    : 'text-primary dark:text-gray-300 hover:text-blue-500'
                 }`}
                 style={{
                   backgroundColor: pathname === link.href
-                    ? isDark ? 'rgba(42, 148, 214, 0.2)' : 'rgba(42, 148, 214, 0.1)'
+                    ? isDark ? 'rgba(59, 130, 246, 0.2)' : 'rgba(59, 130, 246, 0.1)'
                     : 'transparent',
                 }}
                 onMouseEnter={(e) => {
                   if (pathname !== link.href) {
                     e.currentTarget.style.backgroundColor = isDark 
-                      ? 'rgba(42, 148, 214, 0.2)' 
-                      : 'rgba(42, 148, 214, 0.1)'
+                      ? 'rgba(59, 130, 246, 0.2)' 
+                      : 'rgba(59, 130, 246, 0.1)'
                   }
                 }}
                 onMouseLeave={(e) => {
@@ -116,19 +116,19 @@ export default function Navbar() {
                 onClick={() => setIsOpen(false)}
                 className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${
                   pathname === link.href
-                    ? 'text-primary-blue'
-                    : 'text-anchor-navy dark:text-gray-300'
+                    ? 'text-blue-500'
+                    : 'text-primary dark:text-gray-300'
                 }`}
                 style={{
                   backgroundColor: pathname === link.href
-                    ? isDark ? 'rgba(42, 148, 214, 0.2)' : 'rgba(42, 148, 214, 0.1)'
+                    ? isDark ? 'rgba(59, 130, 246, 0.2)' : 'rgba(59, 130, 246, 0.1)'
                     : 'transparent',
                 }}
                 onMouseEnter={(e) => {
                   if (pathname !== link.href) {
                     e.currentTarget.style.backgroundColor = isDark 
-                      ? 'rgba(42, 148, 214, 0.2)' 
-                      : 'rgba(42, 148, 214, 0.1)'
+                      ? 'rgba(59, 130, 246, 0.2)' 
+                      : 'rgba(59, 130, 246, 0.1)'
                   }
                 }}
                 onMouseLeave={(e) => {

@@ -30,19 +30,19 @@ export default function AreaChartPage() {
         name: 'Series 1',
         type: 'area',
         data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4],
-        color: '#2a94d6',
+        color: '#3b82f6', // blue-500
       },
       {
         name: 'Series 2',
         type: 'area',
         data: [65.2, 58.6, 32.4, 35.5, 48.9, 38.8, 39.3, 41.4, 47.0, 48.3, 59.0, 59.6],
-        color: '#4eb1cb',
+        color: '#06b6d4', // cyan-500
       },
       {
         name: 'Series 3',
         type: 'area',
         data: [45.2, 38.6, 42.4, 55.5, 58.9, 48.8, 49.3, 51.4, 57.0, 58.3, 69.0, 69.6],
-        color: '#4ab471',
+        color: '#22c55e', // green-500
       },
     ],
     plotOptions: {

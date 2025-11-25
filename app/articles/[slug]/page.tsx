@@ -49,9 +49,9 @@ export default async function ArticlePage({
         className="prose prose-lg dark:prose-invert max-w-none
           prose-headings:font-heading prose-headings:text-gray-900 dark:prose-headings:text-gray-100
           prose-p:font-body prose-p:text-gray-700 dark:prose-p:text-gray-300
-          prose-a:text-anchor-navy dark:prose-a:text-gray-300
+          prose-a:text-primary dark:prose-a:text-gray-300
           prose-strong:text-gray-900 dark:prose-strong:text-gray-100
-          prose-code:text-anchor-navy dark:prose-code:text-gray-300
+          prose-code:text-primary dark:prose-code:text-gray-300
           prose-pre:bg-gray-900 dark:prose-pre:bg-gray-800
           prose-li:font-body prose-ul:font-body prose-ol:font-body"
         dangerouslySetInnerHTML={{ __html: contentHtml }}

@@ -32,12 +32,12 @@ export default function PieChartPage() {
         name: 'Share',
         type: 'pie',
         data: [
-          { name: 'Chrome', y: 61.41, color: '#2a94d6' },
-          { name: 'Internet Explorer', y: 11.84, color: '#717ecd' },
-          { name: 'Firefox', y: 10.85, color: '#4ab471' },
-          { name: 'Edge', y: 4.67, color: '#f3ae4e' },
-          { name: 'Safari', y: 4.18, color: '#cf5c60' },
-          { name: 'Other', y: 7.05, color: '#d96383' },
+          { name: 'Chrome', y: 61.41, color: '#3b82f6' }, // blue-500
+          { name: 'Internet Explorer', y: 11.84, color: '#a855f7' }, // purple-500
+          { name: 'Firefox', y: 10.85, color: '#22c55e' }, // green-500
+          { name: 'Edge', y: 4.67, color: '#eab308' }, // yellow-500
+          { name: 'Safari', y: 4.18, color: '#ef4444' }, // red-500
+          { name: 'Other', y: 7.05, color: '#ec4899' }, // pink-500
         ],
       },
     ],

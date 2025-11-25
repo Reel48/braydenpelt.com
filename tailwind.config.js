@@ -12,31 +12,21 @@ module.exports = {
         heading: ['var(--font-heading)', 'Georgia', 'serif'],
       },
       colors: {
-        // Main Colors
-        'anchor-navy': '#344a5f',
-        'primary-blue': '#2a94d6',
-        'slate-grey': '#f0f1f2',
-        white: '#ffffff',
-        // Secondary Colors
-        'secondary-blue': '#4eb1cb',
-        'secondary-red': '#cf5c60',
-        'secondary-purple': '#717ecd',
-        'secondary-green': '#4ab471',
-        'secondary-yellow': '#f3ae4e',
-        'secondary-pink': '#d96383',
-        // Legacy primary mapping for easy migration
-        primary: {
-          50: '#f0f1f2',
-          100: '#e0e3e5',
-          200: '#c1c7cb',
-          300: '#a2abb1',
-          400: '#838f97',
-          500: '#2a94d6',
-          600: '#2a94d6',
-          700: '#2a94d6',
-          800: '#344a5f',
-          900: '#344a5f',
-        },
+        // Whites Palette
+        'pure-white': '#ffffff',
+        'chalk': '#fffffc',
+        'white-porcelain': '#f8fbf8',
+        'flower-blue': '#f7fcfe',
+        'purple-water': '#e7e7eb',
+        // Blacks Palette
+        'black-1': '#111111',
+        'black-2': '#101010',
+        'black-3': '#121212',
+        'black-4': '#161616',
+        'black-5': '#191919',
+        'black-6': '#1a1a1a',
+        // Primary Website Color
+        'primary': '#1b2b41',
       },
     },
   },

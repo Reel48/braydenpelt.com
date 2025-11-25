@@ -26,7 +26,7 @@ const visualizations = [
 export default function DataVizPage() {
   return (
     <div className="container mx-auto px-4 py-16">
-      <h1 className="text-4xl font-bold mb-4 text-anchor-navy dark:text-gray-100">Data Visualizations</h1>
+      <h1 className="text-4xl font-bold mb-4 text-primary dark:text-gray-100">Data Visualizations</h1>
       <p className="text-gray-600 dark:text-gray-300 mb-12 text-lg">
         Interactive charts and visualizations powered by Highcharts
       </p>
@@ -38,7 +38,7 @@ export default function DataVizPage() {
             href={viz.href}
             className="block p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 border border-gray-100 dark:border-gray-700 group"
           >
-            <h2 className="text-xl font-semibold mb-2 text-anchor-navy dark:text-gray-100 group-hover:text-anchor-navy/80 transition-colors">{viz.title}</h2>
+            <h2 className="text-xl font-semibold mb-2 text-primary dark:text-gray-100 group-hover:text-primary/80 transition-colors">{viz.title}</h2>
             <p className="text-gray-600 dark:text-gray-300">{viz.description}</p>
           </Link>
         ))}

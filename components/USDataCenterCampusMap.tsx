@@ -228,6 +228,22 @@ export function USDataCenterCampusMap() {
         chartInstanceRef.current.destroy()
       }
 
+      // Color mapping based on status
+      const getStatusColor = (status: string): string => {
+        if (status.includes('Operational') && !status.includes('Planned')) {
+          return '#22c55e' // Green for operational
+        } else if (status.includes('Operational / Expanding')) {
+          return '#10b981' // Emerald green for expanding
+        } else if (status.includes('Operational / Planned')) {
+          return '#84cc16' // Lime green for operational/planned
+        } else if (status.includes('Under Construction')) {
+          return '#f97316' // Orange for under construction
+        } else if (status.includes('Planned')) {
+          return '#3b82f6' // Blue for planned
+        }
+        return '#1b2b41' // Default primary color
+      }
+
       // Convert campus data to map points
       const mapPoints = campusData.map(campus => ({
         name: campus.name,
@@ -239,6 +255,7 @@ export function USDataCenterCampusMap() {
         county: campus.county,
         company: campus.company,
         status: campus.status,
+        color: getStatusColor(campus.status),
       }))
 
       const options: any = {
@@ -261,6 +278,12 @@ export function USDataCenterCampusMap() {
         },
         legend: {
           enabled: true,
+          layout: 'horizontal',
+          align: 'center',
+          verticalAlign: 'bottom',
+          itemStyle: {
+            fontSize: '12px',
+          },
         },
         plotOptions: {
           mappoint: {
@@ -337,14 +360,15 @@ export function USDataCenterCampusMap() {
             // Data center campuses
             type: 'mappoint',
             name: 'Data Center Campus',
-            color: '#1b2b41',
-            data: mapPoints,
-            marker: {
-              fillColor: '#1b2b41',
-              lineColor: '#fff',
-              lineWidth: 2,
-              radius: 8,
-            },
+            data: mapPoints.map(point => ({
+              ...point,
+              marker: {
+                fillColor: point.color,
+                lineColor: '#fff',
+                lineWidth: 2,
+                radius: 8,
+              },
+            })),
           },
         ],
       }

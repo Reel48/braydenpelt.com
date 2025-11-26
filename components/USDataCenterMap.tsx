@@ -1,7 +1,5 @@
 'use client'
 
-'use client'
-
 import { useEffect, useState } from 'react'
 import dynamic from 'next/dynamic'
 
@@ -137,28 +135,28 @@ const mapData = rankedData.map(item => ({
 export function USDataCenterMap() {
   const [topology, setTopology] = useState<any>(null)
   const [isLoading, setIsLoading] = useState(true)
+  const [highchartsInitialized, setHighchartsInitialized] = useState(false)
 
   useEffect(() => {
     // Dynamically import Highcharts and Maps module only on client
     const initMap = async () => {
       try {
+        // Import and initialize Highcharts Maps module first
         const Highcharts = (await import('highcharts')).default
-        const HighchartsMap = (await import('highcharts/modules/map')).default
+        const HighchartsMapModule = (await import('highcharts/modules/map')).default
         
-        // Initialize Highcharts Maps module
-        HighchartsMap(Highcharts)
+        // Initialize Highcharts Maps module - this must happen before creating charts
+        HighchartsMapModule(Highcharts)
+        setHighchartsInitialized(true)
 
         // Load topology data
         const response = await fetch(
           'https://code.highcharts.com/mapdata/countries/us/us-all.topo.json'
         )
-        const data = await response.json()
-        
-        // Debug: log first few features to see key format
-        if (data.objects && data.objects.default && data.objects.default.geometries) {
-          const firstFew = data.objects.default.geometries.slice(0, 3)
-          console.log('Sample topology keys:', firstFew.map((g: any) => g.properties?.['hc-key'] || g.properties?.name || 'no key'))
+        if (!response.ok) {
+          throw new Error(`Failed to fetch map data: ${response.statusText}`)
         }
+        const data = await response.json()
         
         setTopology(data)
         setIsLoading(false)
@@ -171,18 +169,10 @@ export function USDataCenterMap() {
     initMap()
   }, [])
 
-  if (isLoading) {
+  if (isLoading || !highchartsInitialized || !topology) {
     return (
       <div className="w-full h-96 flex items-center justify-center">
         <p className="text-gray-500">Loading map...</p>
-      </div>
-    )
-  }
-
-  if (!topology) {
-    return (
-      <div className="w-full h-96 flex items-center justify-center">
-        <p className="text-red-500">Error loading map data</p>
       </div>
     )
   }

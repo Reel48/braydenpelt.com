@@ -7,31 +7,8 @@ import { useState, useEffect } from 'react'
 export default function Navbar() {
   const pathname = usePathname()
   const [isOpen, setIsOpen] = useState(false)
-  const [isDark, setIsDark] = useState(false)
-
-  useEffect(() => {
-    const checkDarkMode = () => {
-      setIsDark(
-        window.matchMedia('(prefers-color-scheme: dark)').matches ||
-        document.documentElement.classList.contains('dark')
-      )
-    }
-    
-    checkDarkMode()
-    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
-    mediaQuery.addEventListener('change', checkDarkMode)
-    
-    const observer = new MutationObserver(checkDarkMode)
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ['class'],
-    })
-    
-    return () => {
-      mediaQuery.removeEventListener('change', checkDarkMode)
-      observer.disconnect()
-    }
-  }, [])
+  // Dark mode disabled - always use light mode
+  const isDark = false
 
   const navLinks = [
     { href: '/', label: 'Home' },
@@ -41,10 +18,10 @@ export default function Navbar() {
   ]
 
   return (
-    <nav className="bg-white dark:bg-gray-900 shadow-md sticky top-0 z-50">
+    <nav className="bg-white shadow-md sticky top-0 z-50">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-16">
-          <Link href="/" className="text-2xl font-bold text-primary dark:text-blue-500">
+          <Link href="/" className="text-2xl font-bold text-primary">
             Brayden Pelt
           </Link>
 
@@ -57,18 +34,16 @@ export default function Navbar() {
                 className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                   pathname === link.href
                     ? 'text-blue-500'
-                    : 'text-primary dark:text-gray-300 hover:text-blue-500'
+                    : 'text-primary hover:text-blue-500'
                 }`}
                 style={{
                   backgroundColor: pathname === link.href
-                    ? isDark ? 'rgba(59, 130, 246, 0.2)' : 'rgba(59, 130, 246, 0.1)'
+                    ? 'rgba(59, 130, 246, 0.1)'
                     : 'transparent',
                 }}
                 onMouseEnter={(e) => {
                   if (pathname !== link.href) {
-                    e.currentTarget.style.backgroundColor = isDark 
-                      ? 'rgba(59, 130, 246, 0.2)' 
-                      : 'rgba(59, 130, 246, 0.1)'
+                    e.currentTarget.style.backgroundColor = 'rgba(59, 130, 246, 0.1)'
                   }
                 }}
                 onMouseLeave={(e) => {
@@ -84,7 +59,7 @@ export default function Navbar() {
 
           {/* Mobile menu button */}
           <button
-            className="md:hidden p-2 rounded-md text-gray-700 dark:text-gray-300"
+            className="md:hidden p-2 rounded-md text-gray-700"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
@@ -117,18 +92,16 @@ export default function Navbar() {
                 className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${
                   pathname === link.href
                     ? 'text-blue-500'
-                    : 'text-primary dark:text-gray-300'
+                    : 'text-primary'
                 }`}
                 style={{
                   backgroundColor: pathname === link.href
-                    ? isDark ? 'rgba(59, 130, 246, 0.2)' : 'rgba(59, 130, 246, 0.1)'
+                    ? 'rgba(59, 130, 246, 0.1)'
                     : 'transparent',
                 }}
                 onMouseEnter={(e) => {
                   if (pathname !== link.href) {
-                    e.currentTarget.style.backgroundColor = isDark 
-                      ? 'rgba(59, 130, 246, 0.2)' 
-                      : 'rgba(59, 130, 246, 0.1)'
+                    e.currentTarget.style.backgroundColor = 'rgba(59, 130, 246, 0.1)'
                   }
                 }}
                 onMouseLeave={(e) => {

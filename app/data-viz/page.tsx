@@ -17,8 +17,8 @@ export default function GraphsPage() {
 
   return (
     <div className="container mx-auto px-4 py-16">
-      <h1 className="text-4xl font-bold mb-4 text-primary dark:text-gray-100">Graphs</h1>
-      <p className="text-gray-600 dark:text-gray-300 mb-12 text-lg">
+      <h1 className="text-4xl font-bold mb-4 text-primary">Graphs</h1>
+      <p className="text-gray-600 mb-12 text-lg">
         Interactive charts and visualizations powered by Highcharts
       </p>
 

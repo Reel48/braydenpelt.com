@@ -58,8 +58,8 @@ export default async function ArticlePage({
           <div key={`graph-${part.id}-${i}`} className="my-8">
             <GraphComponent />
             {graph.source && (
-              <div className="mt-3 py-2 px-3 bg-gray-50 dark:bg-gray-900 rounded border border-gray-200 dark:border-gray-700">
-                <p className="text-xs text-gray-600 dark:text-gray-400 italic leading-tight">
+              <div className="mt-3 py-2 px-3 bg-gray-50 rounded border border-gray-200">
+                <p className="text-xs text-gray-600 italic leading-tight">
                   {graph.source}
                 </p>
               </div>
@@ -84,7 +84,7 @@ export default async function ArticlePage({
     <article className="container mx-auto px-4 py-16 max-w-4xl">
       <header className="mb-8">
         <h1 className="text-4xl font-bold mb-4 font-heading">{article.title}</h1>
-        <div className="flex items-center gap-4 text-gray-600 dark:text-gray-400">
+        <div className="flex items-center gap-4 text-gray-600">
           <time dateTime={article.date}>
             {format(new Date(article.date), 'MMMM d, yyyy')}
           </time>
@@ -100,13 +100,13 @@ export default async function ArticlePage({
         </div>
       </header>
 
-      <div className="prose prose-lg dark:prose-invert max-w-none
-          prose-headings:font-heading prose-headings:text-gray-900 dark:prose-headings:text-gray-100
-          prose-p:font-body prose-p:text-gray-700 dark:prose-p:text-gray-300
-          prose-a:text-primary dark:prose-a:text-gray-300
-          prose-strong:text-gray-900 dark:prose-strong:text-gray-100
-          prose-code:text-primary dark:prose-code:text-gray-300
-          prose-pre:bg-gray-900 dark:prose-pre:bg-gray-800
+      <div className="prose prose-lg max-w-none
+          prose-headings:font-heading prose-headings:text-gray-900
+          prose-p:font-body prose-p:text-gray-700
+          prose-a:text-primary
+          prose-strong:text-gray-900
+          prose-code:text-primary
+          prose-pre:bg-gray-900
           prose-li:font-body prose-ul:font-body prose-ol:font-body">
         {contentParts.map((part, index) => {
           if (typeof part === 'string') {

@@ -1,10 +1,10 @@
 export default function AboutPage() {
   return (
     <div className="container mx-auto px-4 py-16 max-w-4xl">
-      <h1 className="text-4xl font-bold mb-8 text-primary dark:text-gray-100">About Me</h1>
+      <h1 className="text-4xl font-bold mb-8 text-primary">About Me</h1>
       
-      <div className="prose prose-lg dark:prose-invert max-w-none">
-        <p className="text-xl text-gray-700 dark:text-gray-300 mb-6">
+      <div className="prose prose-lg max-w-none">
+        <p className="text-xl text-gray-700 mb-6">
           Welcome to my personal website! I&apos;m Brayden Pelt, and this is my space 
           for sharing articles, data visualizations, and more.
         </p>
@@ -24,7 +24,6 @@ export default function AboutPage() {
           <li>Modern, responsive design with Tailwind CSS</li>
           <li>Blog/article system with Markdown support</li>
           <li>Interactive data visualizations with Highcharts</li>
-          <li>Dark mode support</li>
           <li>Fast, optimized performance</li>
         </ul>
 

@@ -186,13 +186,13 @@ export default function GraphPreview({ type, title, href, description }: GraphPr
   return (
     <a
       href={href}
-      className="block p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 border border-gray-100 dark:border-gray-700 group"
+      className="block p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-200 border border-gray-100 group"
     >
-      <h2 className="text-xl font-semibold mb-2 text-primary dark:text-gray-100 group-hover:text-primary/80 transition-colors">
+      <h2 className="text-xl font-semibold mb-2 text-primary group-hover:text-primary/80 transition-colors">
         {title}
       </h2>
-      <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm">{description}</p>
-      <div className="w-full h-48 bg-gray-50 dark:bg-gray-900 rounded border border-gray-200 dark:border-gray-700 overflow-hidden">
+      <p className="text-gray-600 mb-4 text-sm">{description}</p>
+      <div className="w-full h-48 bg-gray-50 rounded border border-gray-200 overflow-hidden">
         <HighchartsChart options={getPreviewOptions()} />
       </div>
     </a>

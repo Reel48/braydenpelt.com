@@ -230,15 +230,9 @@ export function USDataCenterCampusMap() {
             // Access properties directly from the point
             const name = this.name || 'Unknown'
             const capacity = this.capacity || this.z || 0
-            const state = this.state || 'Unknown'
-            const county = this.county || 'Unknown'
-            const company = this.company || 'Unknown'
             
             return `<b>${name}</b><br/>` +
-              `Capacity: <b>${capacity} MW</b><br/>` +
-              `State: ${state}<br/>` +
-              `County: ${county}<br/>` +
-              `Company: ${company}`
+              `Capacity: <b>${capacity} MW</b>`
           },
         },
         series: [

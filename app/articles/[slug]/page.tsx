@@ -6,6 +6,7 @@ import html from 'remark-html'
 import Tag from '@/components/Tag'
 import { getGraphById } from '@/lib/graphs'
 import { Suspense } from 'react'
+import dynamic from 'next/dynamic'
 
 export async function generateStaticParams() {
   const slugs = getArticleSlugs()
@@ -54,7 +55,11 @@ export default async function ArticlePage({
       // This is a graph marker - render the graph component
       const graph = getGraphById(part.id)
       if (graph) {
-        const GraphComponent = graph.component
+        // Dynamically import client components to avoid SSR issues
+        const GraphComponent = dynamic(() => Promise.resolve(graph.component), {
+          ssr: false,
+          loading: () => <div className="w-full h-96 flex items-center justify-center"><p className="text-gray-500">Loading graph...</p></div>,
+        })
         contentParts.push(
           <div key={`graph-${part.id}-${i}`} className="my-8">
             <Suspense fallback={<div className="w-full h-96 flex items-center justify-center"><p className="text-gray-500">Loading graph...</p></div>}>

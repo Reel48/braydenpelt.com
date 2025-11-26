@@ -1,7 +1,12 @@
 import { ComponentType } from 'react'
 import { DataCenterEnergyConsumptionChart, DataCenterShareChart } from '@/components/DataCenterEnergyChart'
 import { USDataCenterMap } from '@/components/USDataCenterMap'
-import { USDataCenterCampusMap } from '@/components/USDataCenterCampusMap'
+import dynamic from 'next/dynamic'
+
+// Dynamically import map components to avoid SSR issues
+const USDataCenterCampusMap = dynamic(() => import('@/components/USDataCenterCampusMap').then(mod => ({ default: mod.USDataCenterCampusMap })), {
+  ssr: false,
+})
 
 /**
  * Graph Definition Interface

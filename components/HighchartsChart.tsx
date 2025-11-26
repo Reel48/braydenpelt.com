@@ -55,6 +55,8 @@ export default function HighchartsChart({ options, title }: HighchartsChartProps
         fontFamily: 'inherit',
       },
       ...options.chart,
+      // Preserve map property for map charts
+      ...(isMapChart && options.chart?.map ? { map: options.chart.map } : {}),
     },
     credits: {
       enabled: false,

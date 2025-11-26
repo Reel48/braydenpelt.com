@@ -1,12 +1,8 @@
 import { ComponentType } from 'react'
 import { DataCenterEnergyConsumptionChart, DataCenterShareChart } from '@/components/DataCenterEnergyChart'
 import { USDataCenterMap } from '@/components/USDataCenterMap'
-import dynamic from 'next/dynamic'
-
-// Dynamically import map components to avoid SSR issues
-const USDataCenterCampusMap = dynamic(() => import('@/components/USDataCenterCampusMap').then(mod => ({ default: mod.USDataCenterCampusMap })), {
-  ssr: false,
-})
+import { USDataCenterCampusMap } from '@/components/USDataCenterCampusMap'
+import { DataCenterElectricityBySourceChart } from '@/components/DataCenterElectricityBySourceChart'
 
 /**
  * Graph Definition Interface
@@ -70,6 +66,15 @@ export const graphs: GraphDefinition[] = [
     component: USDataCenterCampusMap,
     href: '/data-viz/us-data-center-campuses',
     source: 'Data derived from public announcements and industry reports.',
+  },
+  {
+    id: 'data-center-electricity-by-source',
+    title: 'U.S. Data Center Electricity Generation by Fuel Source (2010-2035)',
+    description: 'Stacked area chart showing electricity generation by fuel source for U.S. data centers from 2010 to 2035',
+    type: 'area',
+    component: DataCenterElectricityBySourceChart,
+    href: '/data-viz/data-center-electricity-by-source',
+    source: 'Source: IEA (International Energy Agency)',
   },
 ]
 

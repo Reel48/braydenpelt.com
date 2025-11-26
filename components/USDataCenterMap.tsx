@@ -160,15 +160,24 @@ export function USDataCenterMap() {
         
         // Debug: Check the actual key format in the topology
         if (data.objects && data.objects.default && data.objects.default.geometries) {
-          const sampleKeys = data.objects.default.geometries
-            .slice(0, 10)
-            .map((g: any) => g.properties?.['hc-key'] || g.properties?.['postal-code'] || g.properties?.name)
-            .filter(Boolean)
-          console.log('Topology sample keys:', sampleKeys)
+          const allTopologyKeys = data.objects.default.geometries
+            .map((g: any) => ({
+              'hc-key': g.properties?.['hc-key'],
+              name: g.properties?.name,
+              'postal-code': g.properties?.['postal-code'],
+              allProps: Object.keys(g.properties || {})
+            }))
+          console.log('Topology keys sample (first 5):', allTopologyKeys.slice(0, 5))
+          console.log('All unique hc-keys in topology:', [...new Set(allTopologyKeys.map(k => k['hc-key']).filter(Boolean))].slice(0, 10))
           
           // Check if our data keys match
-          const ourKeys = mapData.slice(0, 10).map(d => d['hc-key'])
-          console.log('Our data keys:', ourKeys)
+          const ourKeys = mapData.map(d => d['hc-key'])
+          console.log('Our data keys (first 10):', ourKeys.slice(0, 10))
+          
+          // Check for matches
+          const topologyKeysSet = new Set(allTopologyKeys.map(k => k['hc-key']).filter(Boolean))
+          const matchingKeys = ourKeys.filter(k => topologyKeysSet.has(k))
+          console.log(`Matched ${matchingKeys.length} out of ${ourKeys.length} keys`)
         }
         
         setTopology(data)

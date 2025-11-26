@@ -1,12 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-import dynamic from 'next/dynamic'
-
-const HighchartsChart = dynamic(() => import('@/components/HighchartsChart'), {
-  ssr: false,
-  loading: () => <div className="w-full h-96 flex items-center justify-center"><p className="text-gray-500">Loading map...</p></div>,
-})
+import { useEffect, useState, useRef } from 'react'
 
 // State name to postal code mapping - Highcharts uses lowercase with hyphens
 const stateNameToCode: Record<string, string> = {
@@ -133,6 +127,8 @@ const mapData = rankedData.map(item => ({
 }))
 
 export function USDataCenterMap() {
+  const chartContainerRef = useRef<HTMLDivElement>(null)
+  const chartInstanceRef = useRef<any>(null)
   const [topology, setTopology] = useState<any>(null)
   const [isLoading, setIsLoading] = useState(true)
   const [highchartsInitialized, setHighchartsInitialized] = useState(false)
@@ -141,7 +137,15 @@ export function USDataCenterMap() {
     // Dynamically import Highcharts and Maps module only on client
     const initMap = async () => {
       try {
-        // Load topology data first
+        // Import Highcharts and Maps module
+        const Highcharts = (await import('highcharts')).default
+        const HighchartsMapModule = (await import('highcharts/modules/map')).default
+        
+        // Initialize Highcharts Maps module
+        HighchartsMapModule(Highcharts)
+        setHighchartsInitialized(true)
+
+        // Load topology data
         const response = await fetch(
           'https://code.highcharts.com/mapdata/countries/us/us-all.topo.json'
         )
@@ -173,7 +177,6 @@ export function USDataCenterMap() {
         }
         
         setTopology(data)
-        setHighchartsInitialized(true)
         setIsLoading(false)
       } catch (error) {
         console.error('Error loading map data:', error)
@@ -184,76 +187,107 @@ export function USDataCenterMap() {
     initMap()
   }, [])
 
-  // Import Highcharts types dynamically
-  const options: any = {
-    chart: {
-      type: 'map',
-      map: topology,
-      height: 600,
-    },
-    title: {
-      text: 'U.S. Data Center Infrastructure Rankings by State',
-    },
-    subtitle: {
-      text: 'Total Score (Energy 35%, Incentives 20%, Network 15%, Physical 15%, Land 15%)',
-    },
-    mapNavigation: {
-      enabled: true,
-      buttonOptions: {
-        verticalAlign: 'bottom',
-      },
-    },
-    colorAxis: {
-      min: 0,
-      max: 100,
-      stops: [
-        [0, '#ef4444'], // red for low scores
-        [0.35, '#f97316'], // orange
-        [0.5, '#eab308'], // yellow
-        [0.65, '#84cc16'], // lime
-        [0.8, '#22c55e'], // green
-        [1, '#15803d'], // dark green for high scores
-      ],
-    },
-    legend: {
-      layout: 'horizontal',
-      align: 'center',
-      verticalAlign: 'bottom',
-    },
-    series: [
-      {
-        type: 'map',
-        name: 'Total Score',
-        data: mapData,
-        joinBy: 'hc-key',
-        nullColor: '#e0e0e0',
-        borderColor: '#999',
-        borderWidth: 1,
-        states: {
-          hover: {
-            brightness: 0.1,
-          },
-        },
-        dataLabels: {
-          enabled: true,
-          format: '{point.name}',
-          allowOverlap: true,
-          style: {
-            fontSize: '10px',
-            fontWeight: 'bold',
-            textOutline: '1px contrast',
-            color: '#000',
-          },
-        },
-        tooltip: {
-          pointFormat: '{point.name}: <b>{point.value}</b><br/>Rank: <b>#{point.rank}</b>',
-        },
-      } as any,
-    ],
-  }
+  // Create chart when everything is ready
+  useEffect(() => {
+    if (!chartContainerRef.current || !topology || !highchartsInitialized) {
+      return
+    }
 
-  // Only render chart when everything is ready
-  if (!topology || !highchartsInitialized) {
+    const createChart = async () => {
+      const Highcharts = (await import('highcharts')).default
+      
+      // Destroy existing chart if any
+      if (chartInstanceRef.current) {
+        chartInstanceRef.current.destroy()
+      }
+
+      const options: any = {
+        chart: {
+          type: 'map',
+          map: topology,
+          height: 600,
+        },
+        title: {
+          text: 'U.S. Data Center Infrastructure Rankings by State',
+        },
+        subtitle: {
+          text: 'Total Score (Energy 35%, Incentives 20%, Network 15%, Physical 15%, Land 15%)',
+        },
+        mapNavigation: {
+          enabled: true,
+          buttonOptions: {
+            verticalAlign: 'bottom',
+          },
+        },
+        colorAxis: {
+          min: 0,
+          max: 100,
+          stops: [
+            [0, '#ef4444'],
+            [0.35, '#f97316'],
+            [0.5, '#eab308'],
+            [0.65, '#84cc16'],
+            [0.8, '#22c55e'],
+            [1, '#15803d'],
+          ],
+        },
+        legend: {
+          layout: 'horizontal',
+          align: 'center',
+          verticalAlign: 'bottom',
+        },
+        series: [
+          {
+            type: 'map',
+            name: 'Total Score',
+            data: mapData,
+            joinBy: 'hc-key',
+            nullColor: '#e0e0e0',
+            borderColor: '#999',
+            borderWidth: 1,
+            states: {
+              hover: {
+                brightness: 0.1,
+              },
+            },
+            dataLabels: {
+              enabled: true,
+              format: '{point.name}',
+              allowOverlap: true,
+              style: {
+                fontSize: '10px',
+                fontWeight: 'bold',
+                textOutline: '1px contrast',
+                color: '#000',
+              },
+            },
+            tooltip: {
+              pointFormat: '{point.name}: <b>{point.value}</b><br/>Rank: <b>#{point.rank}</b>',
+            },
+          } as any,
+        ],
+      }
+
+      try {
+        chartInstanceRef.current = (Highcharts as any).mapChart(chartContainerRef.current, options)
+        console.log('Chart created successfully', chartInstanceRef.current)
+      } catch (error) {
+        console.error('Error creating chart:', error)
+      }
+    }
+
+    createChart()
+
+    // Cleanup
+    return () => {
+      if (chartInstanceRef.current) {
+        chartInstanceRef.current.destroy()
+        chartInstanceRef.current = null
+      }
+    }
+  }, [topology, highchartsInitialized])
+
+  if (isLoading || !highchartsInitialized || !topology) {
     return (
       <div className="w-full h-96 flex items-center justify-center">
         <p className="text-gray-500">Loading map...</p>
@@ -263,11 +297,7 @@ export function USDataCenterMap() {
 
   return (
     <div className="bg-white p-6 rounded-lg shadow-lg" style={{ minHeight: '600px' }}>
-      <HighchartsChart 
-        key="us-data-center-map"
-        options={options} 
-      />
+      <div ref={chartContainerRef} style={{ width: '100%', height: '600px' }} />
     </div>
   )
 }
-

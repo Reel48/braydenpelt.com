@@ -8,7 +8,7 @@ const HighchartsChart = dynamic(() => import('@/components/HighchartsChart'), {
   loading: () => <div className="w-full h-96 flex items-center justify-center"><p className="text-gray-500">Loading map...</p></div>,
 })
 
-// State name to postal code mapping - using lowercase for Highcharts Maps
+// State name to postal code mapping - Highcharts uses lowercase with hyphens
 const stateNameToCode: Record<string, string> = {
   'Pennsylvania': 'us-pa',
   'Illinois': 'us-il',
@@ -158,6 +158,19 @@ export function USDataCenterMap() {
         }
         const data = await response.json()
         
+        // Debug: Check the actual key format in the topology
+        if (data.objects && data.objects.default && data.objects.default.geometries) {
+          const sampleKeys = data.objects.default.geometries
+            .slice(0, 10)
+            .map((g: any) => g.properties?.['hc-key'] || g.properties?.['postal-code'] || g.properties?.name)
+            .filter(Boolean)
+          console.log('Topology sample keys:', sampleKeys)
+          
+          // Check if our data keys match
+          const ourKeys = mapData.slice(0, 10).map(d => d['hc-key'])
+          console.log('Our data keys:', ourKeys)
+        }
+        
         setTopology(data)
         setIsLoading(false)
       } catch (error) {
@@ -217,10 +230,15 @@ export function USDataCenterMap() {
         name: 'Total Score',
         mapData: topology,
         data: mapData,
-        joinBy: 'hc-key',
+        joinBy: ['hc-key', 'hc-key'],
         nullColor: '#f0f0f0',
         borderColor: '#a0a0a0',
         borderWidth: 0.5,
+        states: {
+          hover: {
+            brightness: 0.1,
+          },
+        },
         dataLabels: {
           enabled: true,
           format: '{point.name}',
@@ -229,6 +247,7 @@ export function USDataCenterMap() {
             fontSize: '10px',
             fontWeight: 'bold',
             textOutline: '1px contrast',
+            color: '#000',
           },
         },
         tooltip: {

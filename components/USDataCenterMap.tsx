@@ -184,19 +184,12 @@ export function USDataCenterMap() {
     initMap()
   }, [])
 
-  if (isLoading || !highchartsInitialized || !topology) {
-    return (
-      <div className="w-full h-96 flex items-center justify-center">
-        <p className="text-gray-500">Loading map...</p>
-      </div>
-    )
-  }
-
   // Import Highcharts types dynamically
   const options: any = {
     chart: {
       type: 'map',
       map: topology,
+      height: 600,
     },
     title: {
       text: 'U.S. Data Center Infrastructure Rankings by State',
@@ -259,10 +252,19 @@ export function USDataCenterMap() {
     ],
   }
 
+  // Only render chart when everything is ready
+  if (!topology || !highchartsInitialized) {
+    return (
+      <div className="w-full h-96 flex items-center justify-center">
+        <p className="text-gray-500">Loading map...</p>
+      </div>
+    )
+  }
+
   return (
-    <div className="bg-white p-6 rounded-lg shadow-lg">
+    <div className="bg-white p-6 rounded-lg shadow-lg" style={{ minHeight: '600px' }}>
       <HighchartsChart 
-        key={`map-${topology ? 'loaded' : 'loading'}`}
+        key="us-data-center-map"
         options={options} 
       />
     </div>

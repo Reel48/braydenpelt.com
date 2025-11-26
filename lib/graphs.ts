@@ -69,8 +69,8 @@ export const graphs: GraphDefinition[] = [
   },
   {
     id: 'data-center-electricity-by-source',
-    title: 'U.S. Data Center Electricity Generation by Fuel Source (2010-2035)',
-    description: 'Stacked area chart showing electricity generation by fuel source for U.S. data centers from 2010 to 2035',
+    title: 'U.S. Data Center Electricity Generation by Fuel Source (2020-2035)',
+    description: 'Stacked area chart showing electricity generation by fuel source for U.S. data centers from 2020 to 2035',
     type: 'area',
     component: DataCenterElectricityBySourceChart,
     href: '/data-viz/data-center-electricity-by-source',

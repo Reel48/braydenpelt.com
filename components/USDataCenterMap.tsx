@@ -141,15 +141,7 @@ export function USDataCenterMap() {
     // Dynamically import Highcharts and Maps module only on client
     const initMap = async () => {
       try {
-        // Import and initialize Highcharts Maps module first
-        const Highcharts = (await import('highcharts')).default
-        const HighchartsMapModule = (await import('highcharts/modules/map')).default
-        
-        // Initialize Highcharts Maps module - this must happen before creating charts
-        HighchartsMapModule(Highcharts)
-        setHighchartsInitialized(true)
-
-        // Load topology data
+        // Load topology data first
         const response = await fetch(
           'https://code.highcharts.com/mapdata/countries/us/us-all.topo.json'
         )
@@ -181,6 +173,7 @@ export function USDataCenterMap() {
         }
         
         setTopology(data)
+        setHighchartsInitialized(true)
         setIsLoading(false)
       } catch (error) {
         console.error('Error loading map data:', error)
@@ -203,7 +196,6 @@ export function USDataCenterMap() {
   const options: any = {
     chart: {
       type: 'map',
-      map: topology,
     },
     title: {
       text: 'U.S. Data Center Infrastructure Rankings by State',
@@ -238,8 +230,9 @@ export function USDataCenterMap() {
       {
         type: 'map',
         name: 'Total Score',
+        mapData: topology,
         data: mapData,
-        joinBy: 'hc-key',
+        joinBy: ['hc-key', 'hc-key'],
         nullColor: '#e0e0e0',
         borderColor: '#999',
         borderWidth: 1,

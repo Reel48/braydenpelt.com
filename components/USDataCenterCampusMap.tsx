@@ -221,11 +221,14 @@ export function USDataCenterCampusMap() {
               enabled: false,
             },
             tooltip: {
-              pointFormat: '<b>{point.name}</b><br/>' +
-                'Capacity: <b>{point.capacity} MW</b><br/>' +
-                'State: {point.state}<br/>' +
-                'County: {point.county}<br/>' +
-                'Company: {point.company}',
+              formatter: function(this: any) {
+                const point = this.point
+                return `<b>${point.name}</b><br/>` +
+                  `Capacity: <b>${point.capacity} MW</b><br/>` +
+                  `State: ${point.state}<br/>` +
+                  `County: ${point.county}<br/>` +
+                  `Company: ${point.company}`
+              },
             },
           },
         },

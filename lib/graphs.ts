@@ -1,6 +1,7 @@
 import { ComponentType } from 'react'
 import { DataCenterEnergyConsumptionChart, DataCenterShareChart } from '@/components/DataCenterEnergyChart'
 import { USDataCenterMap } from '@/components/USDataCenterMap'
+import { USDataCenterCampusMap } from '@/components/USDataCenterCampusMap'
 
 /**
  * Graph Definition Interface
@@ -55,6 +56,15 @@ export const graphs: GraphDefinition[] = [
     component: USDataCenterMap,
     href: '/data-viz/us-data-center-map',
     source: 'Data derived from 2024/2025 EIA reports, legislative analysis, and proprietary grid metrics.',
+  },
+  {
+    id: 'us-data-center-campuses',
+    title: 'U.S. Data Center Campuses with 1+ GW Capacity',
+    description: 'Interactive map showing existing and planned data center campuses in the United States with over 1 GW of power capacity',
+    type: 'map',
+    component: USDataCenterCampusMap,
+    href: '/data-viz/us-data-center-campuses',
+    source: 'Data derived from public announcements and industry reports.',
   },
 ]
 

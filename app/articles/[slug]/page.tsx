@@ -122,7 +122,7 @@ export default async function ArticlePage({
           prose-code:text-primary
           prose-pre:bg-gray-900
           prose-li:font-body prose-ul:font-body prose-ol:font-body
-          prose-blockquote:border-l-4 prose-blockquote:border-primary prose-blockquote:pl-6 prose-blockquote:pr-4 prose-blockquote:py-2 prose-blockquote:my-6 prose-blockquote:bg-gray-50 prose-blockquote:italic prose-blockquote:text-gray-700">
+          prose-blockquote:border-l-4 prose-blockquote:border-blue-500 prose-blockquote:pl-6 prose-blockquote:pr-4 prose-blockquote:py-2 prose-blockquote:my-6 prose-blockquote:bg-[rgba(59,130,246,0.1)] prose-blockquote:italic prose-blockquote:text-gray-700">
         {contentParts.map((part, index) => {
           if (typeof part === 'string') {
             return <div key={`content-${index}`} dangerouslySetInnerHTML={{ __html: part }} />

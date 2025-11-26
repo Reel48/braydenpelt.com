@@ -1,6 +1,11 @@
 'use client'
 
-import { USDataCenterMap } from '@/components/USDataCenterMap'
+import dynamic from 'next/dynamic'
+
+const USDataCenterMap = dynamic(() => import('@/components/USDataCenterMap').then(mod => ({ default: mod.USDataCenterMap })), {
+  ssr: false,
+  loading: () => <div className="w-full h-96 flex items-center justify-center"><p className="text-gray-500">Loading map...</p></div>,
+})
 
 export default function USDataCenterMapPage() {
   return (

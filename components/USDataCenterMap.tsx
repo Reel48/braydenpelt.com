@@ -1,72 +1,67 @@
 'use client'
 
+'use client'
+
 import { useEffect, useState } from 'react'
 import dynamic from 'next/dynamic'
-import Highcharts from 'highcharts'
-import HighchartsMap from 'highcharts/modules/map'
-
-// Initialize Highcharts Maps module
-if (typeof Highcharts === 'object') {
-  HighchartsMap(Highcharts)
-}
 
 const HighchartsChart = dynamic(() => import('@/components/HighchartsChart'), {
   ssr: false,
   loading: () => <div className="w-full h-96 flex items-center justify-center"><p className="text-gray-500">Loading map...</p></div>,
 })
 
-// State name to postal code mapping
+// State name to postal code mapping - using lowercase for Highcharts Maps
 const stateNameToCode: Record<string, string> = {
-  'Pennsylvania': 'US-PA',
-  'Illinois': 'US-IL',
-  'North Dakota': 'US-ND',
-  'Ohio': 'US-OH',
-  'Texas': 'US-TX',
-  'Indiana': 'US-IN',
-  'Georgia': 'US-GA',
-  'Iowa': 'US-IA',
-  'Virginia': 'US-VA',
-  'Michigan': 'US-MI',
-  'Kentucky': 'US-KY',
-  'Oklahoma': 'US-OK',
-  'Nebraska': 'US-NE',
-  'North Carolina': 'US-NC',
-  'Arizona': 'US-AZ',
-  'South Carolina': 'US-SC',
-  'Tennessee': 'US-TN',
-  'Missouri': 'US-MO',
-  'Kansas': 'US-KS',
-  'Wisconsin': 'US-WI',
-  'Alabama': 'US-AL',
-  'Utah': 'US-UT',
-  'Nevada': 'US-NV',
-  'Mississippi': 'US-MS',
-  'Arkansas': 'US-AR',
-  'Idaho': 'US-ID',
-  'Wyoming': 'US-WY',
-  'South Dakota': 'US-SD',
-  'West Virginia': 'US-WV',
-  'Montana': 'US-MT',
-  'Florida': 'US-FL',
-  'Louisiana': 'US-LA',
-  'Minnesota': 'US-MN',
-  'Colorado': 'US-CO',
-  'New Mexico': 'US-NM',
-  'Maryland': 'US-MD',
-  'Delaware': 'US-DE',
-  'New Jersey': 'US-NJ',
-  'New York': 'US-NY',
-  'Oregon': 'US-OR',
-  'Washington': 'US-WA',
-  'Maine': 'US-ME',
-  'Vermont': 'US-VT',
-  'Connecticut': 'US-CT',
-  'Alaska': 'US-AK',
-  'Massachusetts': 'US-MA',
-  'New Hampshire': 'US-NH',
-  'Rhode Island': 'US-RI',
-  'Hawaii': 'US-HI',
-  'California': 'US-CA',
+  'Pennsylvania': 'us-pa',
+  'Illinois': 'us-il',
+  'North Dakota': 'us-nd',
+  'Ohio': 'us-oh',
+  'Texas': 'us-tx',
+  'Indiana': 'us-in',
+  'Georgia': 'us-ga',
+  'Iowa': 'us-ia',
+  'Virginia': 'us-va',
+  'Michigan': 'us-mi',
+  'Kentucky': 'us-ky',
+  'Oklahoma': 'us-ok',
+  'Nebraska': 'us-ne',
+  'North Carolina': 'us-nc',
+  'Arizona': 'us-az',
+  'South Carolina': 'us-sc',
+  'Tennessee': 'us-tn',
+  'Missouri': 'us-mo',
+  'Kansas': 'us-ks',
+  'Wisconsin': 'us-wi',
+  'Alabama': 'us-al',
+  'Utah': 'us-ut',
+  'Nevada': 'us-nv',
+  'Mississippi': 'us-ms',
+  'Arkansas': 'us-ar',
+  'Idaho': 'us-id',
+  'Wyoming': 'us-wy',
+  'South Dakota': 'us-sd',
+  'West Virginia': 'us-wv',
+  'Montana': 'us-mt',
+  'Florida': 'us-fl',
+  'Louisiana': 'us-la',
+  'Minnesota': 'us-mn',
+  'Colorado': 'us-co',
+  'New Mexico': 'us-nm',
+  'Maryland': 'us-md',
+  'Delaware': 'us-de',
+  'New Jersey': 'us-nj',
+  'New York': 'us-ny',
+  'Oregon': 'us-or',
+  'Washington': 'us-wa',
+  'Maine': 'us-me',
+  'Vermont': 'us-vt',
+  'Connecticut': 'us-ct',
+  'Alaska': 'us-ak',
+  'Massachusetts': 'us-ma',
+  'New Hampshire': 'us-nh',
+  'Rhode Island': 'us-ri',
+  'Hawaii': 'us-hi',
+  'California': 'us-ca',
 }
 
 // Data from the table
@@ -144,12 +139,27 @@ export function USDataCenterMap() {
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    const loadMapData = async () => {
+    // Dynamically import Highcharts and Maps module only on client
+    const initMap = async () => {
       try {
+        const Highcharts = (await import('highcharts')).default
+        const HighchartsMap = (await import('highcharts/modules/map')).default
+        
+        // Initialize Highcharts Maps module
+        HighchartsMap(Highcharts)
+
+        // Load topology data
         const response = await fetch(
           'https://code.highcharts.com/mapdata/countries/us/us-all.topo.json'
         )
         const data = await response.json()
+        
+        // Debug: log first few features to see key format
+        if (data.objects && data.objects.default && data.objects.default.geometries) {
+          const firstFew = data.objects.default.geometries.slice(0, 3)
+          console.log('Sample topology keys:', firstFew.map((g: any) => g.properties?.['hc-key'] || g.properties?.name || 'no key'))
+        }
+        
         setTopology(data)
         setIsLoading(false)
       } catch (error) {
@@ -158,7 +168,7 @@ export function USDataCenterMap() {
       }
     }
 
-    loadMapData()
+    initMap()
   }, [])
 
   if (isLoading) {
@@ -177,9 +187,10 @@ export function USDataCenterMap() {
     )
   }
 
-  const options: Highcharts.Options = {
+  // Import Highcharts types dynamically
+  const options: any = {
     chart: {
-      map: topology,
+      type: 'map',
     },
     title: {
       text: 'U.S. Data Center Infrastructure Rankings by State',
@@ -214,11 +225,16 @@ export function USDataCenterMap() {
       {
         type: 'map',
         name: 'Total Score',
+        mapData: topology,
         data: mapData,
         joinBy: 'hc-key',
+        nullColor: '#f0f0f0',
+        borderColor: '#a0a0a0',
+        borderWidth: 0.5,
         dataLabels: {
           enabled: true,
           format: '{point.name}',
+          allowOverlap: true,
           style: {
             fontSize: '10px',
             fontWeight: 'bold',

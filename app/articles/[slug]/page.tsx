@@ -5,6 +5,7 @@ import { remark } from 'remark'
 import html from 'remark-html'
 import Tag from '@/components/Tag'
 import { getGraphById } from '@/lib/graphs'
+import { Suspense } from 'react'
 
 export async function generateStaticParams() {
   const slugs = getArticleSlugs()
@@ -56,7 +57,9 @@ export default async function ArticlePage({
         const GraphComponent = graph.component
         contentParts.push(
           <div key={`graph-${part.id}-${i}`} className="my-8">
-            <GraphComponent />
+            <Suspense fallback={<div className="w-full h-96 flex items-center justify-center"><p className="text-gray-500">Loading graph...</p></div>}>
+              <GraphComponent />
+            </Suspense>
             {graph.source && (
               <div className="mt-3 py-2 px-3 bg-gray-50 rounded border border-gray-200">
                 <p className="text-xs text-gray-600 italic leading-tight">
@@ -67,8 +70,14 @@ export default async function ArticlePage({
           </div>
         )
       } else {
-        // Graph not found - log warning or show placeholder
-        console.warn(`Graph with id "${part.id}" not found in registry`)
+        // Graph not found - show placeholder
+        contentParts.push(
+          <div key={`graph-error-${part.id}-${i}`} className="my-8 p-4 bg-red-50 border border-red-200 rounded">
+            <p className="text-sm text-red-600">
+              Graph with id &quot;{part.id}&quot; not found in registry
+            </p>
+          </div>
+        )
       }
     } else if (typeof part === 'string' && part.trim()) {
       // Process this text part through remark

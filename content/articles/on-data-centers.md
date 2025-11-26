@@ -25,9 +25,9 @@ The fundamental constraint is no longer silicon availability, but power availabi
 
 The data center industry is shifting toward "giga-campuses"—sites with 500 MW to 1 GW of capacity—to accommodate the training clusters of the future. A single training run for a GPT-5 class model may require tens of thousands of GPUs operating in a low-latency cluster, consuming hundreds of megawatts continuously.
 
-There are very few sites in North America with this level of energized capacity available today. Most sites of this size are in the "planned" or "permitted" stage, meaning they are years away from drawing power. **With 1 GW of total capacity at its Corsicana facility, Riot possesses one of the most valuable undeveloped power assets in North America.** 
+There are very few sites in North America with this level of energized capacity available today. Most sites of this size are in the "planned" or "permitted" stage, meaning they are years away from drawing power. **With 1 GW of total capacity at its Corsicana facility, Riot possesses one of the most valuable undeveloped power assets in North America.**
 
-
+<!--GRAPH:us-data-center-campuses-->
 
 According to Altman Solon, the volume of generative AI tasks is expected to reach 80-130 million per hour within the next year across key enterprise functions in the US alone. This explosion in inference workloads (using the models) will require a distributed network of data centers. While training (creating the models) happens in massive centralized clusters (100 MW or more), inference can happen in slightly smaller, more distributed facilities. Riot’s portfolio, including Rockdale and potentially other sites, could play a role in this tiered architecture, but the immediate opportunity is in Corsicana.
 

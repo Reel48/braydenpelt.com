@@ -1,8 +1,21 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
+
+// Initialize Highcharts Maps if needed
+let mapsInitialized = false
+const initMapsIfNeeded = async () => {
+  if (mapsInitialized) return
+  try {
+    const HighchartsMap = (await import('highcharts/modules/map')).default
+    HighchartsMap(Highcharts)
+    mapsInitialized = true
+  } catch (error) {
+    // Maps module not needed or failed to load
+  }
+}
 
 interface HighchartsChartProps {
   options: Highcharts.Options
@@ -11,6 +24,15 @@ interface HighchartsChartProps {
 
 export default function HighchartsChart({ options, title }: HighchartsChartProps) {
   const chartRef = useRef<HighchartsReact.RefObject>(null)
+  const [mapsReady, setMapsReady] = useState(true)
+
+  useEffect(() => {
+    // Initialize Maps module if this is a map chart
+    if (options.chart?.type === 'map' || (options.series && options.series[0]?.type === 'map')) {
+      setMapsReady(false)
+      initMapsIfNeeded().then(() => setMapsReady(true))
+    }
+  }, [options])
 
   useEffect(() => {
     // Reflow chart on window resize
@@ -47,6 +69,14 @@ export default function HighchartsChart({ options, title }: HighchartsChartProps
       },
       ...options.legend,
     },
+  }
+
+  if (!mapsReady && (options.chart?.type === 'map' || (options.series && options.series[0]?.type === 'map'))) {
+    return (
+      <div className="w-full flex items-center justify-center" style={{ minHeight: '400px' }}>
+        <p className="text-gray-500">Loading map...</p>
+      </div>
+    )
   }
 
   return (

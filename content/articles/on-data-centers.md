@@ -7,7 +7,7 @@ tags: [data-centers, energy, technology, infrastructure]
 
 ## Power Scarcity
 
-Goldman Sachs Research forecasts that U.S. data center demand will reach 45 GW by 2030, driven by a 15% Compound Annual Growth Rate (CAGR) in power demand specifically for AI. **To put this in perspective, the entire current installed base of U.S. data centers is being tasked with doubling or tripling its capacity within a decade.** The bottleneck is physical: transformers, substations, and high-voltage transmission lines have lead times ranging from 3 to 7 years. Consequently, existing energized sites, even those originally built for lower-tier workloads like crypto mining, have accrued a massive "time-to-market" premium.
+Goldman Sachs Research forecasts that U.S. data center demand will reach 45 GW by 2030, driven by a 15% Compound Annual Growth Rate (CAGR) in power demand specifically for AI. **To put this in perspective, the entire current installed base of U.S. data centers is being tasked with doubling or tripling its capacity within a decade.** The bottleneck is physical: transformers, substations, and high-voltage transmission lines have lead times ranging from 3 to 7 years. Consequently, existing energized sites, even those originally built for lower-tier workloads, have accrued a massive "time-to-market" premium.
 
 The fundamental constraint is no longer silicon availability, but power availability. While NVIDIA has ramped up production of H100 and Blackwell GPUs, the timeline to energize a new data center has lengthened significantly. In major markets like Northern Virginia, vacancy rates have plummeted to near-zero levels (1.6% in H1 2025), and power utilities are imposing multi-year wait times for new transmission connections.
 

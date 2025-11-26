@@ -1,5 +1,5 @@
 import { ComponentType } from 'react'
-import { DataCenterEnergyConsumptionChart, DataCenterShareChart } from '@/components/DataCenterEnergyChart'
+import { DataCenterEnergyConsumptionChart } from '@/components/DataCenterEnergyChart'
 import { USDataCenterMap } from '@/components/USDataCenterMap'
 import { USDataCenterCampusMap } from '@/components/USDataCenterCampusMap'
 import { DataCenterElectricityBySourceChart } from '@/components/DataCenterElectricityBySourceChart'
@@ -37,15 +37,6 @@ export const graphs: GraphDefinition[] = [
     description: 'Projected growth of data center energy consumption from 2023 to 2030',
     type: 'area',
     component: DataCenterEnergyConsumptionChart,
-    href: '/data-viz/data-center-energy',
-    source: 'Source: Global Energy Perspective 2023, McKinsey, October 18, 2023; McKinsey analysis',
-  },
-  {
-    id: 'data-center-share',
-    title: 'Data Center Share of Total US Power Demand (%)',
-    description: 'Projected share of total US power demand from data centers (2023-2030)',
-    type: 'area',
-    component: DataCenterShareChart,
     href: '/data-viz/data-center-energy',
     source: 'Source: Global Energy Perspective 2023, McKinsey, October 18, 2023; McKinsey analysis',
   },

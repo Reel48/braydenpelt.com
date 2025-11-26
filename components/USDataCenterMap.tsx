@@ -1,9 +1,9 @@
 'use client'
 
+import { useEffect, useState } from 'react'
 import dynamic from 'next/dynamic'
 import Highcharts from 'highcharts'
 import HighchartsMap from 'highcharts/modules/map'
-import mapDataUS from '@highcharts/map-collection/countries/us/us-all.geo.json'
 
 // Initialize Highcharts Maps module
 if (typeof Highcharts === 'object') {
@@ -140,9 +140,46 @@ const mapData = rankedData.map(item => ({
 }))
 
 export function USDataCenterMap() {
+  const [topology, setTopology] = useState<any>(null)
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    const loadMapData = async () => {
+      try {
+        const response = await fetch(
+          'https://code.highcharts.com/mapdata/countries/us/us-all.topo.json'
+        )
+        const data = await response.json()
+        setTopology(data)
+        setIsLoading(false)
+      } catch (error) {
+        console.error('Error loading map data:', error)
+        setIsLoading(false)
+      }
+    }
+
+    loadMapData()
+  }, [])
+
+  if (isLoading) {
+    return (
+      <div className="w-full h-96 flex items-center justify-center">
+        <p className="text-gray-500">Loading map...</p>
+      </div>
+    )
+  }
+
+  if (!topology) {
+    return (
+      <div className="w-full h-96 flex items-center justify-center">
+        <p className="text-red-500">Error loading map data</p>
+      </div>
+    )
+  }
+
   const options: Highcharts.Options = {
     chart: {
-      map: mapDataUS as any,
+      map: topology,
     },
     title: {
       text: 'U.S. Data Center Infrastructure Rankings by State',

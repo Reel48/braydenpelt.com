@@ -154,10 +154,12 @@ export function USDataCenterCampusMap() {
         lat: campus.lat,
         lon: campus.lon,
         z: campus.capacity, // Size based on capacity
-        capacity: campus.capacity,
-        state: campus.state,
-        county: campus.county,
-        company: campus.company,
+        custom: {
+          capacity: campus.capacity,
+          state: campus.state,
+          county: campus.county,
+          company: campus.company,
+        },
       }))
 
       const options: any = {
@@ -220,24 +222,23 @@ export function USDataCenterCampusMap() {
             dataLabels: {
               enabled: false,
             },
-            tooltip: {
-              useHTML: true,
-              formatter: function(this: any): string {
-                // For mappoint series, access data from point.options
-                const options = this.point.options || {}
-                const name = options.name || this.point.name || 'Unknown'
-                const capacity = options.capacity || this.point.capacity || options.z || 0
-                const state = options.state || this.point.state || 'Unknown'
-                const county = options.county || this.point.county || 'Unknown'
-                const company = options.company || this.point.company || 'Unknown'
-                
-                return `<b>${name}</b><br/>` +
-                  `Capacity: <b>${capacity} MW</b><br/>` +
-                  `State: ${state}<br/>` +
-                  `County: ${county}<br/>` +
-                  `Company: ${company}`
-              },
-            },
+          },
+        },
+        tooltip: {
+          useHTML: true,
+          pointFormatter: function(this: any): string {
+            // Access properties directly from the point
+            const name = this.name || 'Unknown'
+            const capacity = this.capacity || this.z || 0
+            const state = this.state || 'Unknown'
+            const county = this.county || 'Unknown'
+            const company = this.company || 'Unknown'
+            
+            return `<b>${name}</b><br/>` +
+              `Capacity: <b>${capacity} MW</b><br/>` +
+              `State: ${state}<br/>` +
+              `County: ${county}<br/>` +
+              `Company: ${company}`
           },
         },
         series: [
@@ -262,24 +263,6 @@ export function USDataCenterCampusMap() {
               lineColor: '#fff',
               lineWidth: 2,
               radius: 8,
-            },
-            tooltip: {
-              useHTML: true,
-              formatter: function(this: any): string {
-                // For mappoint series, access data from point.options
-                const options = this.point.options || {}
-                const name = options.name || this.point.name || 'Unknown'
-                const capacity = options.capacity || this.point.capacity || options.z || 0
-                const state = options.state || this.point.state || 'Unknown'
-                const county = options.county || this.point.county || 'Unknown'
-                const company = options.company || this.point.company || 'Unknown'
-                
-                return `<b>${name}</b><br/>` +
-                  `Capacity: <b>${capacity} MW</b><br/>` +
-                  `State: ${state}<br/>` +
-                  `County: ${county}<br/>` +
-                  `Company: ${company}`
-              },
             },
           },
         ],

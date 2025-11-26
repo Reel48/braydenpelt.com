@@ -15,7 +15,7 @@ The fundamental constraint is no longer silicon availability, but power availabi
 
 ## A Shift to Larger Sites
 
-The data center industry is shifting toward "giga-campuses"—sites with 500 MW to 1 GW of capacity—to accommodate the training clusters of the future. A single training run for a GPT-5 class model may require tens of thousands of GPUs operating in a low-latency cluster, consuming hundreds of megawatts continuously.
+To meet the skyrocketing demand for AI compute, we'll need to build a new class of data centers that is fundamentally different from what exists today. The massive computational loads and high power density required to train modern AI models are forcing companies to abandon traditional, smaller server rooms in favor of colossal "hyperscale" facilities—sites with 500 MW to 1 GW of capacity—that can economically support the specialized cooling and gigawatt-scale energy infrastructure needed. A single training run for a GPT-5 class model may require tens of thousands of GPUs operating in a low-latency cluster, consuming hundreds of megawatts continuously.
 
 There are very few sites in North America with this level of energized capacity available today. Most sites of this size are in the "planned" or "permitted" stage, meaning they are years away from drawing power. **With 1 GW of total capacity at its Corsicana facility, Riot possesses one of the most valuable undeveloped power assets in North America.**
 

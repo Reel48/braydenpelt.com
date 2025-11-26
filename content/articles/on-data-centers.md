@@ -11,6 +11,8 @@ Goldman Sachs Research forecasts that U.S. data center demand will reach 45 GW b
 
 The fundamental constraint is no longer silicon availability, but power availability. While NVIDIA has ramped up production of H100 and Blackwell GPUs, the timeline to energize a new data center has lengthened significantly. In major markets like Northern Virginia, vacancy rates have plummeted to near-zero levels (1.6% in H1 2025), and power utilities are imposing multi-year wait times for new transmission connections.
 
+<!--GRAPH:data-center-energy-consumption-->
+
 ## A Shift to Larger Sites
 
 The data center industry is shifting toward "giga-campuses"—sites with 500 MW to 1 GW of capacity—to accommodate the training clusters of the future. A single training run for a GPT-5 class model may require tens of thousands of GPUs operating in a low-latency cluster, consuming hundreds of megawatts continuously.

@@ -168,15 +168,15 @@ export function USDataCenterMap() {
               allProps: Object.keys(g.properties || {})
             }))
           console.log('Topology keys sample (first 5):', allTopologyKeys.slice(0, 5))
-          console.log('All unique hc-keys in topology:', [...new Set(allTopologyKeys.map(k => k['hc-key']).filter(Boolean))].slice(0, 10))
+          console.log('All unique hc-keys in topology:', [...new Set(allTopologyKeys.map((k: any) => k['hc-key']).filter(Boolean))].slice(0, 10))
           
           // Check if our data keys match
-          const ourKeys = mapData.map(d => d['hc-key'])
+          const ourKeys = mapData.map((d: any) => d['hc-key'])
           console.log('Our data keys (first 10):', ourKeys.slice(0, 10))
           
           // Check for matches
-          const topologyKeysSet = new Set(allTopologyKeys.map(k => k['hc-key']).filter(Boolean))
-          const matchingKeys = ourKeys.filter(k => topologyKeysSet.has(k))
+          const topologyKeysSet = new Set(allTopologyKeys.map((k: any) => k['hc-key']).filter(Boolean))
+          const matchingKeys = ourKeys.filter((k: any) => topologyKeysSet.has(k))
           console.log(`Matched ${matchingKeys.length} out of ${ourKeys.length} keys`)
         }
         

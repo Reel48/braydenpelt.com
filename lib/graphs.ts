@@ -1,5 +1,6 @@
 import { ComponentType } from 'react'
 import { DataCenterEnergyConsumptionChart, DataCenterShareChart } from '@/components/DataCenterEnergyChart'
+import { USDataCenterMap } from '@/components/USDataCenterMap'
 
 /**
  * Graph Definition Interface
@@ -45,6 +46,15 @@ export const graphs: GraphDefinition[] = [
     component: DataCenterShareChart,
     href: '/data-viz/data-center-energy',
     source: 'Source: Global Energy Perspective 2023, McKinsey, October 18, 2023; McKinsey analysis',
+  },
+  {
+    id: 'us-data-center-map',
+    title: 'U.S. Data Center Infrastructure Rankings by State',
+    description: 'Interactive map showing data center infrastructure rankings by state based on energy, incentives, network, physical, and land factors',
+    type: 'map',
+    component: USDataCenterMap,
+    href: '/data-viz/us-data-center-map',
+    source: 'Data derived from 2024/2025 EIA reports, legislative analysis, and proprietary grid metrics.',
   },
 ]
 

@@ -203,6 +203,7 @@ export function USDataCenterMap() {
   const options: any = {
     chart: {
       type: 'map',
+      map: topology,
     },
     title: {
       text: 'U.S. Data Center Infrastructure Rankings by State',
@@ -237,9 +238,8 @@ export function USDataCenterMap() {
       {
         type: 'map',
         name: 'Total Score',
-        mapData: topology,
         data: mapData,
-        joinBy: ['hc-key', 'hc-key'],
+        joinBy: 'hc-key',
         nullColor: '#e0e0e0',
         borderColor: '#999',
         borderWidth: 1,

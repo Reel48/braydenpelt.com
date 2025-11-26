@@ -121,7 +121,8 @@ export default async function ArticlePage({
           prose-strong:text-gray-900
           prose-code:text-primary
           prose-pre:bg-gray-900
-          prose-li:font-body prose-ul:font-body prose-ol:font-body">
+          prose-li:font-body prose-ul:font-body prose-ol:font-body
+          prose-blockquote:border-l-4 prose-blockquote:border-primary prose-blockquote:pl-6 prose-blockquote:pr-4 prose-blockquote:py-2 prose-blockquote:my-6 prose-blockquote:bg-gray-50 prose-blockquote:italic prose-blockquote:text-gray-700">
         {contentParts.map((part, index) => {
           if (typeof part === 'string') {
             return <div key={`content-${index}`} dangerouslySetInnerHTML={{ __html: part }} />

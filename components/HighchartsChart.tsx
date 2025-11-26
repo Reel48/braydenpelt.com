@@ -24,15 +24,15 @@ interface HighchartsChartProps {
 
 export default function HighchartsChart({ options, title }: HighchartsChartProps) {
   const chartRef = useRef<HighchartsReact.RefObject>(null)
-  const [mapsReady, setMapsReady] = useState(true)
+  const isMapChart = options.chart?.type === 'map' || (options.series && options.series[0]?.type === 'map')
+  const [mapsReady, setMapsReady] = useState(!isMapChart) // Start as false for map charts
 
   useEffect(() => {
     // Initialize Maps module if this is a map chart
-    if (options.chart?.type === 'map' || (options.series && options.series[0]?.type === 'map')) {
-      setMapsReady(false)
+    if (isMapChart) {
       initMapsIfNeeded().then(() => setMapsReady(true))
     }
-  }, [options])
+  }, [isMapChart])
 
   useEffect(() => {
     // Reflow chart on window resize

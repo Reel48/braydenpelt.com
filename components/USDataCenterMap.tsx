@@ -141,7 +141,15 @@ export function USDataCenterMap() {
     // Dynamically import Highcharts and Maps module only on client
     const initMap = async () => {
       try {
-        // Load topology data first
+        // Import and initialize Highcharts Maps module FIRST
+        const Highcharts = (await import('highcharts')).default
+        const HighchartsMapModule = (await import('highcharts/modules/map')).default
+        
+        // Initialize Highcharts Maps module - this MUST happen before creating charts
+        HighchartsMapModule(Highcharts)
+        setHighchartsInitialized(true)
+
+        // Load topology data
         const response = await fetch(
           'https://code.highcharts.com/mapdata/countries/us/us-all.topo.json'
         )
@@ -173,7 +181,6 @@ export function USDataCenterMap() {
         }
         
         setTopology(data)
-        setHighchartsInitialized(true)
         setIsLoading(false)
       } catch (error) {
         console.error('Error loading map data:', error)

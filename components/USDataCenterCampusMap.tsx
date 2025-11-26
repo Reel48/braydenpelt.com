@@ -221,13 +221,21 @@ export function USDataCenterCampusMap() {
               enabled: false,
             },
             tooltip: {
-              formatter: function(this: any) {
-                const point = this.point
-                return `<b>${point.name}</b><br/>` +
-                  `Capacity: <b>${point.capacity} MW</b><br/>` +
-                  `State: ${point.state}<br/>` +
-                  `County: ${point.county}<br/>` +
-                  `Company: ${point.company}`
+              useHTML: true,
+              formatter: function(this: any): string {
+                // For mappoint series, access data from point.options
+                const options = this.point.options || {}
+                const name = options.name || this.point.name || 'Unknown'
+                const capacity = options.capacity || this.point.capacity || options.z || 0
+                const state = options.state || this.point.state || 'Unknown'
+                const county = options.county || this.point.county || 'Unknown'
+                const company = options.company || this.point.company || 'Unknown'
+                
+                return `<b>${name}</b><br/>` +
+                  `Capacity: <b>${capacity} MW</b><br/>` +
+                  `State: ${state}<br/>` +
+                  `County: ${county}<br/>` +
+                  `Company: ${company}`
               },
             },
           },

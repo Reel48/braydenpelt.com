@@ -42,7 +42,7 @@ export const graphs: GraphDefinition[] = [
   },
   {
     id: 'data-center-share',
-    title: 'Share of Total US Power Demand (%)',
+    title: 'Data Center Share of Total US Power Demand (%)',
     description: 'Projected share of total US power demand from data centers (2023-2030)',
     type: 'area',
     component: DataCenterShareChart,

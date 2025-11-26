@@ -76,7 +76,7 @@ export function DataCenterShareChart() {
       type: 'area',
     },
     title: {
-      text: 'Share of Total US Power Demand (%)',
+      text: 'Data Center Share of Total US Power Demand (%)',
     },
     xAxis: {
       categories: years.map(String),
@@ -86,7 +86,7 @@ export function DataCenterShareChart() {
     },
     yAxis: {
       title: {
-        text: 'Share of Total US Power Demand (%)',
+        text: 'Data Center Share of Total US Power Demand (%)',
       },
       labels: {
         format: '{value}%',
@@ -108,7 +108,7 @@ export function DataCenterShareChart() {
     },
     series: [
       {
-        name: 'Share of Total US Power Demand (%)',
+        name: 'Data Center Share of Total US Power Demand (%)',
         type: 'area',
         data: shareOfTotal,
         color: '#22c55e', // green-500

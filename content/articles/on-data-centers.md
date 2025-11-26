@@ -7,13 +7,11 @@ tags: [data-centers, energy, technology, infrastructure]
 
 ## Power Scarcity
 
-Goldman Sachs Research forecasts that U.S. data center demand will reach 45 GW by 2030, driven by a 15% Compound Annual Growth Rate (CAGR) in power demand specifically for AI.
-
-McKinsey's predictions are similar, projecting a 2.7x increase in terawatt-hours of data center electricity demand by 2030.
+Goldman Sachs Research forecasts that U.S. data center demand will reach 45 GW by 2030, driven by a 15% Compound Annual Growth Rate (CAGR) in power demand specifically for AI. McKinsey's predictions are similar, projecting a 2.7x increase in terawatt-hours of data center electricity demand by 2030. Although exact figures differ by company, it's clear that high-performance computing data centers will demand drastically more power in the coming years.
 
 <!--GRAPH:data-center-energy-consumption-->
 
-They go on to predict that the share of total US power demanded by HPC data centers will also grow 2.25x in the same time period.
+McKinsey then goes on to predict that the share of total US power demanded by HPC data centers will grow 2.25x in the same time period.
 
 <!--GRAPH:data-center-share-->
 
@@ -33,12 +31,14 @@ According to Altman Solon, the volume of generative AI tasks is expected to reac
 
 ## Data Center Electricity Sources - Current State & Future Outlook
 
-I found an article from the IEA (International Energy Agency) that listed the data better than I could write about it, so I’ve pasted it below. If you’d like to read the entire article for yourself, click here.
+I found an article from the IEA (International Energy Agency) that listed the data better than I could write about it, so I've pasted it below.
 
-The United States and China are by far the largest data centre markets today. In both countries, most of the electricity consumed by data centres is produced from fossil fuels, which also meet most of the increase to 2030. However, rising deployment of renewables and later nuclear power is expected to slow the growth of fossil fuel power generation after 2030.
+<!--GRAPH:data-center-electricity-by-source-->
+
+*The United States and China are by far the largest data centre markets today. In both countries, most of the electricity consumed by data centres is produced from fossil fuels, which also meet most of the increase to 2030. However, rising deployment of renewables and later nuclear power is expected to slow the growth of fossil fuel power generation after 2030.
 
 With a share of over 40%, natural gas is currently the biggest source of electricity for data centres in the United States, followed by renewables – mostly solar PV and wind – with 24%, as well as nuclear and coal power with shares of around 20% and 15%, respectively. As demand growth is particularly rapid over the next five years, natural gas is the largest source of additional supply, adding over 130 TWh of annual generation until 2030. Renewables are the second-largest source of additional electricity supply, adding 110 TWh to the data centre electricity supply between 2024 and 2030. This is mainly due to the continuing increase in the share of wind and solar PV in the electricity mix of most states, as well as some data centre operators investing in co-located renewables. 
 
-Nuclear power plays a significant role in meeting data centre electricity demand in the United States, particularly after 2030 when the first SMRs are expected to be commissioned. Technology companies have plans to finance more than 20 GW of SMRs to date, though successful development of the technology could open up even larger opportunities. Together with the ongoing increase in renewable electricity generation, the expansions of SMRs reduces the need for additional natural gas-fired generation so that by 2035 low-emissions sources account for over half of the United States’ data centre electricity supply mix.
+Nuclear power plays a significant role in meeting data centre electricity demand in the United States, particularly after 2030 when the first SMRs are expected to be commissioned. Technology companies have plans to finance more than 20 GW of SMRs to date, though successful development of the technology could open up even larger opportunities. Together with the ongoing increase in renewable electricity generation, the expansions of SMRs reduces the need for additional natural gas-fired generation so that by 2035 low-emissions sources account for over half of the United States’ data centre electricity supply mix.*
 
 

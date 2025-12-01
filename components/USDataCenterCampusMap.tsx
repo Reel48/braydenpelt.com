@@ -371,9 +371,16 @@ export function USDataCenterCampusMap() {
             type: 'mappoint',
             name: 'Operational',
             color: '#22c55e',
+            marker: {
+              symbol: 'circle',
+              radius: 8,
+              lineColor: '#fff',
+              lineWidth: 2,
+            },
             data: operationalPoints.map(point => ({
               ...point,
               marker: {
+                symbol: 'circle',
                 fillColor: point.color,
                 lineColor: '#fff',
                 lineWidth: 2,
@@ -386,9 +393,16 @@ export function USDataCenterCampusMap() {
             type: 'mappoint',
             name: 'Under Construction',
             color: '#f97316',
+            marker: {
+              symbol: 'circle',
+              radius: 8,
+              lineColor: '#fff',
+              lineWidth: 2,
+            },
             data: underConstructionPoints.map(point => ({
               ...point,
               marker: {
+                symbol: 'circle',
                 fillColor: point.color,
                 lineColor: '#fff',
                 lineWidth: 2,
@@ -401,9 +415,16 @@ export function USDataCenterCampusMap() {
             type: 'mappoint',
             name: 'Planned',
             color: '#3b82f6',
+            marker: {
+              symbol: 'circle',
+              radius: 8,
+              lineColor: '#fff',
+              lineWidth: 2,
+            },
             data: plannedPoints.map(point => ({
               ...point,
               marker: {
+                symbol: 'circle',
                 fillColor: point.color,
                 lineColor: '#fff',
                 lineWidth: 2,

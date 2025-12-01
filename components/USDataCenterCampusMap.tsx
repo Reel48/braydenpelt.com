@@ -244,7 +244,7 @@ export function USDataCenterCampusMap() {
         return '#1b2b41' // Default primary color
       }
 
-      // Convert campus data to map points
+      // Convert campus data to map points and group by status for legend
       const mapPoints = campusData.map(campus => ({
         name: campus.name,
         lat: campus.lat,
@@ -256,7 +256,17 @@ export function USDataCenterCampusMap() {
         company: campus.company,
         status: campus.status,
         color: getStatusColor(campus.status),
+        statusCategory: campus.status.includes('Operational') && !campus.status.includes('Planned')
+          ? 'Operational'
+          : campus.status.includes('Under Construction')
+          ? 'Under Construction'
+          : 'Planned',
       }))
+
+      // Group points by status category
+      const operationalPoints = mapPoints.filter(p => p.statusCategory === 'Operational')
+      const underConstructionPoints = mapPoints.filter(p => p.statusCategory === 'Under Construction')
+      const plannedPoints = mapPoints.filter(p => p.statusCategory === 'Planned')
 
       const options: any = {
         chart: {
@@ -357,10 +367,41 @@ export function USDataCenterCampusMap() {
             showInLegend: false,
           },
           {
-            // Data center campuses
+            // Operational campuses
             type: 'mappoint',
-            name: 'Data Center Campus',
-            data: mapPoints.map(point => ({
+            name: 'Operational',
+            color: '#22c55e',
+            data: operationalPoints.map(point => ({
+              ...point,
+              marker: {
+                fillColor: point.color,
+                lineColor: '#fff',
+                lineWidth: 2,
+                radius: 8,
+              },
+            })),
+          },
+          {
+            // Under Construction campuses
+            type: 'mappoint',
+            name: 'Under Construction',
+            color: '#f97316',
+            data: underConstructionPoints.map(point => ({
+              ...point,
+              marker: {
+                fillColor: point.color,
+                lineColor: '#fff',
+                lineWidth: 2,
+                radius: 8,
+              },
+            })),
+          },
+          {
+            // Planned campuses
+            type: 'mappoint',
+            name: 'Planned',
+            color: '#3b82f6',
+            data: plannedPoints.map(point => ({
               ...point,
               marker: {
                 fillColor: point.color,

@@ -10,7 +10,7 @@ export const metadata: Metadata = { title: "Portfolio" };
 export default function PortfolioPage() {
   return (
     <Container>
-      <PageHeader title="Portfolio" />
+      <PageHeader kicker="About" title="Portfolio" />
 
       {projects.length === 0 ? (
         <EmptyState

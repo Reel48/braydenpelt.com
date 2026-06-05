@@ -13,7 +13,7 @@ export default function ResumePage() {
 
   return (
     <Container>
-      <PageHeader title="Resume" />
+      <PageHeader kicker="About" title="Resume" />
 
       {!hasAny ? (
         <EmptyState

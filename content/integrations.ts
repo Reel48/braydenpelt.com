@@ -13,7 +13,7 @@ export const integrations = {
      * Your numeric Goodreads user ID — from your profile URL:
      * goodreads.com/user/show/<THIS_NUMBER>-name
      */
-    userId: "", // TODO: e.g. "152185079"
+    userId: "174979239", // Brayden Pelt
     /** Which shelf to stream. Common: "read", "currently-reading". */
     shelf: "read",
     /** Max books to show (RSS returns up to the last 100 on the shelf). */

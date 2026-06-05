@@ -66,6 +66,12 @@ export const products: Resource[] = [
     description:
       "Refillable retractable gel-ink rollerball with a contoured grip — smooth, quick-drying, and America's best-selling gel pen.",
   },
+  {
+    title: "Tecovas Leather Wallets",
+    url: "https://www.tecovas.com/shop/wallets",
+    description:
+      "Full-grain leather wallets from the Western-heritage brand best known for its handmade boots — clean, durable, and made to patina with age.",
+  },
 ];
 
 /** Tools & utilities you reach for (dev tools, CLIs, services). */

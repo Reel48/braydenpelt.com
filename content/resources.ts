@@ -27,12 +27,6 @@ export const companies: Resource[] = [
       "A focused, Markdown-based notes and writing app for Apple devices — clean design, fast tag-based organization.",
   },
   {
-    title: "Casper",
-    url: "https://casper.com",
-    description:
-      "Sleep brand best known for its boxed memory-foam mattresses, plus bedding, pillows, and sleep accessories.",
-  },
-  {
     title: "Costco",
     url: "https://www.costco.com",
     description:
@@ -60,6 +54,12 @@ export const companies: Resource[] = [
 
 /** Products and apps you recommend. */
 export const products: Resource[] = [
+  {
+    title: "Casper Hybrid Snow Pillow",
+    url: "https://casper.com/products/hybrid-snow-pillow",
+    description:
+      "Cooling pillow with Snow Technology — phase-change material and heat-wicking bands over foam and down-alternative fiber for a balanced, cooler-sleeping feel.",
+  },
   {
     title: "Pilot G2",
     url: "https://pilotpen.us",

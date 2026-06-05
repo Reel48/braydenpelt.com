@@ -166,6 +166,8 @@ export interface Resource {
   description?: string;
   /** Optional grouping heading, e.g. "Tools", "Reading", "People". */
   category?: string;
+  /** Optional logo/thumbnail path under /public, e.g. "/images/resources/apple.png". */
+  image?: string;
 }
 
 /* ---- Articles (MDX frontmatter + computed) ---- */

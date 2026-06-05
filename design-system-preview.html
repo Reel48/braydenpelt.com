@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>braydenpelt.com — Type & Color System</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<!-- Inter (UI/body). Georgia is a system font — no loading needed. -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..700&display=swap" rel="stylesheet" />
+
+<style>
+/* ============================================================
+   TOKENS — "Serene Elegance" palette, expanded
+   Source (from image):
+     Sage Green #9DBBAE · Light Gray #F4F4F4 · Pale Blue #E0E8F0 · Silver #D3D9DF
+   ============================================================ */
+:root {
+  /* ---- Neutrals (the serene greys) ---- */
+  --white:     #FFFFFF;
+  --canvas:    #F4F4F4;   /* Light Gray — main canvas (source) */
+  --surface:   #FFFFFF;   /* cards */
+  --surface-2: #FAFBFB;   /* subtle alt surface */
+  --tint-blue: #E0E8F0;   /* Pale Blue — soft panels (source) */
+  --silver:    #D3D9DF;   /* Silver — borders/dividers (source) */
+  --border:    #DEE3E7;
+  --border-2:  #C3CACF;
+  --ink:       #1A1F22;   /* near-black, slightly cool */
+  --ink-soft:  #3B4348;
+  --muted:     #69727A;
+  --faint:     #98A1A8;
+
+  /* ---- Sage ramp (PRIMARY brand accent — expanded from #9DBBAE) ---- */
+  --sage-50:  #F0F5F2;
+  --sage-100: #DEEAE4;
+  --sage-200: #C5D9CF;
+  --sage-300: #9DBBAE;   /* ★ source */
+  --sage-400: #7FA593;
+  --sage-500: #608B78;
+  --sage-600: #4A7160;   /* links / icons */
+  --sage-700: #395A4C;   /* primary button bg */
+  --sage-800: #2B453A;
+  --sage-900: #1F332B;
+
+  /* ---- Steel Blue ramp (SECONDARY — expanded from Pale Blue #E0E8F0) ---- */
+  --blue-50:  #EEF3F8;
+  --blue-100: #E0E8F0;   /* ★ source (Pale Blue) */
+  --blue-200: #C6D5E3;
+  --blue-300: #A6BCD2;
+  --blue-400: #7F9BB8;
+  --blue-500: #5E7E9F;   /* steel-blue accent */
+  --blue-600: #496786;
+  --blue-700: #3A5370;
+  --blue-800: #2C3F55;
+
+  /* ---- Purposeful paired colors (muted to fit the serene register) ---- */
+  --gold:  #C2A24B;   /* highlight · featured (warm spark) */
+  --clay:  #C2674F;   /* alert · attention */
+  --plum:  #8A6E96;   /* editorial · category variety */
+
+  /* ---- Semantic interactive (PRIMARY = steel blue) ---- */
+  --accent:       var(--blue-600);
+  --accent-strong:var(--blue-700);
+  --accent-soft:  var(--blue-100);
+  --on-accent:    #FFFFFF;
+
+  /* ---- Type ---- */
+  --font-sans:  "Inter", system-ui, -apple-system, sans-serif;
+  --font-serif: Georgia, "Times New Roman", serif;
+
+  --radius:    14px;
+  --radius-sm: 10px;
+  --radius-pill: 999px;
+  --shadow: 0 1px 2px rgba(26,31,34,.04), 0 10px 28px rgba(26,31,34,.06);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0; background: var(--canvas); color: var(--ink);
+  font-family: var(--font-sans); line-height: 1.55;
+  -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+  font-feature-settings: "cv11", "ss01";
+}
+
+/* ---- Chrome ---- */
+.chrome {
+  position: sticky; top: 0; z-index: 50;
+  display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap;
+  padding:.8rem 1.5rem;
+  background: color-mix(in srgb, var(--canvas) 82%, transparent);
+  backdrop-filter: blur(14px); border-bottom: 1px solid var(--border);
+}
+.chrome .brand { font-weight:600; letter-spacing:-.01em; font-size:.92rem; }
+.chrome .brand span { color: var(--faint); font-weight:400; }
+.chrome nav { display:flex; gap:.4rem; flex-wrap:wrap; }
+.chrome nav a { font-size:.78rem; font-weight:500; color: var(--muted); text-decoration:none; padding:.35rem .75rem; border-radius: var(--radius-pill); transition:.18s; }
+.chrome nav a:hover { color: var(--ink); background: var(--white); }
+
+.wrap { max-width: 1080px; margin:0 auto; padding: clamp(2.5rem,6vw,4.5rem) clamp(1.4rem,5vw,4rem); }
+section + section { margin-top: clamp(3.5rem,8vw,6rem); }
+
+/* Section heading (Inter, structural) */
+.section-h { display:flex; align-items:baseline; gap:.9rem; margin:0 0 1.75rem; padding-bottom:.9rem; border-bottom:1px solid var(--border); }
+.section-h .n { font-family: var(--font-serif); font-size:1.5rem; color: var(--ink); }
+.section-h .k { font-size:.74rem; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color: var(--accent); }
+
+/* ---- PALETTE ---- */
+.pal-group { margin-bottom: 2rem; }
+.pal-group h3 { font-size:.74rem; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color: var(--faint); margin:0 0 .9rem; }
+.ramp { display:grid; grid-template-columns: repeat(auto-fit, minmax(96px,1fr)); gap:.5rem; }
+.sw { border-radius:10px; overflow:hidden; border:1px solid var(--border); background: var(--white); }
+.sw .cap { aspect-ratio: 5/3; display:block; }
+.sw .meta { padding:.45rem .55rem .55rem; }
+.sw .meta b { display:block; font-size:.72rem; font-weight:600; color: var(--ink); }
+.sw .meta span { display:block; font-size:.66rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.sw.src { box-shadow: 0 0 0 2px var(--sage-300); }
+.source-row { display:flex; gap:.7rem; flex-wrap:wrap; }
+.source-card { flex:1 1 160px; background: var(--white); border:1px solid var(--border); border-radius:12px; overflow:hidden; box-shadow: var(--shadow); }
+.source-card .chip { height:72px; }
+.source-card .info { padding:.7rem .8rem .85rem; }
+.source-card .info b { display:block; font-size:.84rem; }
+.source-card .info span { font-size:.72rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+/* ---- TYPE SPECIMEN ---- */
+.spec-row { padding: 1.4rem 0; border-bottom:1px dashed var(--border); }
+.spec-row:last-child { border-bottom:none; }
+.spec-tag { font-family: var(--font-sans); font-size:.7rem; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color: var(--accent); margin-bottom:.55rem; }
+.spec-meta { font-family: var(--font-sans); font-size:.74rem; color: var(--faint); margin-top:.5rem; font-variant-numeric: tabular-nums; }
+
+.t-display { font-family: var(--font-serif); font-weight:400; font-size: clamp(2.75rem,7vw,4.75rem); line-height:1.05; letter-spacing:-.02em; }
+.t-h1 { font-family: var(--font-serif); font-weight:400; font-size: clamp(2.25rem,5vw,3.25rem); line-height:1.1; letter-spacing:-.015em; }
+.t-h2 { font-family: var(--font-serif); font-weight:400; font-size: clamp(1.75rem,3.5vw,2.25rem); line-height:1.15; letter-spacing:-.01em; }
+.t-h3 { font-family: var(--font-serif); font-weight:400; font-size:1.5rem; line-height:1.2; letter-spacing:-.005em; }
+.t-h4 { font-family: var(--font-serif); font-weight:700; font-size:1.25rem; line-height:1.3; }
+.t-lead { font-family: var(--font-serif); font-weight:400; font-size:1.3rem; line-height:1.6; color: var(--ink-soft); max-width: 60ch; }
+.t-prose { font-family: var(--font-serif); font-weight:400; font-size:1.125rem; line-height:1.7; color: var(--ink-soft); max-width: 68ch; }
+.t-prose em { font-style: italic; }
+.t-prose a { color: var(--accent); text-underline-offset:3px; }
+.t-quote { font-family: var(--font-serif); font-style:italic; font-weight:400; font-size: clamp(1.4rem,2.7vw,1.9rem); line-height:1.3; letter-spacing:-.01em; max-width: 26ch; }
+
+.t-kicker { font-family: var(--font-sans); font-size:.8rem; font-weight:500; letter-spacing:.1em; text-transform:uppercase; color: var(--accent); }
+.t-bodyui { font-family: var(--font-sans); font-size:1rem; font-weight:400; line-height:1.55; color: var(--ink-soft); max-width: 64ch; }
+.t-label { font-family: var(--font-sans); font-size:.9rem; font-weight:500; letter-spacing:.01em; }
+.t-caption { font-family: var(--font-sans); font-size:.875rem; font-weight:400; color: var(--muted); }
+.t-micro { font-family: var(--font-sans); font-size:.75rem; font-weight:500; letter-spacing:.02em; color: var(--faint); }
+
+/* numerals */
+.num-table { width:100%; border-collapse:collapse; max-width:420px; font-family: var(--font-sans); font-variant-numeric: tabular-nums; }
+.num-table th { text-align:left; font-size:.7rem; letter-spacing:.08em; text-transform:uppercase; color: var(--faint); font-weight:600; padding:.4rem .6rem; border-bottom:1px solid var(--border); }
+.num-table td { padding:.45rem .6rem; font-size:.95rem; border-bottom:1px solid var(--border); color: var(--ink-soft); }
+.num-table td:last-child { text-align:right; color: var(--ink); }
+.feat-stat { font-family: var(--font-serif); font-weight:400; font-size: clamp(2.6rem,6vw,3.6rem); line-height:1; letter-spacing:-.02em; color: var(--blue-600); }
+
+/* ---- IN CONTEXT ---- */
+.ctx { display:grid; grid-template-columns:1fr; gap: clamp(1.2rem,3vw,1.6rem); }
+@media (min-width:760px){ .ctx { grid-template-columns:1.5fr 1fr; } }
+.card { background: var(--surface); border:1px solid var(--border); border-radius: var(--radius); padding: clamp(1.4rem,3vw,2.1rem); box-shadow: var(--shadow); }
+.hero-ctx { grid-column:1/-1; background: linear-gradient(160deg, var(--blue-50), var(--white) 55%); border:1px solid var(--border); border-radius: var(--radius); padding: clamp(1.8rem,4vw,3rem); }
+.hero-ctx .name { color: var(--ink); } .hero-ctx .name em { font-style:italic; color: var(--blue-600); }
+.btn-row { display:flex; gap:.7rem; margin-top:1.6rem; flex-wrap:wrap; }
+.btn { font-family: var(--font-sans); font-size:.92rem; font-weight:500; cursor:pointer; padding:.72rem 1.4rem; border-radius: var(--radius-pill); text-decoration:none; border:1px solid transparent; transition:.2s; }
+.btn-primary { background: var(--accent-strong); color: var(--on-accent); }
+.btn-primary:hover { background: var(--blue-800); transform: translateY(-1px); }
+.btn-ghost { background: var(--white); color: var(--ink); border-color: var(--border-2); }
+.btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+.cat { display:inline-block; font-family: var(--font-sans); font-size:.72rem; font-weight:600; letter-spacing:.05em; text-transform:uppercase; padding:.25rem .6rem; border-radius: var(--radius-pill); color: var(--blue-700); background: var(--blue-100); }
+.article h3 { margin:.9rem 0 .7rem; }
+.more { font-family: var(--font-sans); font-size:.9rem; font-weight:500; color: var(--accent); text-decoration:none; border-bottom:1px solid currentColor; padding-bottom:2px; }
+.meta-line { font-family: var(--font-sans); font-size:.8rem; color: var(--faint); margin-top:1rem; }
+
+.quote-ctx { display:flex; flex-direction:column; justify-content:center; background: linear-gradient(135deg, var(--blue-50), var(--surface)); }
+.quote-ctx .mk { font-family: var(--font-serif); font-size:3.2rem; line-height:.4; height:1.2rem; color: var(--blue-400); }
+.quote-ctx cite { display:block; margin-top:1.1rem; font-family: var(--font-sans); font-style:normal; font-size:.84rem; color: var(--muted); }
+.quote-ctx cite b { color: var(--blue-700); font-weight:600; }
+
+.stats { grid-column:1/-1; display:grid; grid-template-columns: repeat(auto-fit,minmax(150px,1fr)); gap: clamp(1rem,3vw,2rem); padding-top: clamp(1.5rem,3vw,2.2rem); border-top:1px solid var(--border); }
+.stat .num { font-family: var(--font-serif); font-weight:400; font-size: clamp(2.2rem,5vw,3rem); line-height:1; letter-spacing:-.02em; display:block; }
+.stat:nth-child(1) .num { color: var(--blue-600); }
+.stat:nth-child(2) .num { color: var(--sage-500); }
+.stat:nth-child(3) .num { color: var(--blue-500); }
+.stat:nth-child(4) .num { color: var(--gold); }
+.stat .lbl { font-family: var(--font-sans); font-size:.84rem; color: var(--muted); margin-top:.5rem; display:block; }
+
+.tags { margin-top:.6rem; } .tag { display:inline-block; font-family: var(--font-sans); font-size:.68rem; font-weight:500; padding:.18rem .5rem; border-radius: var(--radius-pill); margin:0 .3rem .3rem 0; }
+.tag.s { color: var(--sage-700); background: var(--sage-100); }
+.tag.b { color: var(--blue-700); background: var(--blue-100); }
+.tag.g { color:#7a661f; background: color-mix(in srgb, var(--gold) 22%, #fff); }
+
+.note { text-align:center; padding: 1rem 1.5rem 4rem; color: var(--faint); font-size:.86rem; }
+.note b { color: var(--muted); }
+</style>
+</head>
+<body>
+
+<div class="chrome">
+  <div class="brand">braydenpelt.com <span>· type &amp; color system</span></div>
+  <nav>
+    <a href="#palette">Palette</a>
+    <a href="#type">Type specimen</a>
+    <a href="#context">In context</a>
+  </nav>
+</div>
+
+<div class="wrap">
+
+  <!-- ===================== PALETTE ===================== -->
+  <section id="palette">
+    <div class="section-h"><span class="n">Serene Elegance</span><span class="k">Palette</span></div>
+
+    <div class="pal-group">
+      <h3>Source colors (from your reference)</h3>
+      <div class="source-row">
+        <div class="source-card"><div class="chip" style="background:#9DBBAE"></div><div class="info"><b>Sage Green</b><span>#9DBBAE · secondary accent</span></div></div>
+        <div class="source-card"><div class="chip" style="background:#F4F4F4"></div><div class="info"><b>Light Gray</b><span>#F4F4F4 · canvas</span></div></div>
+        <div class="source-card"><div class="chip" style="background:#E0E8F0"></div><div class="info"><b>Pale Blue</b><span>#E0E8F0 · primary accent base</span></div></div>
+        <div class="source-card"><div class="chip" style="background:#D3D9DF"></div><div class="info"><b>Silver</b><span>#D3D9DF · borders</span></div></div>
+      </div>
+    </div>
+
+    <div class="pal-group">
+      <h3>Neutrals — the serene greys (canvas → ink)</h3>
+      <div class="ramp">
+        <div class="sw"><span class="cap" style="background:#FFFFFF"></span><span class="meta"><b>White</b><span>#FFFFFF</span></span></div>
+        <div class="sw src"><span class="cap" style="background:#F4F4F4"></span><span class="meta"><b>Canvas</b><span>#F4F4F4</span></span></div>
+        <div class="sw src"><span class="cap" style="background:#E0E8F0"></span><span class="meta"><b>Pale Blue</b><span>#E0E8F0</span></span></div>
+        <div class="sw src"><span class="cap" style="background:#D3D9DF"></span><span class="meta"><b>Silver</b><span>#D3D9DF</span></span></div>
+        <div class="sw"><span class="cap" style="background:#C3CACF"></span><span class="meta"><b>Border-2</b><span>#C3CACF</span></span></div>
+        <div class="sw"><span class="cap" style="background:#98A1A8"></span><span class="meta"><b>Faint</b><span>#98A1A8</span></span></div>
+        <div class="sw"><span class="cap" style="background:#69727A"></span><span class="meta"><b>Muted</b><span>#69727A</span></span></div>
+        <div class="sw"><span class="cap" style="background:#3B4348"></span><span class="meta"><b>Ink-soft</b><span>#3B4348</span></span></div>
+        <div class="sw"><span class="cap" style="background:#1A1F22"></span><span class="meta"><b>Ink</b><span>#1A1F22</span></span></div>
+      </div>
+    </div>
+
+    <div class="pal-group">
+      <h3>Sage — secondary ramp (expanded from #9DBBAE)</h3>
+      <div class="ramp">
+        <div class="sw"><span class="cap" style="background:#F0F5F2"></span><span class="meta"><b>50</b><span>#F0F5F2</span></span></div>
+        <div class="sw"><span class="cap" style="background:#DEEAE4"></span><span class="meta"><b>100</b><span>#DEEAE4</span></span></div>
+        <div class="sw"><span class="cap" style="background:#C5D9CF"></span><span class="meta"><b>200</b><span>#C5D9CF</span></span></div>
+        <div class="sw src"><span class="cap" style="background:#9DBBAE"></span><span class="meta"><b>300 ★</b><span>#9DBBAE</span></span></div>
+        <div class="sw"><span class="cap" style="background:#7FA593"></span><span class="meta"><b>400</b><span>#7FA593</span></span></div>
+        <div class="sw"><span class="cap" style="background:#608B78"></span><span class="meta"><b>500</b><span>#608B78</span></span></div>
+        <div class="sw"><span class="cap" style="background:#4A7160"></span><span class="meta"><b>600</b><span>#4A7160</span></span></div>
+        <div class="sw"><span class="cap" style="background:#395A4C"></span><span class="meta"><b>700</b><span>#395A4C</span></span></div>
+        <div class="sw"><span class="cap" style="background:#2B453A"></span><span class="meta"><b>800</b><span>#2B453A</span></span></div>
+        <div class="sw"><span class="cap" style="background:#1F332B"></span><span class="meta"><b>900</b><span>#1F332B</span></span></div>
+      </div>
+    </div>
+
+    <div class="pal-group">
+      <h3>Steel Blue — primary brand ramp (expanded from Pale Blue #E0E8F0)</h3>
+      <div class="ramp">
+        <div class="sw"><span class="cap" style="background:#EEF3F8"></span><span class="meta"><b>50</b><span>#EEF3F8</span></span></div>
+        <div class="sw src"><span class="cap" style="background:#E0E8F0"></span><span class="meta"><b>100 ★</b><span>#E0E8F0</span></span></div>
+        <div class="sw"><span class="cap" style="background:#C6D5E3"></span><span class="meta"><b>200</b><span>#C6D5E3</span></span></div>
+        <div class="sw"><span class="cap" style="background:#A6BCD2"></span><span class="meta"><b>300</b><span>#A6BCD2</span></span></div>
+        <div class="sw"><span class="cap" style="background:#7F9BB8"></span><span class="meta"><b>400</b><span>#7F9BB8</span></span></div>
+        <div class="sw"><span class="cap" style="background:#5E7E9F"></span><span class="meta"><b>500</b><span>#5E7E9F</span></span></div>
+        <div class="sw"><span class="cap" style="background:#496786"></span><span class="meta"><b>600</b><span>#496786</span></span></div>
+        <div class="sw"><span class="cap" style="background:#3A5370"></span><span class="meta"><b>700</b><span>#3A5370</span></span></div>
+        <div class="sw"><span class="cap" style="background:#2C3F55"></span><span class="meta"><b>800</b><span>#2C3F55</span></span></div>
+      </div>
+    </div>
+
+    <div class="pal-group">
+      <h3>Purposeful paired colors (muted to match)</h3>
+      <div class="ramp" style="grid-template-columns:repeat(auto-fit,minmax(120px,1fr))">
+        <div class="sw"><span class="cap" style="background:#608B78"></span><span class="meta"><b>Success</b><span>sage · #608B78</span></span></div>
+        <div class="sw"><span class="cap" style="background:#C2A24B"></span><span class="meta"><b>Highlight</b><span>gold · #C2A24B</span></span></div>
+        <div class="sw"><span class="cap" style="background:#C2674F"></span><span class="meta"><b>Alert</b><span>clay · #C2674F</span></span></div>
+        <div class="sw"><span class="cap" style="background:#8A6E96"></span><span class="meta"><b>Editorial</b><span>plum · #8A6E96</span></span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== TYPE SPECIMEN ===================== -->
+  <section id="type">
+    <div class="section-h"><span class="n">Georgia &amp; Inter</span><span class="k">Type specimen</span></div>
+
+    <!-- Display & headings: Georgia -->
+    <div class="spec-row">
+      <div class="spec-tag">Display · Georgia</div>
+      <div class="t-display">Hello, I’m Brayden</div>
+      <div class="spec-meta">Georgia 400 · clamp(2.75–4.75rem) · line-height 1.05 · tracking −0.02em</div>
+    </div>
+    <div class="spec-row">
+      <div class="spec-tag">H1 · page title · Georgia</div>
+      <div class="t-h1">The quiet compounding of small systems</div>
+      <div class="spec-meta">Georgia 400 · clamp(2.25–3.25rem) · 1.1 · −0.015em</div>
+    </div>
+    <div class="spec-row">
+      <div class="spec-tag">H2 · section · Georgia</div>
+      <div class="t-h2">Notes from a year of measuring everything</div>
+      <div class="spec-meta">Georgia 400 · clamp(1.75–2.25rem) · 1.15 · −0.01em</div>
+    </div>
+    <div class="spec-row">
+      <div class="spec-tag">H3 · card / article title · Georgia</div>
+      <div class="t-h3">Why marginal habits beat heroic effort</div>
+      <div class="spec-meta">Georgia 400 · 1.5rem (24px) · 1.2 · −0.005em</div>
+    </div>
+    <div class="spec-row">
+      <div class="spec-tag">H4 · Georgia bold</div>
+      <div class="t-h4">A short subsection heading</div>
+      <div class="spec-meta">Georgia 700 · 1.25rem (20px) · 1.3</div>
+    </div>
+
+    <!-- Reading: Georgia -->
+    <div class="spec-row">
+      <div class="spec-tag">Lead / intro · Georgia</div>
+      <p class="t-lead">A larger opening paragraph that draws the reader in — set in Georgia for warmth, sized to feel like a deliberate invitation rather than ordinary body copy.</p>
+      <div class="spec-meta">Georgia 400 · 1.3rem (~21px) · 1.6 · max 60ch</div>
+    </div>
+    <div class="spec-row">
+      <div class="spec-tag">Article body · Georgia</div>
+      <p class="t-prose">This is long-form reading set in Georgia at eighteen pixels with generous line spacing. Serifs guide the eye across the line, and a comfortable measure of about sixty-eight characters keeps each row easy to track. Emphasis arrives through <em>true italics</em> rather than bold weight, and links use the <a href="#">blue accent</a> so they read as part of the prose, not against it.</p>
+      <div class="spec-meta">Georgia 400 · 1.125rem (18px) · 1.7 · max 68ch · emphasis = italic</div>
+    </div>
+    <div class="spec-row">
+      <div class="spec-tag">Pull-quote · Georgia italic</div>
+      <p class="t-quote">“The best way to predict the future is to invent it.”</p>
+      <div class="spec-meta">Georgia italic 400 · clamp(1.4–1.9rem) · 1.3</div>
+    </div>
+
+    <!-- Interface: Inter -->
+    <div class="spec-row">
+      <div class="spec-tag">Kicker / eyebrow · Inter</div>
+      <div class="t-kicker">Research · 8 min read</div>
+      <div class="spec-meta">Inter 500 · 0.8rem · UPPERCASE · tracking +0.1em</div>
+    </div>
+    <div class="spec-row">
+      <div class="spec-tag">Body-UI · Inter</div>
+      <p class="t-bodyui">Interface and shorter supporting text uses Inter — descriptions, form help, captions under components. It stays neutral and precise so Georgia keeps the spotlight for content and voice.</p>
+      <div class="spec-meta">Inter 400 · 1rem (16px) · 1.55 · max 64ch</div>
+    </div>
+    <div class="spec-row">
+      <div class="spec-tag">Label · button · tag · Inter</div>
+      <span class="t-label">View work</span> &nbsp;·&nbsp; <span class="t-label">Read articles</span> &nbsp;·&nbsp; <span class="t-label">Download CV</span>
+      <div class="spec-meta">Inter 500 · 0.875–0.9rem · tracking +0.01em</div>
+    </div>
+    <div class="spec-row">
+      <div class="spec-tag">Caption / metadata · Inter</div>
+      <div class="t-caption">Published June 2026 · Filed under Research · Updated weekly</div>
+      <div class="spec-meta">Inter 400–500 · 0.875rem (14px)</div>
+    </div>
+    <div class="spec-row">
+      <div class="spec-tag">Micro / footnote · Inter</div>
+      <div class="t-micro">© 2026 Brayden Pelt · All rights reserved</div>
+      <div class="spec-meta">Inter 500 · 0.75rem (12px) · tracking +0.02em</div>
+    </div>
+
+    <!-- Numerals -->
+    <div class="spec-row">
+      <div class="spec-tag">Numbers — data (Inter, tabular) vs. feature (Georgia)</div>
+      <div style="display:flex; gap:2.5rem; flex-wrap:wrap; align-items:flex-start; margin-top:.4rem;">
+        <table class="num-table">
+          <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+          <tbody>
+            <tr><td>Articles published</td><td>142</td></tr>
+            <tr><td>Avg. read time</td><td>6.8 min</td></tr>
+            <tr><td>Words written</td><td>1,204,933</td></tr>
+            <tr><td>Projects shipped</td><td>18</td></tr>
+          </tbody>
+        </table>
+        <div>
+          <div class="feat-stat">1.2M</div>
+          <div class="t-caption" style="margin-top:.4rem">Words written</div>
+        </div>
+      </div>
+      <div class="spec-meta">Data → Inter tabular-nums (aligns) · Feature stat → Georgia (editorial)</div>
+    </div>
+  </section>
+
+  <!-- ===================== IN CONTEXT ===================== -->
+  <section id="context">
+    <div class="section-h"><span class="n">Putting it together</span><span class="k">In context</span></div>
+
+    <div class="ctx">
+      <div class="hero-ctx" style="grid-column:1/-1">
+        <div class="t-kicker">Researcher · Builder · Writer</div>
+        <h1 class="t-display name" style="margin:.6rem 0 1rem">Brayden <em>Pelt</em></h1>
+        <p class="t-lead">I study how things work, build the things I wish existed, and write about what I learn along the way.</p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="#">View work</a>
+          <a class="btn btn-ghost" href="#">Read articles</a>
+        </div>
+      </div>
+
+      <article class="card article">
+        <span class="cat">Research</span>
+        <h3 class="t-h3">On the quiet compounding of small daily systems</h3>
+        <p class="t-prose" style="font-size:1.05rem">A look at how marginal, repeatable habits outperform bursts of intensity — with the data from a year of self-tracking to back it up.</p>
+        <a class="more" href="#">Continue reading →</a>
+        <div class="meta-line">June 2026 · 8 min read</div>
+      </article>
+
+      <div class="card quote-ctx">
+        <span class="mk">“</span>
+        <p class="t-quote">The best way to predict the future is to invent it.</p>
+        <cite>— <b>Alan Kay</b></cite>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><span class="num">142</span><span class="lbl">Articles published</span></div>
+        <div class="stat"><span class="num">7</span><span class="lbl">Years building</span></div>
+        <div class="stat"><span class="num">1.2M</span><span class="lbl">Words written</span></div>
+        <div class="stat"><span class="num">18</span><span class="lbl">Projects shipped</span></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="note">
+  Georgia (voice) + Inter (structure) on the <b>Serene Elegance</b> palette · steel-blue = primary accent, sage = secondary, light-gray canvas ·
+  tell me what to adjust (accent strength, contrast, the purposeful colors) and I'll lock the tokens into Next.js + Tailwind.
+</div>
+
+</body>
+</html>

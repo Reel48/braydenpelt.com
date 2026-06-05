@@ -1,0 +1,46 @@
+/** A single entry in a vertical timeline (work roles or education). */
+export function TimelineItem({
+  title,
+  subtitle,
+  period,
+  location,
+  summary,
+  highlights,
+}: {
+  title: string;
+  subtitle: string;
+  period?: string;
+  location?: string;
+  summary?: string;
+  highlights?: string[];
+}) {
+  return (
+    <li className="relative border-l border-border pb-9 pl-6 last:pb-0">
+      <span className="absolute -left-[5px] top-2 h-2.5 w-2.5 rounded-full bg-accent" />
+      <div className="flex flex-wrap items-baseline justify-between gap-x-3">
+        <h3 className="font-serif text-[1.3rem] text-ink">{title}</h3>
+        {period ? (
+          <span className="font-sans text-sm text-muted tnum">{period}</span>
+        ) : null}
+      </div>
+      <p className="font-sans text-sm text-accent">
+        {subtitle}
+        {location ? <span className="text-faint"> &middot; {location}</span> : null}
+      </p>
+      {summary ? (
+        <p className="mt-2 font-serif text-[1.05rem] leading-[1.6] text-ink-soft">
+          {summary}
+        </p>
+      ) : null}
+      {highlights?.length ? (
+        <ul className="mt-2 list-disc pl-5 font-serif text-[1rem] leading-[1.6] text-ink-soft marker:text-faint">
+          {highlights.map((h, i) => (
+            <li key={i} className="my-1">
+              {h}
+            </li>
+          ))}
+        </ul>
+      ) : null}
+    </li>
+  );
+}

@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+/* ============================================================
+   braydenpelt.com — "Serene Elegance" design tokens
+   Primary accent = steel blue · secondary = sage · light-gray canvas.
+   Tokens live in @theme so they generate Tailwind utilities
+   (bg-canvas, text-ink, text-accent, bg-sage-100, …) AND emit CSS
+   variables we can override for a dark theme later.
+   ============================================================ */
+@theme {
+  /* ---- Neutrals (the serene greys) ---- */
+  --color-white: #ffffff;
+  --color-canvas: #f4f4f4; /* Light Gray — main canvas */
+  --color-surface: #ffffff;
+  --color-surface-2: #fafbfb;
+  --color-tint: #e0e8f0; /* Pale Blue — soft panels */
+  --color-silver: #d3d9df;
+  --color-border: #dee3e7;
+  --color-border-strong: #c3cacf;
+  --color-ink: #1a1f22; /* near-black, slightly cool */
+  --color-ink-soft: #3b4348;
+  --color-muted: #69727a;
+  --color-faint: #98a1a8;
+
+  /* ---- Steel Blue ramp (PRIMARY brand) ---- */
+  --color-blue-50: #eef3f8;
+  --color-blue-100: #e0e8f0;
+  --color-blue-200: #c6d5e3;
+  --color-blue-300: #a6bcd2;
+  --color-blue-400: #7f9bb8;
+  --color-blue-500: #5e7e9f;
+  --color-blue-600: #496786;
+  --color-blue-700: #3a5370;
+  --color-blue-800: #2c3f55;
+
+  /* ---- Sage ramp (SECONDARY) ---- */
+  --color-sage-50: #f0f5f2;
+  --color-sage-100: #deeae4;
+  --color-sage-200: #c5d9cf;
+  --color-sage-300: #9dbbae;
+  --color-sage-400: #7fa593;
+  --color-sage-500: #608b78;
+  --color-sage-600: #4a7160;
+  --color-sage-700: #395a4c;
+  --color-sage-800: #2b453a;
+  --color-sage-900: #1f332b;
+
+  /* ---- Purposeful paired colors ---- */
+  --color-gold: #c2a24b; /* highlight · featured */
+  --color-clay: #c2674f; /* alert · attention */
+  --color-plum: #8a6e96; /* editorial · variety */
+
+  /* ---- Semantic aliases (reference the ramps) ---- */
+  --color-bg: var(--color-canvas);
+  --color-accent: var(--color-blue-600);
+  --color-accent-strong: var(--color-blue-700);
+  --color-accent-soft: var(--color-blue-100);
+  --color-secondary: var(--color-sage-500);
+  --color-success: var(--color-sage-500);
+  --color-highlight: var(--color-gold);
+  --color-alert: var(--color-clay);
+  --color-editorial: var(--color-plum);
+  --color-on-accent: #ffffff;
+
+  /* ---- Type ---- */
+  --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
+  --font-serif: Georgia, "Times New Roman", serif;
+
+  /* ---- Radii ---- */
+  --radius-sm: 10px;
+  --radius: 14px;
+
+  /* ---- Shadows ---- */
+  --shadow-soft: 0 1px 2px rgba(26, 31, 34, 0.04),
+    0 10px 28px rgba(26, 31, 34, 0.06);
+}
+
+/* ============================================================
+   DARK THEME — dark-ready stub.
+   The light theme ships now. To enable dark later, tune these
+   semantic overrides (and add a visible <ThemeToggle/>); nothing
+   else needs to change because components only use semantic tokens.
+   ============================================================ */
+/*
+[data-theme="dark"] {
+  --color-bg: #11161a;
+  --color-surface: #171d22;
+  --color-surface-2: #1c2329;
+  --color-border: #283037;
+  --color-border-strong: #3a444d;
+  --color-ink: #e7edf1;
+  --color-ink-soft: #c2cad1;
+  --color-muted: #8c97a0;
+  --color-faint: #69747d;
+  --color-accent: #7f9bb8;
+  --color-accent-strong: #a6bcd2;
+  --color-accent-soft: #233140;
+  --color-on-accent: #11161a;
+}
+*/
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  ::selection {
+    background: var(--color-accent-soft);
+    color: var(--color-accent-strong);
+  }
+  /* Tabular numerals helper for data tables */
+  .tnum {
+    font-variant-numeric: tabular-nums;
+  }
+}

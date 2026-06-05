@@ -30,12 +30,6 @@ function DesktopItem({ item, pathname }: { item: NavItem; pathname: string }) {
     <div className="group relative">
       <Link href={item.href} className={cn(base, tone)} aria-haspopup="menu">
         {item.label}
-        <span
-          aria-hidden
-          className="text-faint transition-transform group-hover:rotate-180"
-        >
-          ⌄
-        </span>
       </Link>
       {/* pt-2 bridges the gap so the menu stays open while moving the cursor */}
       <div className="absolute left-0 top-full hidden pt-2 group-hover:block group-focus-within:block">

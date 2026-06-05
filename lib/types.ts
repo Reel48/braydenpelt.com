@@ -74,14 +74,22 @@ export interface Project {
 }
 
 /* ---- Sports ---- */
-export interface SportEntry {
-  sport: string;
-  role?: string; // e.g. "Midfielder", "Captain"
-  team?: string;
-  period?: string; // e.g. "2018–2022"
+export interface FavoriteTeam {
+  name: string;
+  league?: string; // e.g. "NFL", "NBA", "Premier League"
+  sport?: string;
+  since?: string; // e.g. "2009"
   note?: string;
-  achievements?: string[];
-  image?: string;
+  logo?: string; // path under /public
+}
+
+export interface FantasyLeague {
+  league: string; // league name
+  season?: string; // e.g. "2025"
+  teamName?: string; // your team's name
+  placement?: string; // e.g. "Champion", "2nd of 12"
+  record?: string; // e.g. "11–3"
+  note?: string;
 }
 
 /* ---- Art ---- */
@@ -95,7 +103,7 @@ export interface ArtPiece {
   url?: string;
 }
 
-/* ---- Media (books · movies · tv · music) ---- */
+/* ---- Media (books · movies · tv · youtube) ---- */
 export type MediaStatus = "loved" | "liked" | "current" | "queued";
 
 export interface Book {
@@ -129,20 +137,24 @@ export interface Show {
   poster?: string;
 }
 
-export interface MusicItem {
-  title: string; // album or song name
-  artist: string;
-  kind?: "album" | "song" | "artist";
+export interface YouTubeVideo {
+  title: string;
+  url: string; // the YouTube link
+  channel?: string;
   note?: string;
-  cover?: string;
-  url?: string;
+  thumbnail?: string; // path under /public or a remote URL
+  date?: string;
 }
 
-export interface Media {
-  books: Book[];
-  movies: Movie[];
-  shows: Show[];
-  music: MusicItem[];
+/* ---- Food & Drinks ---- */
+export interface Place {
+  name: string;
+  cuisine?: string;
+  city?: string;
+  rating?: number; // 1–5
+  note?: string;
+  image?: string;
+  url?: string;
 }
 
 /* ---- Articles (MDX frontmatter + computed) ---- */

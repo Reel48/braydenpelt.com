@@ -4,7 +4,7 @@ import { fetchFeedItems, asText } from "@/lib/integrations/rss";
 
 /**
  * Live books from a Goodreads shelf RSS feed.
- * Returns [] when not configured or on any fetch/parse error (the Media page
+ * Returns [] when not configured or on any fetch/parse error (the Books page
  * then falls back to manual entries).
  */
 export async function getGoodreadsBooks(): Promise<Book[]> {

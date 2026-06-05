@@ -4,16 +4,16 @@ import { PageHeader } from "@/components/ui/page-header";
 import { LinkGrid } from "@/components/ui/link-grid";
 import { nav } from "@/lib/nav";
 
-export const metadata: Metadata = { title: "Media" };
+export const metadata: Metadata = { title: "Interests" };
 
-const media = nav.find((i) => i.href === "/media")?.children ?? [];
+const interests = nav.find((i) => i.href === "/interests")?.children ?? [];
 
-export default function MediaPage() {
+export default function InterestsPage() {
   return (
     <Container>
-      <PageHeader title="Media" />
+      <PageHeader title="Interests" />
       <div className="pb-20">
-        <LinkGrid items={media} />
+        <LinkGrid items={interests} />
       </div>
     </Container>
   );

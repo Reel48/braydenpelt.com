@@ -36,10 +36,10 @@ export default async function ArticlePage({
     <Container>
       <article className="mx-auto max-w-[68ch] pt-14 pb-20">
         <Link
-          href="/writing"
+          href="/interests/articles"
           className="font-sans text-sm text-muted transition-colors hover:text-accent"
         >
-          ← Writing
+          ← Research Articles
         </Link>
 
         <div className="mt-6 flex items-center gap-2 font-sans text-sm text-faint">

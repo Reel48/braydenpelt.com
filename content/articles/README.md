@@ -1,7 +1,7 @@
 # Articles
 
 Each article is one `.mdx` file in this folder. The **filename is the URL slug**
-— `my-first-essay.mdx` → `/writing/my-first-essay`.
+— `my-first-essay.mdx` → `/interests/articles/my-first-essay`.
 
 ## Frontmatter
 
@@ -25,4 +25,4 @@ Write your article here in Markdown / MDX.
 Standard Markdown (headings, lists, links, blockquotes, tables, code) is styled
 automatically to match the type system. Reading time is computed for you.
 
-> No articles yet? The Writing page shows an empty state until you add one.
+> No articles yet? The Research Articles page shows an empty state until you add one.

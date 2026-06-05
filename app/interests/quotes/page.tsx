@@ -10,7 +10,7 @@ export const metadata: Metadata = { title: "Quotes" };
 export default function QuotesPage() {
   return (
     <Container>
-      <PageHeader title="Quotes" />
+      <PageHeader kicker="Interests" title="Quotes" />
 
       {quotes.length === 0 ? (
         <EmptyState

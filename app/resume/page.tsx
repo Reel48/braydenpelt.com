@@ -6,14 +6,14 @@ import { EmptyState } from "@/components/ui/empty-state";
 import { TimelineItem } from "@/components/cards/timeline-item";
 import { work, education } from "@/content/work";
 
-export const metadata: Metadata = { title: "Work & Education" };
+export const metadata: Metadata = { title: "Resume" };
 
-export default function WorkPage() {
+export default function ResumePage() {
   const hasAny = work.length > 0 || education.length > 0;
 
   return (
     <Container>
-      <PageHeader title="Work & Education" />
+      <PageHeader title="Resume" />
 
       {!hasAny ? (
         <EmptyState

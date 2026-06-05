@@ -30,16 +30,22 @@ shows an empty state until you add your own. Edit:
 | Page | Add content in |
 | --- | --- |
 | Home hero | `content/profile.ts` (tagline, kicker words, socials) |
-| Writing | `content/articles/*.mdx` (see `content/articles/README.md`) |
-| Work & Education | `content/work.ts` |
+| Resume | `content/work.ts` (experience + education) |
 | Portfolio | `content/portfolio.ts` |
-| Quotes | `content/quotes.ts` |
-| Sports | `content/sports.ts` |
-| Art | `content/art.ts` |
-| Media | `content/media.ts` (books · movies · shows · music) |
+| Interests → Art | `content/art.ts` |
+| Interests → Books | **Live: Goodreads** (`content/integrations.ts`); fallback `content/books.ts` |
+| Interests → Quotes | `content/quotes.ts` |
+| Interests → Food & Drinks | `content/food.ts` (Beli has no API — manual) |
+| Interests → Research Articles | `content/articles/*.mdx` (see `content/articles/README.md`) |
+| Media → Movies | **Live: Letterboxd** (`content/integrations.ts`); fallback `content/movies.ts` |
+| Media → TV Shows | `content/tv.ts` |
+| Media → YouTube Videos | `content/youtube.ts` |
+| Sports → Favorite Teams | `content/teams.ts` |
+| Sports → Fantasy Football | `content/fantasy.ts` |
 
-Images go in `public/images/…` and are referenced by path (e.g.
-`/images/portfolio/foo.png`). Each data file documents its object shape inline.
+Navigation lives in `lib/nav.ts` (one nested config drives the header dropdowns,
+mobile menu, and footer). Images go in `public/images/…`, referenced by path
+(e.g. `/images/portfolio/foo.png`). Each data file documents its object shape inline.
 
 ## Structure
 

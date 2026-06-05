@@ -9,7 +9,7 @@ function posterFromDescription(desc: string): string | undefined {
 
 /**
  * Live recently-watched films from a Letterboxd member RSS feed.
- * Returns [] when not configured or on any fetch/parse error (the Media page
+ * Returns [] when not configured or on any fetch/parse error (the Movies page
  * then falls back to manual entries).
  */
 export async function getLetterboxdMovies(): Promise<Movie[]> {

@@ -9,7 +9,7 @@ export const metadata: Metadata = { title: "Art" };
 export default function ArtPage() {
   return (
     <Container>
-      <PageHeader title="Art" />
+      <PageHeader kicker="Interests" title="Art" />
 
       {art.length === 0 ? (
         <EmptyState

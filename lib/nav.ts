@@ -1,27 +1,47 @@
 /**
  * Single source of truth for site navigation.
- * Drives the header, the "More" menu, and the footer.
+ * Drives the header (with hover/click dropdowns), the mobile menu, and the footer.
+ * Top-level items with `children` render a subnav and also link to a hub page.
  */
 export interface NavItem {
   label: string;
   href: string;
+  children?: NavItem[];
 }
 
-/** Shown directly in the header. */
-export const primaryNav: NavItem[] = [
+export const nav: NavItem[] = [
   { label: "Home", href: "/" },
-  { label: "Writing", href: "/writing" },
-  { label: "Work", href: "/work" },
+  { label: "Resume", href: "/resume" },
   { label: "Portfolio", href: "/portfolio" },
+  {
+    label: "Interests",
+    href: "/interests",
+    children: [
+      { label: "Art", href: "/interests/art" },
+      { label: "Books", href: "/interests/books" },
+      { label: "Quotes", href: "/interests/quotes" },
+      { label: "Food & Drinks", href: "/interests/food" },
+      { label: "Research Articles", href: "/interests/articles" },
+    ],
+  },
+  {
+    label: "Media",
+    href: "/media",
+    children: [
+      { label: "Movies", href: "/media/movies" },
+      { label: "TV Shows", href: "/media/tv" },
+      { label: "YouTube Videos", href: "/media/youtube" },
+    ],
+  },
+  {
+    label: "Sports",
+    href: "/sports",
+    children: [
+      { label: "Favorite Teams", href: "/sports/teams" },
+      { label: "Fantasy Football", href: "/sports/fantasy" },
+    ],
+  },
 ];
 
-/** Grouped under the header "More" menu. */
-export const moreNav: NavItem[] = [
-  { label: "Quotes", href: "/quotes" },
-  { label: "Sports", href: "/sports" },
-  { label: "Art", href: "/art" },
-  { label: "Media", href: "/media" },
-];
-
-/** Everything, for the footer. */
-export const allNav: NavItem[] = [...primaryNav, ...moreNav];
+/** Top-level destinations except Home — used by the home page "explore" grid. */
+export const exploreNav = nav.filter((i) => i.href !== "/");

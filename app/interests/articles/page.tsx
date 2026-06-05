@@ -7,14 +7,14 @@ import { Tag } from "@/components/ui/tag";
 import { getAllArticles } from "@/lib/content";
 import { formatDate } from "@/lib/format";
 
-export const metadata: Metadata = { title: "Writing" };
+export const metadata: Metadata = { title: "Research Articles" };
 
-export default function WritingPage() {
+export default function ArticlesPage() {
   const articles = getAllArticles();
 
   return (
     <Container>
-      <PageHeader title="Writing" />
+      <PageHeader kicker="Interests" title="Research Articles" />
 
       {articles.length === 0 ? (
         <EmptyState
@@ -25,11 +25,11 @@ export default function WritingPage() {
       ) : (
         <ul className="pb-20">
           {articles.map((a) => (
-            <li
-              key={a.slug}
-              className="border-b border-border py-7 first:pt-0"
-            >
-              <Link href={`/writing/${a.slug}`} className="group block">
+            <li key={a.slug} className="border-b border-border py-7 first:pt-0">
+              <Link
+                href={`/interests/articles/${a.slug}`}
+                className="group block"
+              >
                 <div className="flex items-center gap-2 font-sans text-sm text-faint">
                   <time dateTime={a.date}>{formatDate(a.date)}</time>
                   <span aria-hidden>·</span>

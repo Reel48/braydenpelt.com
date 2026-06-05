@@ -9,4 +9,17 @@ export const quotes: Quote[] = [
     text: "It is amazing what you can accomplish if you do not care who gets the credit.",
     author: "Harry S. Truman",
   },
+  {
+    text: "Whenever you find yourself on the side of the majority, it is time to reform.",
+    author: "Mark Twain",
+  },
+  {
+    text: "I have not failed. I've just found 10,000 ways that won't work.",
+    author: "Thomas A. Edison",
+  },
+  {
+    text: "Of course it is happening inside your head, Harry, but why on earth should that mean that it is not real?",
+    author: "J.K. Rowling",
+    source: "Harry Potter and the Deathly Hallows",
+  },
 ];

@@ -1,9 +1,19 @@
 import type { Resource } from "@/lib/types";
 
 /**
- * Links, tools, and references worth sharing. Shape:
+ * Resources, split by subpage. Each entry's shape:
  *   { title, url, description?, category? }
- * If you set `category` on entries, they group under those headings;
- * otherwise they render as one flat list.
+ * `category` is optional and only used to sub-group within a single page.
  */
-export const resources: Resource[] = [];
+
+/** Companies worth knowing / following. */
+export const companies: Resource[] = [];
+
+/** Products, apps, and tools you recommend. */
+export const products: Resource[] = [];
+
+/** Courses, books, channels, and other ways to learn. */
+export const education: Resource[] = [];
+
+/** Developer APIs worth building with. */
+export const apis: Resource[] = [];

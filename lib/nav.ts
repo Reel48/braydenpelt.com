@@ -13,7 +13,16 @@ export const nav: NavItem[] = [
   { label: "Home", href: "/" },
   { label: "Resume", href: "/resume" },
   { label: "Portfolio", href: "/portfolio" },
-  { label: "Resources", href: "/resources" },
+  {
+    label: "Resources",
+    href: "/resources",
+    children: [
+      { label: "Companies", href: "/resources/companies" },
+      { label: "Products", href: "/resources/products" },
+      { label: "Education", href: "/resources/education" },
+      { label: "APIs", href: "/resources/apis" },
+    ],
+  },
   {
     label: "Interests",
     href: "/interests",

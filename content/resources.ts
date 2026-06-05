@@ -81,7 +81,14 @@ export const products: Resource[] = [
 ];
 
 /** Tools & utilities you reach for (dev tools, CLIs, services). */
-export const tools: Resource[] = [];
+export const tools: Resource[] = [
+  {
+    title: "Animations.dev",
+    url: "https://animations.dev/",
+    description:
+      "A course on crafting polished interface animations and interactions on the web, by Emil Kowalski.",
+  },
+];
 
 /** Courses, books, channels, and other ways to learn. */
 export const education: Resource[] = [];

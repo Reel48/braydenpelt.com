@@ -157,6 +157,15 @@ export interface Place {
   url?: string;
 }
 
+/* ---- Resources ---- */
+export interface Resource {
+  title: string;
+  url: string;
+  description?: string;
+  /** Optional grouping heading, e.g. "Tools", "Reading", "People". */
+  category?: string;
+}
+
 /* ---- Articles (MDX frontmatter + computed) ---- */
 export interface ArticleFrontmatter {
   title: string;

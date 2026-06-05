@@ -88,6 +88,24 @@ export const tools: Resource[] = [
     description:
       "A course on crafting polished interface animations and interactions on the web, by Emil Kowalski.",
   },
+  {
+    title: "Apple Developer",
+    url: "https://developer.apple.com/",
+    description:
+      "Apple's developer hub — documentation, SDKs, Xcode, and the Human Interface Guidelines.",
+  },
+  {
+    title: "Awwwards",
+    url: "https://www.awwwards.com/",
+    description:
+      "Awards site recognizing the best in web design and development — a deep well of design inspiration.",
+  },
+  {
+    title: "Transitions.dev",
+    url: "https://transitions.dev/",
+    description:
+      "A curated, copy-paste collection of essential UI transitions for web apps, by Jakub Antalik.",
+  },
 ];
 
 /** Courses, books, channels, and other ways to learn. */

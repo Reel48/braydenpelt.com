@@ -106,6 +106,8 @@ export interface Book {
   note?: string;
   cover?: string;
   status?: MediaStatus;
+  /** External link (e.g. the Goodreads review/book page). */
+  link?: string;
 }
 
 export interface Movie {
@@ -115,6 +117,8 @@ export interface Movie {
   rating?: number;
   note?: string;
   poster?: string;
+  /** External link (e.g. the Letterboxd entry). */
+  link?: string;
 }
 
 export interface Show {

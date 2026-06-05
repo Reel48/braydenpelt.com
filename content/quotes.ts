@@ -22,4 +22,17 @@ export const quotes: Quote[] = [
     author: "J.K. Rowling",
     source: "Harry Potter and the Deathly Hallows",
   },
+  {
+    text: "Anyone who has never made a mistake has never tried anything new.",
+    author: "Albert Einstein",
+  },
+  {
+    text: "It's no use going back to yesterday, because I was a different person then.",
+    author: "Lewis Carroll",
+  },
+  {
+    text: "He's more myself than I am. Whatever our souls are made of, his and mine are the same.",
+    author: "Emily Brontë",
+    source: "Wuthering Heights",
+  },
 ];

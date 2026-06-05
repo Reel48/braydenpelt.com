@@ -27,10 +27,34 @@ export const companies: Resource[] = [
       "A focused, Markdown-based notes and writing app for Apple devices — clean design, fast tag-based organization.",
   },
   {
+    title: "Casper",
+    url: "https://casper.com",
+    description:
+      "Sleep brand best known for its boxed memory-foam mattresses, plus bedding, pillows, and sleep accessories.",
+  },
+  {
     title: "Costco",
     url: "https://www.costco.com",
     description:
       "Membership warehouse retailer offering bulk goods at thin margins, anchored by the Kirkland Signature private label.",
+  },
+  {
+    title: "Owala",
+    url: "https://owala.com",
+    description:
+      "Maker of insulated stainless-steel water bottles, best known for the FreeSip spout that lets you sip through a straw or swig.",
+  },
+  {
+    title: "Warby Parker",
+    url: "https://www.warbyparker.com",
+    description:
+      "Direct-to-consumer eyewear brand with home try-on glasses, sunglasses, and contacts, plus a buy-a-pair-give-a-pair program.",
+  },
+  {
+    title: "White Barn",
+    url: "https://www.bathandbodyworks.com/c/white-barn",
+    description:
+      "Bath & Body Works' home-fragrance line — 3-wick candles, Wallflowers, and room sprays in seasonal scents.",
   },
 ];
 

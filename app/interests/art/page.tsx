@@ -6,6 +6,14 @@ import { art } from "@/content/art";
 
 export const metadata: Metadata = { title: "Art" };
 
+function hostname(url: string): string {
+  try {
+    return new URL(url).hostname.replace(/^www\./, "");
+  } catch {
+    return "source";
+  }
+}
+
 export default function ArtPage() {
   return (
     <Container>
@@ -41,10 +49,25 @@ export default function ArtPage() {
                       <span className="font-sans text-xs text-faint">{meta}</span>
                     ) : null}
                   </div>
+                  {piece.artist ? (
+                    <p className="mt-0.5 font-sans text-sm text-accent">
+                      {piece.artist}
+                    </p>
+                  ) : null}
                   {piece.note ? (
-                    <p className="mt-1 font-serif text-[0.95rem] leading-[1.5] text-ink-soft">
+                    <p className="mt-2 font-serif text-[0.95rem] leading-[1.6] text-ink-soft">
                       {piece.note}
                     </p>
+                  ) : null}
+                  {piece.url ? (
+                    <a
+                      href={piece.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-3 inline-block font-sans text-sm font-medium text-accent transition-colors hover:text-accent-strong"
+                    >
+                      View on {hostname(piece.url)} →
+                    </a>
                   ) : null}
                 </figcaption>
               </figure>

@@ -95,12 +95,13 @@ export interface FantasyLeague {
 /* ---- Art ---- */
 export interface ArtPiece {
   title: string;
+  artist?: string; // e.g. "Giovanni Paolo Panini, Italian"
   medium?: string; // e.g. "Oil on canvas", "Digital"
   year?: string;
-  note?: string;
+  note?: string; // description / why it resonates
   /** Required — art is visual. Path under /public. */
   image: string;
-  url?: string;
+  url?: string; // external link (e.g. a museum page)
 }
 
 /* ---- Media (books · movies · tv · youtube) ---- */

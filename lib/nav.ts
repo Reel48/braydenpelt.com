@@ -47,6 +47,7 @@ export const nav: NavItem[] = [
     children: [
       { label: "Movies", href: "/media/movies" },
       { label: "TV Shows", href: "/media/tv" },
+      { label: "Music", href: "/media/music" },
       { label: "YouTube", href: "/media/youtube" },
     ],
   },

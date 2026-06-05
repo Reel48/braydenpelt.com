@@ -137,6 +137,15 @@ export interface Show {
   poster?: string;
 }
 
+export interface MusicItem {
+  title: string; // album or song name
+  artist: string;
+  kind?: "album" | "song" | "artist";
+  note?: string;
+  cover?: string;
+  url?: string;
+}
+
 export interface YouTubeVideo {
   title: string;
   url: string; // the YouTube link

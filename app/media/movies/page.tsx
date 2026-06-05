@@ -7,7 +7,7 @@ import { MediaCard } from "@/components/cards/media-card";
 import { movies as manualMovies } from "@/content/movies";
 import { getLetterboxdMovies } from "@/lib/integrations/letterboxd";
 
-export const metadata: Metadata = { title: "Movies" };
+export const metadata: Metadata = { title: "Movies & TV" };
 
 // Live Letterboxd feed refreshes hourly (see content/integrations.ts).
 export const revalidate = 3600;
@@ -19,7 +19,7 @@ export default async function MoviesPage() {
 
   return (
     <Container>
-      <PageHeader kicker="Media" title="Movies">
+      <PageHeader kicker="Media" title="Movies & TV">
         {isLive ? <LiveBadge source="Letterboxd" /> : null}
       </PageHeader>
 

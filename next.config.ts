@@ -17,6 +17,7 @@ const nextConfig: NextConfig = {
       },
       { source: "/quotes", destination: "/interests/quotes", permanent: true },
       { source: "/art", destination: "/interests/art", permanent: true },
+      { source: "/media/tv", destination: "/media/movies", permanent: true },
     ];
   },
 };

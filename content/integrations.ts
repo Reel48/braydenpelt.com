@@ -36,7 +36,7 @@ export const integrations = {
     topTracksLimit: 12,
     topArtistsLimit: 12,
     /** Featured playlist — the ID from its share link: open.spotify.com/playlist/<ID> */
-    featuredPlaylistId: "", // TODO: paste your "Old Music" playlist ID
+    featuredPlaylistId: "0eYoFYhpqZ3flBUdCfaKAY", // "Old Music"
     featuredPlaylistTitle: "Old Music",
     playlistLimit: 24,
   },

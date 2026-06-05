@@ -166,19 +166,31 @@ export async function getSpotifyNowPlaying(): Promise<NowPlaying | null> {
   }
 }
 
+// Spotify's /playlists/{id}/tracks sub-endpoint can 403; the base /playlists/{id}
+// returns 200 and inlines the tracks. The track paging object appears as either
+// `tracks` (with `.track` entries) or `items` (with `.item` entries), so handle both.
+interface PlaylistEntry {
+  track?: SpotifyTrack | null;
+  item?: SpotifyTrack | null;
+}
+interface PlaylistPaging {
+  items: PlaylistEntry[];
+}
+
 export async function getSpotifyPlaylist(): Promise<MusicItem[]> {
   const { featuredPlaylistId, playlistLimit } = integrations.spotify;
   if (!featuredPlaylistId) return [];
   const token = await getAccessToken();
   if (!token) return [];
-  const data = await apiGet<{ items: { track: SpotifyTrack | null }[] }>(
-    `/playlists/${featuredPlaylistId}/tracks?limit=${playlistLimit}`,
-    token,
-  );
-  return (
-    data?.items
-      ?.map((i) => i.track)
-      .filter((t): t is SpotifyTrack => Boolean(t))
-      .map(trackToMusicItem) ?? []
-  );
+  const data = await apiGet<{
+    tracks?: PlaylistPaging | null;
+    items?: PlaylistPaging | null;
+  }>(`/playlists/${featuredPlaylistId}`, token);
+
+  const entries = (data?.tracks ?? data?.items)?.items ?? [];
+  return entries
+    .map((e) => e.track ?? e.item)
+    .filter((t): t is SpotifyTrack => Boolean(t))
+    .slice(0, playlistLimit)
+    .map(trackToMusicItem);
 }

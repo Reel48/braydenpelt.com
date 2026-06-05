@@ -61,6 +61,12 @@ export const products: Resource[] = [
       "Cooling pillow with Snow Technology — phase-change material and heat-wicking bands over foam and down-alternative fiber for a balanced, cooler-sleeping feel.",
   },
   {
+    title: "Kindle Paperwhite",
+    url: "https://www.amazon.com/Kindle-Paperwhite/b?node=11624010011",
+    description:
+      "Amazon's e-reader with a glare-free 300-ppi display, adjustable warm light, waterproofing, and weeks of battery — reads like paper in any light.",
+  },
+  {
     title: "Pilot G2",
     url: "https://pilotpen.us",
     description:

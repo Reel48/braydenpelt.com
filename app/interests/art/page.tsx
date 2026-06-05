@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Container } from "@/components/ui/container";
 import { PageHeader } from "@/components/ui/page-header";
 import { EmptyState } from "@/components/ui/empty-state";
+import { LightboxImage } from "@/components/lightbox-image";
 import { art } from "@/content/art";
 
 export const metadata: Metadata = { title: "Art" };
@@ -34,8 +35,7 @@ export default function ArtPage() {
                 key={`${piece.title}-${i}`}
                 className="mb-5 break-inside-avoid overflow-hidden rounded-[14px] border border-border bg-surface shadow-soft"
               >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                <LightboxImage
                   src={piece.image}
                   alt={piece.title}
                   className="w-full object-cover"

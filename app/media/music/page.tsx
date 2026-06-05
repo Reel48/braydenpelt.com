@@ -4,6 +4,7 @@ import { PageHeader } from "@/components/ui/page-header";
 import { Section, LiveBadge } from "@/components/ui/section";
 import { EmptyState } from "@/components/ui/empty-state";
 import { MediaCard } from "@/components/cards/media-card";
+import { SpotifyNowPlaying } from "@/components/spotify-now-playing";
 import type { MusicItem } from "@/lib/types";
 import { music as manualMusic } from "@/content/music";
 import { integrations } from "@/content/integrations";
@@ -52,6 +53,7 @@ export default async function MusicPage() {
     return (
       <Container>
         <PageHeader kicker="Media" title="Music" />
+        <SpotifyNowPlaying />
         {manualMusic.length === 0 ? (
           <EmptyState
             title="No music yet"
@@ -70,6 +72,7 @@ export default async function MusicPage() {
   return (
     <Container>
       <PageHeader kicker="Media" title="Music" />
+      <SpotifyNowPlaying />
       <div className="pb-20">
         {playlist.length ? (
           <Section

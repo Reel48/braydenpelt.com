@@ -43,11 +43,17 @@ function capitalize(s: string): string {
   return s.charAt(0).toUpperCase() + s.slice(1);
 }
 
-async function getAccessToken(): Promise<string | null> {
+async function getAccessToken(opts?: {
+  noStore?: boolean;
+}): Promise<string | null> {
   const id = process.env.SPOTIFY_CLIENT_ID;
   const secret = process.env.SPOTIFY_CLIENT_SECRET;
   const refresh = process.env.SPOTIFY_REFRESH_TOKEN;
   if (!id || !secret || !refresh) return null;
+
+  const caching: RequestInit & { next?: { revalidate: number } } = opts?.noStore
+    ? { cache: "no-store" }
+    : { next: { revalidate } };
 
   try {
     const res = await fetch(TOKEN_URL, {
@@ -61,7 +67,7 @@ async function getAccessToken(): Promise<string | null> {
         grant_type: "refresh_token",
         refresh_token: refresh,
       }),
-      next: { revalidate },
+      ...caching,
     });
     if (!res.ok) return null;
     const data = (await res.json()) as { access_token?: string };
@@ -122,6 +128,42 @@ export async function getSpotifyTopArtists(): Promise<MusicItem[]> {
       url: a.external_urls?.spotify,
     })) ?? []
   );
+}
+
+export interface NowPlaying {
+  isPlaying: boolean;
+  title: string;
+  artist: string;
+  url?: string;
+  cover?: string;
+}
+
+/** Currently-playing track (or null if nothing is playing / not configured). */
+export async function getSpotifyNowPlaying(): Promise<NowPlaying | null> {
+  const token = await getAccessToken({ noStore: true });
+  if (!token) return null;
+  try {
+    const res = await fetch(`${API}/me/player/currently-playing`, {
+      headers: { Authorization: `Bearer ${token}` },
+      cache: "no-store",
+    });
+    // 204 = nothing playing.
+    if (res.status === 204 || !res.ok) return null;
+    const data = (await res.json()) as {
+      is_playing?: boolean;
+      item?: SpotifyTrack | null;
+    };
+    if (!data.item) return null;
+    return {
+      isPlaying: Boolean(data.is_playing),
+      title: data.item.name,
+      artist: data.item.artists.map((a) => a.name).join(", "),
+      url: data.item.external_urls?.spotify,
+      cover: pickImage(data.item.album?.images),
+    };
+  } catch {
+    return null;
+  }
 }
 
 export async function getSpotifyPlaylist(): Promise<MusicItem[]> {

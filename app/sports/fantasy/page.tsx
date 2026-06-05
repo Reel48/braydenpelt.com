@@ -5,12 +5,12 @@ import { EmptyState } from "@/components/ui/empty-state";
 import { Card } from "@/components/ui/card";
 import { fantasy } from "@/content/fantasy";
 
-export const metadata: Metadata = { title: "Fantasy Football" };
+export const metadata: Metadata = { title: "Fantasy" };
 
 export default function FantasyPage() {
   return (
     <Container>
-      <PageHeader kicker="Sports" title="Fantasy Football" />
+      <PageHeader kicker="Sports" title="Fantasy" />
 
       {fantasy.length === 0 ? (
         <EmptyState

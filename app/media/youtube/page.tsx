@@ -5,12 +5,12 @@ import { EmptyState } from "@/components/ui/empty-state";
 import { MediaCard } from "@/components/cards/media-card";
 import { videos } from "@/content/youtube";
 
-export const metadata: Metadata = { title: "YouTube Videos" };
+export const metadata: Metadata = { title: "YouTube" };
 
 export default function YouTubePage() {
   return (
     <Container>
-      <PageHeader kicker="Media" title="YouTube Videos" />
+      <PageHeader kicker="Media" title="YouTube" />
 
       {videos.length === 0 ? (
         <EmptyState

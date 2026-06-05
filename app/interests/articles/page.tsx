@@ -7,14 +7,14 @@ import { Tag } from "@/components/ui/tag";
 import { getAllArticles } from "@/lib/content";
 import { formatDate } from "@/lib/format";
 
-export const metadata: Metadata = { title: "Research Articles" };
+export const metadata: Metadata = { title: "Research" };
 
 export default function ArticlesPage() {
   const articles = getAllArticles();
 
   return (
     <Container>
-      <PageHeader kicker="Interests" title="Research Articles" />
+      <PageHeader kicker="Interests" title="Research" />
 
       {articles.length === 0 ? (
         <EmptyState

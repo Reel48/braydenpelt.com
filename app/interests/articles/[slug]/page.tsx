@@ -39,7 +39,7 @@ export default async function ArticlePage({
           href="/interests/articles"
           className="font-sans text-sm text-muted transition-colors hover:text-accent"
         >
-          ← Research Articles
+          ← Research
         </Link>
 
         <div className="mt-6 flex items-center gap-2 font-sans text-sm text-faint">

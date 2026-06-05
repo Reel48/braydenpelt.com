@@ -38,7 +38,7 @@ export const nav: NavItem[] = [
       { label: "Books", href: "/interests/books" },
       { label: "Quotes", href: "/interests/quotes" },
       { label: "Food & Drinks", href: "/interests/food" },
-      { label: "Research Articles", href: "/interests/articles" },
+      { label: "Research", href: "/interests/articles" },
     ],
   },
   {
@@ -47,7 +47,7 @@ export const nav: NavItem[] = [
     children: [
       { label: "Movies", href: "/media/movies" },
       { label: "TV Shows", href: "/media/tv" },
-      { label: "YouTube Videos", href: "/media/youtube" },
+      { label: "YouTube", href: "/media/youtube" },
     ],
   },
   {
@@ -55,7 +55,7 @@ export const nav: NavItem[] = [
     href: "/sports",
     children: [
       { label: "Favorite Teams", href: "/sports/teams" },
-      { label: "Fantasy Football", href: "/sports/fantasy" },
+      { label: "Fantasy", href: "/sports/fantasy" },
     ],
   },
 ];

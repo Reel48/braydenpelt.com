@@ -21,8 +21,13 @@ export function Footer() {
           ))}
         </nav>
 
-        {/* Desktop: columns with subpages listed */}
-        <nav className="hidden justify-center gap-x-12 gap-y-8 md:flex md:flex-wrap">
+        {/* Desktop: equal-width columns with subpages listed */}
+        <nav
+          className="hidden gap-8 md:grid"
+          style={{
+            gridTemplateColumns: `repeat(${nav.length}, minmax(0, 1fr))`,
+          }}
+        >
           {nav.map((item) => (
             <div key={item.href} className="flex flex-col gap-1.5">
               <Link

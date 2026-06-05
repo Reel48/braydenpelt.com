@@ -21,7 +21,7 @@ export const integrations = {
   },
   letterboxd: {
     /** Your Letterboxd username — from letterboxd.com/<THIS> */
-    username: "", // TODO: e.g. "davepelt"
+    username: "BraydenPelt",
     /** Max recently-watched films to show. */
     limit: 24,
   },

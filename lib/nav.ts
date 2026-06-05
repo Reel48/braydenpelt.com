@@ -19,6 +19,7 @@ export const nav: NavItem[] = [
     children: [
       { label: "Companies", href: "/resources/companies" },
       { label: "Products", href: "/resources/products" },
+      { label: "Tools", href: "/resources/tools" },
       { label: "Education", href: "/resources/education" },
       { label: "APIs", href: "/resources/apis" },
     ],

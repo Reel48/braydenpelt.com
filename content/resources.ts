@@ -9,8 +9,11 @@ import type { Resource } from "@/lib/types";
 /** Companies worth knowing / following. */
 export const companies: Resource[] = [];
 
-/** Products, apps, and tools you recommend. */
+/** Products and apps you recommend. */
 export const products: Resource[] = [];
+
+/** Tools & utilities you reach for (dev tools, CLIs, services). */
+export const tools: Resource[] = [];
 
 /** Courses, books, channels, and other ways to learn. */
 export const education: Resource[] = [];

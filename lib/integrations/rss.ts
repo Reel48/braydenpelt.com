@@ -35,13 +35,56 @@ export async function fetchFeedItems(
   return Array.isArray(items) ? items : [items];
 }
 
-/** Coerce a parsed XML node value to a trimmed string. */
+const NAMED_ENTITIES: Record<string, string> = {
+  quot: '"',
+  apos: "'",
+  lt: "<",
+  gt: ">",
+  nbsp: " ",
+  mdash: "—",
+  ndash: "–",
+  hellip: "…",
+  rsquo: "’",
+  lsquo: "‘",
+  ldquo: "“",
+  rdquo: "”",
+};
+
+function decodeOnce(str: string): string {
+  return str
+    .replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(parseInt(n, 10)))
+    .replace(/&#x([0-9a-fA-F]+);/g, (_, n) => String.fromCodePoint(parseInt(n, 16)))
+    .replace(/&([a-zA-Z]+);/g, (m, name) => NAMED_ENTITIES[name] ?? m)
+    // &amp; last so double-encoded values (e.g. "&amp;#039;") resolve on the next pass.
+    .replace(/&amp;/g, "&");
+}
+
+/** Decode HTML/XML entities, including double-encoded ones (e.g. "It&#039;s" → "It's"). */
+function decodeEntities(str: string): string {
+  let prev: string;
+  let out = str;
+  let i = 0;
+  do {
+    prev = out;
+    out = decodeOnce(out);
+    i++;
+  } while (out !== prev && i < 3);
+  return out;
+}
+
+/** Coerce a parsed XML node value to a trimmed, entity-decoded string. */
 export function asText(value: unknown): string {
   if (value == null) return "";
-  if (typeof value === "string") return value.trim();
-  if (typeof value === "number") return String(value);
-  if (typeof value === "object" && "#text" in (value as Record<string, unknown>)) {
-    return String((value as Record<string, unknown>)["#text"]).trim();
+  let raw: string;
+  if (typeof value === "string") raw = value;
+  else if (typeof value === "number") raw = String(value);
+  else if (
+    typeof value === "object" &&
+    "#text" in (value as Record<string, unknown>)
+  ) {
+    raw = String((value as Record<string, unknown>)["#text"]);
+  } else {
+    raw = String(value);
   }
-  return String(value).trim();
+  return decodeEntities(raw).trim();
 }

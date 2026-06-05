@@ -25,6 +25,21 @@ export const integrations = {
     /** Max recently-watched films to show. */
     limit: 24,
   },
+  spotify: {
+    /**
+     * Spotify uses OAuth, so the SECRETS live in environment variables, NOT here:
+     *   SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET, SPOTIFY_REFRESH_TOKEN
+     * (in .env.local locally and in Vercel → Project → Settings → Environment
+     * Variables). See docs/SPOTIFY_SETUP.md. The non-secret display options live here.
+     */
+    timeRange: "medium_term", // "short_term" (~4wk) | "medium_term" (~6mo) | "long_term"
+    topTracksLimit: 12,
+    topArtistsLimit: 12,
+    /** Featured playlist — the ID from its share link: open.spotify.com/playlist/<ID> */
+    featuredPlaylistId: "", // TODO: paste your "Old Music" playlist ID
+    featuredPlaylistTitle: "Old Music",
+    playlistLimit: 24,
+  },
   /** How often (seconds) the live feeds re-fetch. 3600 = hourly. */
   revalidateSeconds: 3600,
 } as const;

@@ -2,28 +2,28 @@
 
 /* ============================================================
    braydenpelt.com — "Gallery" design tokens
-   Museum palette: a warm neutral value-scale plus six pigment
-   accents, one per section. Ramp names are kept for compatibility —
-   `blue-*` now holds the VIRIDIAN (green) ramp and `sage-*` the
-   TERRACOTTA (warm) ramp, so existing utilities keep working.
-   Per-section accents are overridden below via [data-section].
+   Museum palette: a warm neutral value-scale carries all the
+   structure (Linen walls · Gallery-White cards · Plaster borders ·
+   Ink/Graphite type). A single accent — Viridian — is used sparingly
+   on type and interactive elements. The other five pigments are kept
+   as named tokens for occasional use.
    ============================================================ */
 @theme {
   /* ---- Neutrals (gallery value scale) ---- */
   --color-white: #ffffff;
-  --color-canvas: #f5f2ec; /* Gallery White — walls / main canvas */
-  --color-surface: #ffffff;
-  --color-surface-2: #faf7f1;
-  --color-tint: #eae3d6; /* Linen — soft panels */
+  --color-canvas: #eae3d6; /* Linen — page wall */
+  --color-surface: #f5f2ec; /* Gallery White — cards */
+  --color-surface-2: #e5ddcd; /* soft inset — code, empty states */
+  --color-tint: #e5ddcd;
   --color-silver: #d8cfbe; /* Plaster */
-  --color-border: #e4ddd0;
-  --color-border-strong: #d8cfbe; /* Plaster */
+  --color-border: #d8cfbe; /* Plaster */
+  --color-border-strong: #b9ae98;
   --color-ink: #1c1b19; /* Ink — primary type */
   --color-ink-soft: #46443e; /* Graphite */
-  --color-muted: #6b665a;
-  --color-faint: #a89f8c; /* Stone */
+  --color-muted: #6e6759;
+  --color-faint: #a0957f; /* ~Stone */
 
-  /* ---- Viridian ramp (PRIMARY · green) — token name kept as `blue-*` ---- */
+  /* ---- Viridian ramp (accent family) — token name kept as `blue-*` ---- */
   --color-blue-50: #e7efeb;
   --color-blue-100: #c9dcd3;
   --color-blue-200: #a4c4b6;
@@ -34,7 +34,7 @@
   --color-blue-700: #1c4639;
   --color-blue-800: #15352b;
 
-  /* ---- Terracotta ramp (SECONDARY · warm) — token name kept as `sage-*` ---- */
+  /* ---- Terracotta ramp — token name kept as `sage-*` ---- */
   --color-sage-50: #f7ece4;
   --color-sage-100: #efd9c8;
   --color-sage-200: #e2bfa4;
@@ -46,27 +46,29 @@
   --color-sage-800: #5e331d;
   --color-sage-900: #482815;
 
-  /* ---- Pigment accents ---- */
-  --color-gold: #cda349; /* Ochre — highlight · featured */
-  --color-clay: #c8472e; /* Vermilion — alert · attention */
-  --color-plum: #5c3a57; /* Aubergine — editorial · variety */
-  --color-lapis: #2b4c8c; /* Lapis — secondary */
+  /* ---- Named pigments (the six accents — kept for occasional use) ---- */
+  --color-viridian: #2e6e5a;
+  --color-lapis: #2b4c8c;
+  --color-aubergine: #5c3a57;
+  --color-vermilion: #c8472e;
+  --color-ochre: #cda349;
+  --color-terracotta: #b5683e;
+  /* legacy aliases (used by tag.tsx) */
+  --color-gold: var(--color-ochre);
+  --color-clay: var(--color-vermilion);
+  --color-plum: var(--color-aubergine);
 
-  /* ---- Semantic aliases (default = Home/Viridian) ---- */
+  /* ---- Semantic aliases (single Viridian accent) ---- */
   --color-bg: var(--color-canvas);
-  --color-accent: #2e6e5a;
+  --color-accent: var(--color-viridian);
   --color-accent-strong: #1c4639;
-  --color-accent-soft: #c9dcd3;
+  --color-accent-soft: #d7e3dd;
   --color-secondary: var(--color-lapis);
-  --color-success: #2e6e5a;
-  --color-highlight: var(--color-gold);
-  --color-alert: var(--color-clay);
-  --color-editorial: var(--color-plum);
+  --color-success: var(--color-viridian);
+  --color-highlight: var(--color-ochre);
+  --color-alert: var(--color-vermilion);
+  --color-editorial: var(--color-aubergine);
   --color-on-accent: #f5f2ec;
-
-  /* ---- Tinted card surfaces (a faint wash of the section accent) ---- */
-  --color-card: color-mix(in srgb, var(--color-accent) 9%, #fff);
-  --color-card-border: color-mix(in srgb, var(--color-accent) 22%, var(--color-border));
 
   /* ---- Type ---- */
   --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
@@ -79,43 +81,6 @@
   /* ---- Shadows ---- */
   --shadow-soft: 0 1px 2px rgba(28, 27, 25, 0.05),
     0 10px 28px rgba(28, 27, 25, 0.07);
-}
-
-/* ============================================================
-   Per-section accents. The <SectionTheme> wrapper sets
-   data-section on a display:contents element, so these custom
-   properties inherit to the header, page, and selection.
-   Only the accent trio changes; ink/gold/alert/success stay constant.
-   ============================================================ */
-[data-section="home"] {
-  --color-accent: #2e6e5a; /* Viridian — green */
-  --color-accent-strong: #1c4639;
-  --color-accent-soft: #c9dcd3;
-}
-[data-section="about"] {
-  --color-accent: #5c3a57; /* Aubergine — purple */
-  --color-accent-strong: #452b41;
-  --color-accent-soft: #e4d7e0;
-}
-[data-section="resources"] {
-  --color-accent: #2b4c8c; /* Lapis — blue */
-  --color-accent-strong: #1f3a6e;
-  --color-accent-soft: #d2dbec;
-}
-[data-section="interests"] {
-  --color-accent: #b23a22; /* Vermilion — red (deepened for text) */
-  --color-accent-strong: #93301c;
-  --color-accent-soft: #f1d8d0;
-}
-[data-section="media"] {
-  --color-accent: #7e5f1a; /* Ochre — gold (deepened for text) */
-  --color-accent-strong: #604812;
-  --color-accent-soft: #f0e4c2;
-}
-[data-section="sports"] {
-  --color-accent: #9a5430; /* Terracotta — warm brown (deepened for text) */
-  --color-accent-strong: #7e4427;
-  --color-accent-soft: #ecd9ca;
 }
 
 /* ============================================================

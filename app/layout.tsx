@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-import { SectionTheme } from "@/components/section-theme";
 import { Header } from "@/components/nav/header";
 import { Footer } from "@/components/footer";
 
@@ -34,11 +33,9 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         <ThemeProvider>
-          <SectionTheme>
-            <Header />
-            <main className="flex-1">{children}</main>
-            <Footer />
-          </SectionTheme>
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
         </ThemeProvider>
       </body>
     </html>

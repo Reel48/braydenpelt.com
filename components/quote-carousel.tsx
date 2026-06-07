@@ -12,7 +12,7 @@ export function QuoteCarousel({ items }: { items: QuoteSlide[] }) {
       {items.map((q, i) => (
         <figure
           key={`${q.author}-${i}`}
-          className="flex w-[clamp(280px,82vw,440px)] shrink-0 snap-start flex-col rounded-[14px] border border-card-border bg-card p-6 shadow-soft"
+          className="flex w-[clamp(280px,82vw,440px)] shrink-0 snap-start flex-col rounded-[14px] border border-border bg-surface p-6 shadow-soft"
         >
           <blockquote className="font-serif italic text-[clamp(1.15rem,2vw,1.4rem)] leading-[1.35] text-ink">
             {renderInline(q.text)}

@@ -45,6 +45,8 @@ export interface WorkEntry {
   summary?: string;
   highlights?: string[];
   url?: string;
+  /** Optional company logo, path under /public (e.g. "/images/work/foo.png"). */
+  logo?: string;
 }
 
 export interface EducationEntry {

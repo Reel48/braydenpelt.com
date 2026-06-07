@@ -27,7 +27,7 @@ export function TimelineItem({
           <img
             src={logo}
             alt={`${subtitle} logo`}
-            className="mt-0.5 h-10 w-10 flex-none object-contain"
+            className="mt-0.5 h-10 w-10 flex-none rounded-md object-contain"
           />
         ) : null}
         <div className="min-w-0 flex-1">

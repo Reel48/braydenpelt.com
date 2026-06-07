@@ -35,6 +35,7 @@ export default function ResumePage() {
                     period={`${w.start} – ${w.end ?? "Present"}`}
                     summary={w.summary}
                     highlights={w.highlights}
+                    logo={w.logo}
                   />
                 ))}
               </ol>

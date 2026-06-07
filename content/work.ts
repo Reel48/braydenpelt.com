@@ -10,24 +10,28 @@ export const work: WorkEntry[] = [
     role: "Senior Account Executive",
     organization: "Gartner",
     start: "January 2025",
+    logo: "/images/work/gartner.png",
   },
   {
     role: "Account Executive",
     organization: "Gartner",
     start: "August 2023",
     end: "December 2024",
+    logo: "/images/work/gartner.png",
   },
   {
     role: "Account Manager",
     organization: "Gartner",
     start: "September 2022",
     end: "July 2023",
+    logo: "/images/work/gartner.png",
   },
   {
     role: "Summer Sales Intern",
     organization: "Gartner",
     start: "May 2022",
     end: "August 2022",
+    logo: "/images/work/gartner.png",
   },
 ];
 

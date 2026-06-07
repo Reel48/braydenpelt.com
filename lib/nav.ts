@@ -62,3 +62,19 @@ export const nav: NavItem[] = [
 
 /** Top-level destinations except Home — used by the home page "explore" grid. */
 export const exploreNav = nav.filter((i) => i.href !== "/");
+
+/**
+ * Resolve a pathname to its top-level section key (home|about|resources|
+ * interests|media|sports), matching a section's hub OR any of its children
+ * (so /resume and /portfolio resolve to "about"). Drives per-section theming.
+ */
+export function sectionForPath(pathname: string): string {
+  for (const item of nav) {
+    const hrefs = [item.href, ...(item.children?.map((c) => c.href) ?? [])];
+    const hit = hrefs.some((h) =>
+      h === "/" ? pathname === "/" : pathname === h || pathname.startsWith(h + "/"),
+    );
+    if (hit) return item.label.toLowerCase();
+  }
+  return "home";
+}

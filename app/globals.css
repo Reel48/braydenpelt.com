@@ -1,66 +1,67 @@
 @import "tailwindcss";
 
 /* ============================================================
-   braydenpelt.com — "Serene Elegance" design tokens
-   Primary accent = steel blue · secondary = sage · light-gray canvas.
-   Tokens live in @theme so they generate Tailwind utilities
-   (bg-canvas, text-ink, text-accent, bg-sage-100, …) AND emit CSS
-   variables we can override for a dark theme later.
+   braydenpelt.com — "Tea" design tokens
+   Warm cream canvas · forest-green primary · camel secondary.
+   NOTE: the ramp names are kept for compatibility — `blue-*` now
+   holds the GREEN (forest) ramp and `sage-*` holds the CAMEL ramp,
+   so existing utilities (bg-blue-100, text-sage-700, …) keep working.
+   Per-section accents are overridden below via [data-section].
    ============================================================ */
 @theme {
-  /* ---- Neutrals (the serene greys) ---- */
+  /* ---- Neutrals (warm) ---- */
   --color-white: #ffffff;
-  --color-canvas: #f4f4f4; /* Light Gray — main canvas */
+  --color-canvas: #fffff3; /* Cream — main canvas */
   --color-surface: #ffffff;
-  --color-surface-2: #fafbfb;
-  --color-tint: #e0e8f0; /* Pale Blue — soft panels */
-  --color-silver: #d3d9df;
-  --color-border: #dee3e7;
-  --color-border-strong: #c3cacf;
-  --color-ink: #1a1f22; /* near-black, slightly cool */
-  --color-ink-soft: #3b4348;
-  --color-muted: #69727a;
-  --color-faint: #98a1a8;
+  --color-surface-2: #fbf7ec;
+  --color-tint: #e6ecd8; /* pale green — soft panels */
+  --color-silver: #d8d2c4;
+  --color-border: #e7e1d3;
+  --color-border-strong: #d3ccbb;
+  --color-ink: #26241d; /* warm near-black */
+  --color-ink-soft: #4a463b;
+  --color-muted: #756e60;
+  --color-faint: #9e9e96;
 
-  /* ---- Steel Blue ramp (PRIMARY brand) ---- */
-  --color-blue-50: #eef3f8;
-  --color-blue-100: #e0e8f0;
-  --color-blue-200: #c6d5e3;
-  --color-blue-300: #a6bcd2;
-  --color-blue-400: #7f9bb8;
-  --color-blue-500: #5e7e9f;
-  --color-blue-600: #496786;
-  --color-blue-700: #3a5370;
-  --color-blue-800: #2c3f55;
+  /* ---- Green ramp (PRIMARY · forest) — token name kept as `blue-*` ---- */
+  --color-blue-50: #edf1e2;
+  --color-blue-100: #cad3af;
+  --color-blue-200: #b0c094;
+  --color-blue-300: #94a878;
+  --color-blue-400: #7c9268;
+  --color-blue-500: #5e7a57;
+  --color-blue-600: #436149;
+  --color-blue-700: #2f4a3b;
+  --color-blue-800: #1f3e39;
 
-  /* ---- Sage ramp (SECONDARY) ---- */
-  --color-sage-50: #f0f5f2;
-  --color-sage-100: #deeae4;
-  --color-sage-200: #c5d9cf;
-  --color-sage-300: #9dbbae;
-  --color-sage-400: #7fa593;
-  --color-sage-500: #608b78;
-  --color-sage-600: #4a7160;
-  --color-sage-700: #395a4c;
-  --color-sage-800: #2b453a;
-  --color-sage-900: #1f332b;
+  /* ---- Camel ramp (SECONDARY · warm) — token name kept as `sage-*` ---- */
+  --color-sage-50: #f8f0e5;
+  --color-sage-100: #eedfcb;
+  --color-sage-200: #e2c9a9;
+  --color-sage-300: #d3ae82;
+  --color-sage-400: #c59369;
+  --color-sage-500: #ae7b50;
+  --color-sage-600: #946540;
+  --color-sage-700: #7a5236;
+  --color-sage-800: #5e3f2a;
+  --color-sage-900: #46301f;
 
   /* ---- Purposeful paired colors ---- */
-  --color-gold: #c2a24b; /* highlight · featured */
-  --color-clay: #c2674f; /* alert · attention */
-  --color-plum: #8a6e96; /* editorial · variety */
+  --color-gold: #d7b665; /* highlight · featured (Scented) */
+  --color-clay: #935059; /* alert · attention (Black/maroon) */
+  --color-plum: #2b5563; /* editorial · variety (Oolong teal) */
 
-  /* ---- Semantic aliases (reference the ramps) ---- */
+  /* ---- Semantic aliases (default = Home/forest) ---- */
   --color-bg: var(--color-canvas);
-  --color-accent: var(--color-blue-600);
-  --color-accent-strong: var(--color-blue-700);
-  --color-accent-soft: var(--color-blue-100);
-  --color-secondary: var(--color-sage-500);
-  --color-success: var(--color-sage-500);
+  --color-accent: #1f3e39;
+  --color-accent-strong: #15302b;
+  --color-accent-soft: #cad3af;
+  --color-secondary: var(--color-plum);
+  --color-success: #5e7a57;
   --color-highlight: var(--color-gold);
   --color-alert: var(--color-clay);
   --color-editorial: var(--color-plum);
-  --color-on-accent: #ffffff;
+  --color-on-accent: #fffff3;
 
   /* ---- Type ---- */
   --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
@@ -71,8 +72,45 @@
   --radius: 14px;
 
   /* ---- Shadows ---- */
-  --shadow-soft: 0 1px 2px rgba(26, 31, 34, 0.04),
-    0 10px 28px rgba(26, 31, 34, 0.06);
+  --shadow-soft: 0 1px 2px rgba(40, 36, 29, 0.04),
+    0 10px 28px rgba(40, 36, 29, 0.06);
+}
+
+/* ============================================================
+   Per-section accents. The <SectionTheme> wrapper sets
+   data-section on a display:contents element, so these custom
+   properties inherit to the header, page, and selection.
+   Only the accent trio changes; ink/gold/alert/success stay constant.
+   ============================================================ */
+[data-section="home"] {
+  --color-accent: #1f3e39; /* forest green */
+  --color-accent-strong: #15302b;
+  --color-accent-soft: #cad3af;
+}
+[data-section="about"] {
+  --color-accent: #4c7355; /* green */
+  --color-accent-strong: #38593f;
+  --color-accent-soft: #d9e4c6;
+}
+[data-section="resources"] {
+  --color-accent: #2b5563; /* oolong teal */
+  --color-accent-strong: #1e4150;
+  --color-accent-soft: #d4e0e0;
+}
+[data-section="interests"] {
+  --color-accent: #8a4751; /* maroon */
+  --color-accent-strong: #6e3840;
+  --color-accent-soft: #edd3d3;
+}
+[data-section="media"] {
+  --color-accent: #876420; /* deep gold (text-safe) */
+  --color-accent-strong: #6a4d14;
+  --color-accent-soft: #f2e5b9;
+}
+[data-section="sports"] {
+  --color-accent: #4a463b; /* puer brown */
+  --color-accent-strong: #332f26;
+  --color-accent-soft: #e1daca;
 }
 
 /* ============================================================

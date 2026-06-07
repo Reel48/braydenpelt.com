@@ -67,6 +67,12 @@ export const products: Resource[] = [
       "Amazon's e-reader with a glare-free 300-ppi display, adjustable warm light, waterproofing, and weeks of battery—reads like paper in any light.",
   },
   {
+    title: "OGIO Renegade RSS",
+    url: "https://www.ogio.com/backpacks/ogio-backpack-2017-renegade-rss.html?pid=spr4704946",
+    description:
+      "Commuter backpack with an armored, foam-lined bay for 15-inch laptops (and slim 17-inch ones), a crush-proof tech vault for fragile gear, and OGIO's padded RSS straps that spread the load across your shoulders.",
+  },
+  {
     title: "Pilot G2",
     url: "https://pilotpen.us",
     description:

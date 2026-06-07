@@ -51,4 +51,13 @@ export const art: ArtPiece[] = [
     url: "https://www.moma.org/collection/works/79802",
     note: "Painted from the window of his room at the Saint-Paul-de-Mausole asylum in Saint-Rémy-de-Provence in June 1889, Van Gogh's most famous canvas sets a turbulent, swirling sky over a quiet village he largely imagined. A flame-like cypress climbs toward eleven stars and a glowing crescent moon, the whole scene built from thick, rhythmic strokes of blue and gold. He dismissed it as a failed study in his letters, yet it has become one of the most recognized paintings in the world.",
   },
+  {
+    title: "Mona Lisa",
+    artist: "Leonardo da Vinci, Italian",
+    medium: "Oil on poplar panel",
+    year: "c. 1503–1519",
+    image: "/images/art/mona-lisa.jpg",
+    url: "https://en.wikipedia.org/wiki/Mona_Lisa",
+    note: "Leonardo began the portrait in Florence around 1503, most likely depicting Lisa Gherardini, wife of the silk merchant Francesco del Giocondo—the source of its Italian name, *La Gioconda*. He never delivered it to the family; instead he carried the unfinished panel with him for years, refining it until his death in France in 1519, after which it passed to King Francis I and into the French royal collection. Napoleon hung it in his own bedroom in the Tuileries Palace for several years before it entered the Louvre, where it drew little notice until its 1911 theft by the Italian handyman Vincenzo Peruggia—and its recovery two years later—turned it into the most famous painting in the world.",
+  },
 ];

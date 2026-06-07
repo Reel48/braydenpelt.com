@@ -60,4 +60,13 @@ export const art: ArtPiece[] = [
     url: "https://en.wikipedia.org/wiki/Mona_Lisa",
     note: "Leonardo began the portrait in Florence around 1503, most likely depicting Lisa Gherardini, wife of the silk merchant Francesco del Giocondo—the source of its Italian name, *La Gioconda*. He never delivered it to the family; instead he carried the unfinished panel with him for years, refining it until his death in France in 1519, after which it passed to King Francis I and into the French royal collection. Napoleon hung it in his own bedroom in the Tuileries Palace for several years before it entered the Louvre, where it drew little notice until its 1911 theft by the Italian handyman Vincenzo Peruggia—and its recovery two years later—turned it into the most famous painting in the world.",
   },
+  {
+    title: "The Moon",
+    artist: "Tarsila do Amaral, Brazilian",
+    medium: "Oil on canvas",
+    year: "1928",
+    image: "/images/art/the-moon.jpg",
+    url: "https://www.moma.org/collection/works/199984",
+    note: "A dreamlike nocturne by the pioneering Brazilian modernist, painted in 1928 during her Antropofagia phase—the same year she made her celebrated *Abaporu*. A slim golden crescent floats in an undulating blue sky above rolling green hills and a lone cactus, the whole landscape pared down to smooth, sculptural curves. MoMA acquired it in 2019, the first painting by Tarsila to enter the collection.",
+  },
 ];

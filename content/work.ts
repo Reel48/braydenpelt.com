@@ -24,6 +24,7 @@ export const education: EducationEntry[] = [
       "Honors College",
       "Dean's List",
       "President, Phi Kappa Psi fraternity",
+      "Member, .EXE Computer Science Club",
       "Summer internship at Gartner",
     ],
   },
@@ -38,6 +39,7 @@ export const education: EducationEntry[] = [
       "National Honor Society",
       "Quarterback, varsity football",
       "District champion, varsity tennis",
+      "One-act play team",
     ],
   },
 ];

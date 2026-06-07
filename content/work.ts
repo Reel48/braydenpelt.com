@@ -5,7 +5,31 @@ import type { WorkEntry, EducationEntry } from "@/lib/types";
  *   { role, organization, location?, start, end?, summary?, highlights?, url? }
  * Omit `end` (or use "Present") for your current role.
  */
-export const work: WorkEntry[] = [];
+export const work: WorkEntry[] = [
+  {
+    role: "Senior Account Executive",
+    organization: "Gartner",
+    start: "January 2025",
+  },
+  {
+    role: "Account Executive",
+    organization: "Gartner",
+    start: "August 2023",
+    end: "December 2024",
+  },
+  {
+    role: "Account Manager",
+    organization: "Gartner",
+    start: "September 2022",
+    end: "July 2023",
+  },
+  {
+    role: "Summer Sales Intern",
+    organization: "Gartner",
+    start: "May 2022",
+    end: "August 2022",
+  },
+];
 
 /**
  * Education, newest first. Shape:
@@ -25,7 +49,6 @@ export const education: EducationEntry[] = [
       "Dean's List",
       "President, Phi Kappa Psi fraternity",
       "Member, .EXE Computer Science Club",
-      "Summer internship at Gartner",
     ],
   },
   {

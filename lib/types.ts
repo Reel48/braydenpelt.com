@@ -54,7 +54,12 @@ export interface EducationEntry {
   location?: string;
   start: string;
   end?: string;
+  /** Bulleted achievements / activities. */
+  highlights?: string[];
+  /** Single note (legacy); rendered as one bullet if `highlights` is absent. */
   notes?: string;
+  /** Optional school logo, path under /public (e.g. "/images/education/foo.png"). */
+  logo?: string;
 }
 
 /* ---- Portfolio ---- */

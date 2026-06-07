@@ -52,7 +52,8 @@ export default function ResumePage() {
                     location={e.location}
                     period={e.end ? `${e.start} – ${e.end}` : e.start}
                     summary={e.field}
-                    highlights={e.notes ? [e.notes] : undefined}
+                    highlights={e.highlights ?? (e.notes ? [e.notes] : undefined)}
+                    logo={e.logo}
                   />
                 ))}
               </ol>

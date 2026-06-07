@@ -9,6 +9,35 @@ export const work: WorkEntry[] = [];
 
 /**
  * Education, newest first. Shape:
- *   { credential, institution, field?, location?, start, end?, notes? }
+ *   { credential, institution, field?, location?, start, end?, highlights?, logo? }
  */
-export const education: EducationEntry[] = [];
+export const education: EducationEntry[] = [
+  {
+    credential: "B.B.A. Marketing",
+    institution: "Texas State University",
+    field: "Concentration in Professional Sales",
+    location: "San Marcos, Texas",
+    start: "2018",
+    end: "2022",
+    logo: "/images/education/texas-state.png",
+    highlights: [
+      "Honors College",
+      "Dean's List",
+      "President, Phi Kappa Psi fraternity",
+      "Summer internship at Gartner",
+    ],
+  },
+  {
+    credential: "High School Diploma",
+    institution: "Hardin-Jefferson High School",
+    location: "Sour Lake, Texas",
+    start: "2014",
+    end: "2018",
+    logo: "/images/education/hardin-jefferson.png",
+    highlights: [
+      "National Honor Society",
+      "Quarterback, varsity football",
+      "District champion, varsity tennis",
+    ],
+  },
+];

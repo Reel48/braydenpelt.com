@@ -19,7 +19,7 @@ export default function QuotesPage() {
           file="content/quotes.ts"
         />
       ) : (
-        <div className="mx-auto max-w-[680px] pb-20">
+        <div className="pb-20">
           {quotes.map((q, i) => (
             <QuoteEntry
               key={`${q.author}-${i}`}

@@ -5,7 +5,11 @@ import { Lead } from "@/components/ui/lead";
 import { Button } from "@/components/ui/button";
 import { EmptyState } from "@/components/ui/empty-state";
 import { LinkGrid } from "@/components/ui/link-grid";
+import { ArtCarousel } from "@/components/art-carousel";
+import { QuoteCarousel } from "@/components/quote-carousel";
 import { profile } from "@/content/profile";
+import { art } from "@/content/art";
+import { quotes } from "@/content/quotes";
 import { exploreNav } from "@/lib/nav";
 
 export default function HomePage() {
@@ -36,6 +40,32 @@ export default function HomePage() {
           </Button>
         </div>
       </section>
+
+      {/* Art */}
+      {art.length ? (
+        <section className="pb-16">
+          <ArtCarousel
+            items={art.map((a) => ({
+              title: a.title,
+              artist: a.artist,
+              image: a.image,
+            }))}
+          />
+        </section>
+      ) : null}
+
+      {/* Quotes */}
+      {quotes.length ? (
+        <section className="pb-16">
+          <QuoteCarousel
+            items={quotes.map((q) => ({
+              text: q.text,
+              author: q.author,
+              source: q.source,
+            }))}
+          />
+        </section>
+      ) : null}
 
       {/* Explore */}
       <section className="pb-20">

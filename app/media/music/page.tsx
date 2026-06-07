@@ -81,7 +81,19 @@ export default async function MusicPage() {
         {playlist.length ? (
           <Section
             title={integrations.spotify.featuredPlaylistTitle}
-            badge={<LiveBadge source="Spotify" />}
+            badge={
+              <div className="flex items-center gap-4">
+                <a
+                  href={`https://open.spotify.com/playlist/${integrations.spotify.featuredPlaylistId}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-sans text-sm font-medium text-accent transition-colors hover:text-accent-strong"
+                >
+                  Open in Spotify ↗
+                </a>
+                <LiveBadge source="Spotify" />
+              </div>
+            }
           >
             <MusicGrid items={playlist} />
           </Section>

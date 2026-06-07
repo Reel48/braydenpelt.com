@@ -1,67 +1,68 @@
 @import "tailwindcss";
 
 /* ============================================================
-   braydenpelt.com — "Tea" design tokens
-   Warm cream canvas · forest-green primary · camel secondary.
-   NOTE: the ramp names are kept for compatibility — `blue-*` now
-   holds the GREEN (forest) ramp and `sage-*` holds the CAMEL ramp,
-   so existing utilities (bg-blue-100, text-sage-700, …) keep working.
+   braydenpelt.com — "Gallery" design tokens
+   Museum palette: a warm neutral value-scale plus six pigment
+   accents, one per section. Ramp names are kept for compatibility —
+   `blue-*` now holds the VIRIDIAN (green) ramp and `sage-*` the
+   TERRACOTTA (warm) ramp, so existing utilities keep working.
    Per-section accents are overridden below via [data-section].
    ============================================================ */
 @theme {
-  /* ---- Neutrals (warm) ---- */
+  /* ---- Neutrals (gallery value scale) ---- */
   --color-white: #ffffff;
-  --color-canvas: #fffff3; /* Cream — main canvas */
+  --color-canvas: #f5f2ec; /* Gallery White — walls / main canvas */
   --color-surface: #ffffff;
-  --color-surface-2: #fbf7ec;
-  --color-tint: #e6ecd8; /* pale green — soft panels */
-  --color-silver: #d8d2c4;
-  --color-border: #e7e1d3;
-  --color-border-strong: #d3ccbb;
-  --color-ink: #26241d; /* warm near-black */
-  --color-ink-soft: #4a463b;
-  --color-muted: #756e60;
-  --color-faint: #9e9e96;
+  --color-surface-2: #faf7f1;
+  --color-tint: #eae3d6; /* Linen — soft panels */
+  --color-silver: #d8cfbe; /* Plaster */
+  --color-border: #e4ddd0;
+  --color-border-strong: #d8cfbe; /* Plaster */
+  --color-ink: #1c1b19; /* Ink — primary type */
+  --color-ink-soft: #46443e; /* Graphite */
+  --color-muted: #6b665a;
+  --color-faint: #a89f8c; /* Stone */
 
-  /* ---- Green ramp (PRIMARY · forest) — token name kept as `blue-*` ---- */
-  --color-blue-50: #edf1e2;
-  --color-blue-100: #cad3af;
-  --color-blue-200: #b0c094;
-  --color-blue-300: #94a878;
-  --color-blue-400: #7c9268;
-  --color-blue-500: #5e7a57;
-  --color-blue-600: #436149;
-  --color-blue-700: #2f4a3b;
-  --color-blue-800: #1f3e39;
+  /* ---- Viridian ramp (PRIMARY · green) — token name kept as `blue-*` ---- */
+  --color-blue-50: #e7efeb;
+  --color-blue-100: #c9dcd3;
+  --color-blue-200: #a4c4b6;
+  --color-blue-300: #79a795;
+  --color-blue-400: #4f8b74;
+  --color-blue-500: #2e6e5a; /* Viridian */
+  --color-blue-600: #245a49;
+  --color-blue-700: #1c4639;
+  --color-blue-800: #15352b;
 
-  /* ---- Camel ramp (SECONDARY · warm) — token name kept as `sage-*` ---- */
-  --color-sage-50: #f8f0e5;
-  --color-sage-100: #eedfcb;
-  --color-sage-200: #e2c9a9;
-  --color-sage-300: #d3ae82;
-  --color-sage-400: #c59369;
-  --color-sage-500: #ae7b50;
-  --color-sage-600: #946540;
-  --color-sage-700: #7a5236;
-  --color-sage-800: #5e3f2a;
-  --color-sage-900: #46301f;
+  /* ---- Terracotta ramp (SECONDARY · warm) — token name kept as `sage-*` ---- */
+  --color-sage-50: #f7ece4;
+  --color-sage-100: #efd9c8;
+  --color-sage-200: #e2bfa4;
+  --color-sage-300: #d29e78;
+  --color-sage-400: #c17e50;
+  --color-sage-500: #b5683e; /* Terracotta */
+  --color-sage-600: #99542f;
+  --color-sage-700: #7c4326;
+  --color-sage-800: #5e331d;
+  --color-sage-900: #482815;
 
-  /* ---- Purposeful paired colors ---- */
-  --color-gold: #d7b665; /* highlight · featured (Scented) */
-  --color-clay: #935059; /* alert · attention (Black/maroon) */
-  --color-plum: #2b5563; /* editorial · variety (Oolong teal) */
+  /* ---- Pigment accents ---- */
+  --color-gold: #cda349; /* Ochre — highlight · featured */
+  --color-clay: #c8472e; /* Vermilion — alert · attention */
+  --color-plum: #5c3a57; /* Aubergine — editorial · variety */
+  --color-lapis: #2b4c8c; /* Lapis — secondary */
 
-  /* ---- Semantic aliases (default = Home/forest) ---- */
+  /* ---- Semantic aliases (default = Home/Viridian) ---- */
   --color-bg: var(--color-canvas);
-  --color-accent: #1f3e39;
-  --color-accent-strong: #15302b;
-  --color-accent-soft: #cad3af;
-  --color-secondary: var(--color-plum);
-  --color-success: #5e7a57;
+  --color-accent: #2e6e5a;
+  --color-accent-strong: #1c4639;
+  --color-accent-soft: #c9dcd3;
+  --color-secondary: var(--color-lapis);
+  --color-success: #2e6e5a;
   --color-highlight: var(--color-gold);
   --color-alert: var(--color-clay);
   --color-editorial: var(--color-plum);
-  --color-on-accent: #fffff3;
+  --color-on-accent: #f5f2ec;
 
   /* ---- Type ---- */
   --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
@@ -72,8 +73,8 @@
   --radius: 14px;
 
   /* ---- Shadows ---- */
-  --shadow-soft: 0 1px 2px rgba(40, 36, 29, 0.04),
-    0 10px 28px rgba(40, 36, 29, 0.06);
+  --shadow-soft: 0 1px 2px rgba(28, 27, 25, 0.05),
+    0 10px 28px rgba(28, 27, 25, 0.07);
 }
 
 /* ============================================================
@@ -83,34 +84,34 @@
    Only the accent trio changes; ink/gold/alert/success stay constant.
    ============================================================ */
 [data-section="home"] {
-  --color-accent: #1f3e39; /* forest green */
-  --color-accent-strong: #15302b;
-  --color-accent-soft: #cad3af;
+  --color-accent: #2e6e5a; /* Viridian — green */
+  --color-accent-strong: #1c4639;
+  --color-accent-soft: #c9dcd3;
 }
 [data-section="about"] {
-  --color-accent: #4c7355; /* green */
-  --color-accent-strong: #38593f;
-  --color-accent-soft: #d9e4c6;
+  --color-accent: #5c3a57; /* Aubergine — purple */
+  --color-accent-strong: #452b41;
+  --color-accent-soft: #e4d7e0;
 }
 [data-section="resources"] {
-  --color-accent: #2b5563; /* oolong teal */
-  --color-accent-strong: #1e4150;
-  --color-accent-soft: #d4e0e0;
+  --color-accent: #2b4c8c; /* Lapis — blue */
+  --color-accent-strong: #1f3a6e;
+  --color-accent-soft: #d2dbec;
 }
 [data-section="interests"] {
-  --color-accent: #8a4751; /* maroon */
-  --color-accent-strong: #6e3840;
-  --color-accent-soft: #edd3d3;
+  --color-accent: #b23a22; /* Vermilion — red (deepened for text) */
+  --color-accent-strong: #93301c;
+  --color-accent-soft: #f1d8d0;
 }
 [data-section="media"] {
-  --color-accent: #876420; /* deep gold (text-safe) */
-  --color-accent-strong: #6a4d14;
-  --color-accent-soft: #f2e5b9;
+  --color-accent: #7e5f1a; /* Ochre — gold (deepened for text) */
+  --color-accent-strong: #604812;
+  --color-accent-soft: #f0e4c2;
 }
 [data-section="sports"] {
-  --color-accent: #4a463b; /* puer brown */
-  --color-accent-strong: #332f26;
-  --color-accent-soft: #e1daca;
+  --color-accent: #9a5430; /* Terracotta — warm brown (deepened for text) */
+  --color-accent-strong: #7e4427;
+  --color-accent-soft: #ecd9ca;
 }
 
 /* ============================================================

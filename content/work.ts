@@ -14,7 +14,7 @@ export const work: WorkEntry[] = [
     logo: "/images/work/gartner.png",
     highlights: [
       "Manage a book of business exceeding $1,000,000 in annual contract value",
-      "Advise C-suite leaders across finance, IT, supply chain, and AI (CFO, CTO, CSCO)",
+      "Advise C-suite leaders across finance, IT, supply chain, and AI (CFO, CIO, CTO, CSCO)",
     ],
   },
   {

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Container } from "@/components/ui/container";
 import { PageHeader } from "@/components/ui/page-header";
 import { EmptyState } from "@/components/ui/empty-state";
-import { QuoteCard } from "@/components/cards/quote-card";
+import { QuoteEntry } from "@/components/cards/quote-entry";
 import { quotes } from "@/content/quotes";
 
 export const metadata: Metadata = { title: "Quotes" };
@@ -19,9 +19,13 @@ export default function QuotesPage() {
           file="content/quotes.ts"
         />
       ) : (
-        <div className="grid grid-cols-1 gap-5 pb-20 sm:grid-cols-2">
+        <div className="mx-auto max-w-[680px] pb-20">
           {quotes.map((q, i) => (
-            <QuoteCard key={`${q.author}-${i}`} quote={q} />
+            <QuoteEntry
+              key={`${q.author}-${i}`}
+              quote={q}
+              className="border-t border-border py-9 first:border-t-0 first:pt-2"
+            />
           ))}
         </div>
       )}

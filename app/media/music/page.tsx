@@ -28,6 +28,10 @@ function MusicGrid({ items }: { items: MusicItem[] }) {
         <MediaCard
           key={`${m.title}-${i}`}
           title={m.title}
+          // CMOS: albums italic, songs quoted, artist names plain.
+          titleStyle={
+            m.kind === "song" ? "quoted" : m.kind === "artist" ? "plain" : "italic"
+          }
           subtitle={m.artist}
           note={m.note}
           image={m.cover}

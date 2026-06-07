@@ -1,3 +1,4 @@
+import { renderInline } from "@/lib/inline";
 import type { Resource } from "@/lib/types";
 
 function hostname(url: string): string {
@@ -30,7 +31,7 @@ export function ResourceCard({ resource }: { resource: Resource }) {
       </div>
       {resource.description ? (
         <p className="mt-1 font-serif text-[1rem] leading-[1.6] text-ink-soft">
-          {resource.description}
+          {renderInline(resource.description)}
         </p>
       ) : null}
       {host ? (

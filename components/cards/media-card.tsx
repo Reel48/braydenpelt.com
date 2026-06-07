@@ -1,4 +1,5 @@
 import { cn } from "@/lib/cn";
+import { renderInline } from "@/lib/inline";
 
 /** Compact rating, e.g. ★★★★☆ for n out of 5. */
 function Rating({ value }: { value: number }) {
@@ -17,6 +18,7 @@ function Rating({ value }: { value: number }) {
  */
 export function MediaCard({
   title,
+  titleStyle = "italic",
   subtitle,
   meta,
   note,
@@ -26,6 +28,8 @@ export function MediaCard({
   className,
 }: {
   title: string;
+  /** How the title renders: italic (books, films, albums), "quoted" (songs), or plain (artists). */
+  titleStyle?: "italic" | "quoted" | "plain";
   subtitle?: string;
   meta?: string;
   note?: string;
@@ -52,7 +56,13 @@ export function MediaCard({
       ) : null}
       <div className="min-w-0">
         <h3 className="font-serif text-[1.1rem] leading-snug text-ink">
-          {title}
+          {titleStyle === "italic" ? (
+            <em className="italic">{title}</em>
+          ) : titleStyle === "quoted" ? (
+            <>&ldquo;{title}&rdquo;</>
+          ) : (
+            title
+          )}
         </h3>
         {subtitle ? (
           <p className="font-sans text-sm text-muted">{subtitle}</p>
@@ -63,7 +73,7 @@ export function MediaCard({
         </div>
         {note ? (
           <p className="mt-2 font-serif text-[0.95rem] leading-[1.5] text-ink-soft">
-            {note}
+            {renderInline(note)}
           </p>
         ) : null}
       </div>

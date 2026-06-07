@@ -3,6 +3,7 @@ import { Container } from "@/components/ui/container";
 import { PageHeader } from "@/components/ui/page-header";
 import { EmptyState } from "@/components/ui/empty-state";
 import { LightboxImage } from "@/components/lightbox-image";
+import { renderInline } from "@/lib/inline";
 import { art } from "@/content/art";
 
 export const metadata: Metadata = { title: "Art" };
@@ -43,7 +44,7 @@ export default function ArtPage() {
                 <figcaption className="p-4">
                   <div className="flex items-baseline justify-between gap-2">
                     <h2 className="font-serif text-[1.1rem] text-ink">
-                      {piece.title}
+                      <em className="italic">{piece.title}</em>
                     </h2>
                     {meta ? (
                       <span className="font-sans text-xs text-faint">{meta}</span>
@@ -56,7 +57,7 @@ export default function ArtPage() {
                   ) : null}
                   {piece.note ? (
                     <p className="mt-2 font-serif text-[0.95rem] leading-[1.6] text-ink-soft">
-                      {piece.note}
+                      {renderInline(piece.note)}
                     </p>
                   ) : null}
                   {piece.url ? (

@@ -1,4 +1,5 @@
 import { Card } from "@/components/ui/card";
+import { renderInline } from "@/lib/inline";
 import type { Quote } from "@/lib/types";
 
 export function QuoteCard({ quote }: { quote: Quote }) {
@@ -11,14 +12,14 @@ export function QuoteCard({ quote }: { quote: Quote }) {
         &ldquo;
       </span>
       <blockquote className="font-serif italic text-[clamp(1.25rem,2.2vw,1.6rem)] leading-[1.3] text-ink">
-        {quote.text}
+        {renderInline(quote.text)}
       </blockquote>
       <div className="mt-4 font-sans text-sm text-muted">
         &mdash; <span className="font-semibold text-blue-700">{quote.author}</span>
-        {quote.source ? <span>, {quote.source}</span> : null}
+        {quote.source ? <span>, {renderInline(quote.source)}</span> : null}
       </div>
       {quote.note ? (
-        <p className="mt-3 font-sans text-sm text-muted">{quote.note}</p>
+        <p className="mt-3 font-sans text-sm text-muted">{renderInline(quote.note)}</p>
       ) : null}
     </Card>
   );

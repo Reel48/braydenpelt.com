@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Tag } from "@/components/ui/tag";
+import { renderInline } from "@/lib/inline";
 import type { Project } from "@/lib/types";
 
 export function ProjectCard({ project }: { project: Project }) {
@@ -30,7 +31,7 @@ export function ProjectCard({ project }: { project: Project }) {
           </p>
         ) : null}
         <p className="mt-2 font-serif text-[1rem] leading-[1.6] text-ink-soft">
-          {project.summary}
+          {renderInline(project.summary)}
         </p>
         {project.tags?.length ? (
           <div className="mt-3 flex flex-wrap gap-1.5">

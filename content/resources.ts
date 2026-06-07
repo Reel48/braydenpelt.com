@@ -12,7 +12,7 @@ export const companies: Resource[] = [
     title: "Anker",
     url: "https://www.anker.com",
     description:
-      "Consumer-electronics maker known for dependable charging gear, power banks, and cables — plus the Soundcore audio and eufy smart-home brands.",
+      "Consumer-electronics maker known for dependable charging gear, power banks, and cables—plus the Soundcore audio and eufy smart-home brands.",
   },
   {
     title: "Apple",
@@ -24,7 +24,7 @@ export const companies: Resource[] = [
     title: "Bear",
     url: "https://bear.app",
     description:
-      "A focused, Markdown-based notes and writing app for Apple devices — clean design, fast tag-based organization.",
+      "A focused, Markdown-based notes and writing app for Apple devices—clean design, fast tag-based organization.",
   },
   {
     title: "Costco",
@@ -48,7 +48,7 @@ export const companies: Resource[] = [
     title: "White Barn",
     url: "https://www.bathandbodyworks.com/c/white-barn",
     description:
-      "Bath & Body Works' home-fragrance line — 3-wick candles, Wallflowers, and room sprays in seasonal scents.",
+      "Bath & Body Works' home-fragrance line—three-wick candles, Wallflowers, and room sprays in seasonal scents.",
   },
 ];
 
@@ -58,25 +58,25 @@ export const products: Resource[] = [
     title: "Casper Hybrid Snow Pillow",
     url: "https://casper.com/products/hybrid-snow-pillow",
     description:
-      "Cooling pillow with Snow Technology — phase-change material and heat-wicking bands over foam and down-alternative fiber for a balanced, cooler-sleeping feel.",
+      "Cooling pillow with Snow Technology—phase-change material and heat-wicking bands over foam and down-alternative fiber for a balanced, cooler-sleeping feel.",
   },
   {
     title: "Kindle Paperwhite",
     url: "https://www.amazon.com/Kindle-Paperwhite/b?node=11624010011",
     description:
-      "Amazon's e-reader with a glare-free 300-ppi display, adjustable warm light, waterproofing, and weeks of battery — reads like paper in any light.",
+      "Amazon's e-reader with a glare-free 300-ppi display, adjustable warm light, waterproofing, and weeks of battery—reads like paper in any light.",
   },
   {
     title: "Pilot G2",
     url: "https://pilotpen.us",
     description:
-      "Refillable retractable gel-ink rollerball with a contoured grip — smooth, quick-drying, and America's best-selling gel pen.",
+      "Refillable retractable gel-ink rollerball with a contoured grip—smooth, quick-drying, and America's best-selling gel pen.",
   },
   {
     title: "Tecovas Leather Wallets",
     url: "https://www.tecovas.com/shop/wallets",
     description:
-      "Full-grain leather wallets from the Western-heritage brand best known for its handmade boots — clean, durable, and made to patina with age.",
+      "Full-grain leather wallets from the Western-heritage brand best known for its handmade boots—clean, durable, and made to patina with age.",
   },
 ];
 
@@ -92,13 +92,13 @@ export const tools: Resource[] = [
     title: "Apple Developer",
     url: "https://developer.apple.com/",
     description:
-      "Apple's developer hub — documentation, SDKs, Xcode, and the Human Interface Guidelines.",
+      "Apple's developer hub—documentation, SDKs, Xcode, and the Human Interface Guidelines.",
   },
   {
     title: "Awwwards",
     url: "https://www.awwwards.com/",
     description:
-      "Awards site recognizing the best in web design and development — a deep well of design inspiration.",
+      "Awards site recognizing the best in web design and development—a deep well of design inspiration.",
   },
   {
     title: "Transitions.dev",

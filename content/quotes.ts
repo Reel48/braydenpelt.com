@@ -19,8 +19,8 @@ export const quotes: Quote[] = [
   },
   {
     text: "Of course it is happening inside your head, Harry, but why on earth should that mean that it is not real?",
-    author: "J.K. Rowling",
-    source: "Harry Potter and the Deathly Hallows",
+    author: "J. K. Rowling",
+    source: "*Harry Potter and the Deathly Hallows*",
   },
   {
     text: "Anyone who has never made a mistake has never tried anything new.",
@@ -33,6 +33,6 @@ export const quotes: Quote[] = [
   {
     text: "He's more myself than I am. Whatever our souls are made of, his and mine are the same.",
     author: "Emily Brontë",
-    source: "Wuthering Heights",
+    source: "*Wuthering Heights*",
   },
 ];

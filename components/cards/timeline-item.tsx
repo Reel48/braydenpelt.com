@@ -1,3 +1,5 @@
+import { renderInline } from "@/lib/inline";
+
 /** A single entry in a vertical timeline (work roles or education). */
 export function TimelineItem({
   title,
@@ -29,14 +31,14 @@ export function TimelineItem({
       </p>
       {summary ? (
         <p className="mt-2 font-serif text-[1.05rem] leading-[1.6] text-ink-soft">
-          {summary}
+          {renderInline(summary)}
         </p>
       ) : null}
       {highlights?.length ? (
         <ul className="mt-2 list-disc pl-5 font-serif text-[1rem] leading-[1.6] text-ink-soft marker:text-faint">
           {highlights.map((h, i) => (
             <li key={i} className="my-1">
-              {h}
+              {renderInline(h)}
             </li>
           ))}
         </ul>

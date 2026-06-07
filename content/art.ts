@@ -42,4 +42,13 @@ export const art: ArtPiece[] = [
     url: "https://krollermuller.nl/en/vincent-van-gogh-terrace-of-a-cafe-at-night-place-du-forum-1",
     note: "Painted on the Place du Forum in Arles in September 1888, this is the first of Van Gogh's starry-night scenes—a café terrace glowing warm yellow and orange against a deep blue, star-filled sky. Famously, he rendered the entire night without using any black paint, and the constellations overhead appear as they actually did on the night he worked.",
   },
+  {
+    title: "The Starry Night",
+    artist: "Vincent van Gogh, Dutch",
+    medium: "Oil on canvas",
+    year: "1889",
+    image: "/images/art/starry-night.jpg",
+    url: "https://www.moma.org/collection/works/79802",
+    note: "Painted from the window of his room at the Saint-Paul-de-Mausole asylum in Saint-Rémy-de-Provence in June 1889, Van Gogh's most famous canvas sets a turbulent, swirling sky over a quiet village he largely imagined. A flame-like cypress climbs toward eleven stars and a glowing crescent moon, the whole scene built from thick, rhythmic strokes of blue and gold. He dismissed it as a failed study in his letters, yet it has become one of the most recognized paintings in the world.",
+  },
 ];

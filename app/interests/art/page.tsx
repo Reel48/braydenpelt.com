@@ -34,7 +34,7 @@ export default function ArtPage() {
             return (
               <figure
                 key={`${piece.title}-${i}`}
-                className="mb-5 break-inside-avoid overflow-hidden rounded-[14px] border border-border bg-surface shadow-soft"
+                className="mb-5 break-inside-avoid overflow-hidden rounded-[14px] border border-card-border bg-card shadow-soft"
               >
                 <LightboxImage
                   src={piece.image}

@@ -64,6 +64,10 @@
   --color-editorial: var(--color-plum);
   --color-on-accent: #f5f2ec;
 
+  /* ---- Tinted card surfaces (a faint wash of the section accent) ---- */
+  --color-card: color-mix(in srgb, var(--color-accent) 9%, #fff);
+  --color-card-border: color-mix(in srgb, var(--color-accent) 22%, var(--color-border));
+
   /* ---- Type ---- */
   --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
   --font-serif: Georgia, "Times New Roman", serif;

@@ -16,7 +16,7 @@ export function ResourceCard({ resource }: { resource: Resource }) {
       href={resource.url}
       target="_blank"
       rel="noopener noreferrer"
-      className="group flex flex-col rounded-[14px] border border-border bg-surface p-5 shadow-soft transition-colors hover:border-accent"
+      className="group flex flex-col rounded-[14px] border border-card-border bg-card p-5 shadow-soft transition-colors hover:border-accent"
     >
       <div className="flex items-baseline justify-between gap-3">
         <h3 className="font-serif text-[1.2rem] text-ink transition-colors group-hover:text-accent">

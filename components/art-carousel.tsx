@@ -14,7 +14,7 @@ export function ArtCarousel({ items }: { items: ArtSlide[] }) {
           key={`${piece.title}-${i}`}
           className="w-[clamp(260px,78vw,400px)] shrink-0 snap-start"
         >
-          <div className="overflow-hidden rounded-[14px] border border-border bg-canvas shadow-soft">
+          <div className="overflow-hidden rounded-[14px] border border-card-border bg-card shadow-soft">
             <LightboxImage
               src={piece.image}
               alt={piece.title}

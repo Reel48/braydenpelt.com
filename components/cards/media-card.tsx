@@ -41,7 +41,7 @@ export function MediaCard({
   const inner = (
     <div
       className={cn(
-        "flex h-full gap-4 rounded-[14px] border border-border bg-surface p-4 shadow-soft transition-colors",
+        "flex h-full gap-4 rounded-[14px] border border-card-border bg-card p-4 shadow-soft transition-colors",
         href && "hover:border-accent",
         className,
       )}

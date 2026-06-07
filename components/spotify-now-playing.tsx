@@ -38,7 +38,7 @@ export function SpotifyNowPlaying() {
       href={np.url}
       target="_blank"
       rel="noopener noreferrer"
-      className="mb-8 flex items-center gap-4 rounded-[14px] border border-border bg-surface p-4 shadow-soft transition-colors hover:border-accent"
+      className="mb-8 flex items-center gap-4 rounded-[14px] border border-card-border bg-card p-4 shadow-soft transition-colors hover:border-accent"
     >
       {np.cover ? (
         // eslint-disable-next-line @next/next/no-img-element

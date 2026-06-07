@@ -14,7 +14,7 @@ export function Card({
     as,
     {
       className: cn(
-        "rounded-[14px] border border-border bg-surface p-6 sm:p-8 shadow-soft",
+        "rounded-[14px] border border-card-border bg-card p-6 sm:p-8 shadow-soft",
         className,
       ),
     },

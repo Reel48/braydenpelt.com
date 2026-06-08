@@ -16,7 +16,7 @@ function DesktopItem({ item, pathname }: { item: NavItem; pathname: string }) {
   const active = isActive(pathname, item.href);
   const base =
     "rounded-full px-3 py-1.5 font-sans text-sm transition-colors inline-flex items-center gap-1";
-  const tone = active ? "text-ink" : "text-muted hover:text-ink";
+  const tone = active ? "text-white" : "text-blue-200 hover:text-white";
 
   if (!item.children) {
     return (
@@ -63,11 +63,11 @@ export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border bg-bg/80 backdrop-blur-md">
+    <header className="sticky top-0 z-40 border-b border-white/10 bg-secondary/90 text-white backdrop-blur-md">
       <Container className="flex h-16 items-center justify-between gap-4">
         <Link
           href="/"
-          className="font-serif text-[1.2rem] tracking-[-0.01em] text-ink"
+          className="font-serif text-[1.2rem] tracking-[-0.01em] text-white"
         >
           Brayden Pelt
         </Link>
@@ -85,7 +85,7 @@ export function Header() {
           aria-label="Toggle menu"
           aria-expanded={mobileOpen}
           onClick={() => setMobileOpen((v) => !v)}
-          className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border text-ink md:hidden"
+          className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/30 text-white md:hidden"
         >
           {mobileOpen ? "✕" : "☰"}
         </button>
@@ -104,13 +104,13 @@ export function Header() {
                     "block rounded-lg px-3 py-2 font-sans text-sm font-medium transition-colors",
                     isActive(pathname, item.href)
                       ? "bg-accent-soft text-accent-strong"
-                      : "text-ink hover:bg-canvas",
+                      : "text-white hover:bg-white/10",
                   )}
                 >
                   {item.label}
                 </Link>
                 {item.children ? (
-                  <div className="mt-0.5 ml-3 flex flex-col border-l border-border pl-3">
+                  <div className="mt-0.5 ml-3 flex flex-col border-l border-white/15 pl-3">
                     {item.children.map((child) => (
                       <Link
                         key={child.href}
@@ -119,8 +119,8 @@ export function Header() {
                         className={cn(
                           "rounded-lg px-3 py-2 font-sans text-sm transition-colors",
                           isActive(pathname, child.href)
-                            ? "text-accent-strong"
-                            : "text-ink-soft hover:bg-canvas",
+                            ? "font-medium text-white"
+                            : "text-blue-200 hover:bg-white/10",
                         )}
                       >
                         {child.label}

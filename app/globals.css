@@ -1,74 +1,68 @@
 @import "tailwindcss";
 
 /* ============================================================
-   braydenpelt.com — "Gallery" design tokens
-   Museum palette: a warm neutral value-scale carries all the
-   structure (Linen walls · Gallery-White cards · Plaster borders ·
-   Ink/Graphite type). A single accent — Viridian — is used sparingly
-   on type and interactive elements. The other five pigments are kept
-   as named tokens for occasional use.
+   braydenpelt.com — color system (Met-style)
+   Foundation: White + Light-Grey do the structural work, Charcoal
+   carries type. A single blue family is the brand: Azure for links,
+   Signature Blue for hero/CTAs, Deep Navy for header/footer, Sky for
+   quiet tints. Ramp names are kept for compatibility — `blue-*` is the
+   blue ramp and `sage-*` is a neutral grey ramp.
    ============================================================ */
 @theme {
-  /* ---- Neutrals (gallery value scale) ---- */
+  /* ---- Foundation neutrals ---- */
   --color-white: #ffffff;
-  --color-canvas: #eae3d6; /* Linen — page wall */
-  --color-surface: #f5f2ec; /* Gallery White — cards */
-  --color-surface-2: #e5ddcd; /* soft inset — code, empty states */
-  --color-tint: #e5ddcd;
-  --color-silver: #d8cfbe; /* Plaster */
-  --color-border: #d8cfbe; /* Plaster */
-  --color-border-strong: #b9ae98;
-  --color-ink: #1c1b19; /* Ink — primary type */
-  --color-ink-soft: #46443e; /* Graphite */
-  --color-muted: #6e6759;
-  --color-faint: #a0957f; /* ~Stone */
+  --color-canvas: #ececea; /* Light Grey — page field */
+  --color-surface: #ffffff; /* Pure White — cards */
+  --color-surface-2: #f1f1ef; /* soft inset — code, empty states */
+  --color-tint: #dce6f6; /* Sky — quiet tint */
+  --color-silver: #dcdcd9;
+  --color-border: #dcdcd9;
+  --color-border-strong: #c6c6c2;
+  --color-ink: #1f1f1f; /* Charcoal — primary type */
+  --color-ink-soft: #3d3d3a;
+  --color-muted: #6a6a65;
+  --color-faint: #9a9a94;
 
-  /* ---- Viridian ramp (accent family) — token name kept as `blue-*` ---- */
-  --color-blue-50: #e7efeb;
-  --color-blue-100: #c9dcd3;
-  --color-blue-200: #a4c4b6;
-  --color-blue-300: #79a795;
-  --color-blue-400: #4f8b74;
-  --color-blue-500: #2e6e5a; /* Viridian */
-  --color-blue-600: #245a49;
-  --color-blue-700: #1c4639;
-  --color-blue-800: #15352b;
+  /* ---- Named blues (the signature family) ---- */
+  --color-sky: #dce6f6;
+  --color-azure: #3d78d6;
+  --color-signature: #0a4fb4;
+  --color-navy: #0a2a5e;
 
-  /* ---- Terracotta ramp — token name kept as `sage-*` ---- */
-  --color-sage-50: #f7ece4;
-  --color-sage-100: #efd9c8;
-  --color-sage-200: #e2bfa4;
-  --color-sage-300: #d29e78;
-  --color-sage-400: #c17e50;
-  --color-sage-500: #b5683e; /* Terracotta */
-  --color-sage-600: #99542f;
-  --color-sage-700: #7c4326;
-  --color-sage-800: #5e331d;
-  --color-sage-900: #482815;
+  /* ---- Blue ramp (Sky → Deep Navy) — token name kept as `blue-*` ---- */
+  --color-blue-50: #eaf1fb;
+  --color-blue-100: #dce6f6; /* Sky */
+  --color-blue-200: #c2d6f1;
+  --color-blue-300: #93b5ea;
+  --color-blue-400: #6f9de0;
+  --color-blue-500: #3d78d6; /* Azure */
+  --color-blue-600: #1e5ec6;
+  --color-blue-700: #0a4fb4; /* Signature Blue */
+  --color-blue-800: #0a2a5e; /* Deep Navy */
 
-  /* ---- Named pigments (the six accents — kept for occasional use) ---- */
-  --color-viridian: #2e6e5a;
-  --color-lapis: #2b4c8c;
-  --color-aubergine: #5c3a57;
-  --color-vermilion: #c8472e;
-  --color-ochre: #cda349;
-  --color-terracotta: #b5683e;
-  /* legacy aliases (used by tag.tsx) */
-  --color-gold: var(--color-ochre);
-  --color-clay: var(--color-vermilion);
-  --color-plum: var(--color-aubergine);
+  /* ---- Neutral grey ramp — token name kept as `sage-*` ---- */
+  --color-sage-50: #f6f6f5;
+  --color-sage-100: #ececea;
+  --color-sage-200: #dededb;
+  --color-sage-300: #cacac6;
+  --color-sage-400: #adada8;
+  --color-sage-500: #8c8c87;
+  --color-sage-600: #6a6a65;
+  --color-sage-700: #4a4a47;
+  --color-sage-800: #30302e;
+  --color-sage-900: #1f1f1f;
 
-  /* ---- Semantic aliases (single Viridian accent) ---- */
+  /* ---- Semantic aliases (single blue hero) ---- */
   --color-bg: var(--color-canvas);
-  --color-accent: var(--color-viridian);
-  --color-accent-strong: #1c4639;
-  --color-accent-soft: #d7e3dd;
-  --color-secondary: var(--color-lapis);
-  --color-success: var(--color-viridian);
-  --color-highlight: var(--color-ochre);
-  --color-alert: var(--color-vermilion);
-  --color-editorial: var(--color-aubergine);
-  --color-on-accent: #f5f2ec;
+  --color-accent: var(--color-azure); /* links · interactive */
+  --color-accent-strong: var(--color-signature); /* hover · CTAs · hero */
+  --color-accent-soft: var(--color-sky); /* tints · selection · active nav */
+  --color-secondary: var(--color-navy);
+  --color-success: var(--color-azure);
+  --color-highlight: var(--color-signature); /* star ratings */
+  --color-alert: var(--color-signature); /* draft label (no red in palette) */
+  --color-editorial: var(--color-navy);
+  --color-on-accent: #ffffff;
 
   /* ---- Type ---- */
   --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
@@ -79,8 +73,8 @@
   --radius: 14px;
 
   /* ---- Shadows ---- */
-  --shadow-soft: 0 1px 2px rgba(28, 27, 25, 0.05),
-    0 10px 28px rgba(28, 27, 25, 0.07);
+  --shadow-soft: 0 1px 2px rgba(31, 31, 31, 0.05),
+    0 10px 28px rgba(31, 31, 31, 0.07);
 }
 
 /* ============================================================

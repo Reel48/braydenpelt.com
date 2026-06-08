@@ -16,47 +16,30 @@ export const metadata: Metadata = { title: "Design System" };
 
 type Swatch = { name: string; hex: string };
 
-const neutrals: Swatch[] = [
-  { name: "White", hex: "#FFFFFF" },
-  { name: "Canvas", hex: "#F4F4F4" },
-  { name: "Pale Blue", hex: "#E0E8F0" },
-  { name: "Silver", hex: "#D3D9DF" },
-  { name: "Border-2", hex: "#C3CACF" },
-  { name: "Faint", hex: "#98A1A8" },
-  { name: "Muted", hex: "#69727A" },
-  { name: "Ink-soft", hex: "#3B4348" },
-  { name: "Ink", hex: "#1A1F22" },
+const foundation: Swatch[] = [
+  { name: "Pure White", hex: "#FFFFFF" },
+  { name: "Light Grey", hex: "#ECECEA" },
+  { name: "Charcoal", hex: "#1F1F1F" },
 ];
 
 const blue: Swatch[] = [
-  { name: "50", hex: "#EEF3F8" },
-  { name: "100", hex: "#E0E8F0" },
-  { name: "200", hex: "#C6D5E3" },
-  { name: "300", hex: "#A6BCD2" },
-  { name: "400", hex: "#7F9BB8" },
-  { name: "500", hex: "#5E7E9F" },
-  { name: "600", hex: "#496786" },
-  { name: "700", hex: "#3A5370" },
-  { name: "800", hex: "#2C3F55" },
+  { name: "Sky", hex: "#DCE6F6" },
+  { name: "Azure", hex: "#3D78D6" },
+  { name: "Signature Blue", hex: "#0A4FB4" },
+  { name: "Deep Navy", hex: "#0A2A5E" },
 ];
 
-const sage: Swatch[] = [
-  { name: "50", hex: "#F0F5F2" },
-  { name: "100", hex: "#DEEAE4" },
-  { name: "200", hex: "#C5D9CF" },
-  { name: "300", hex: "#9DBBAE" },
-  { name: "400", hex: "#7FA593" },
-  { name: "500", hex: "#608B78" },
-  { name: "600", hex: "#4A7160" },
-  { name: "700", hex: "#395A4C" },
-  { name: "800", hex: "#2B453A" },
-  { name: "900", hex: "#1F332B" },
-];
-
-const purposeful: Swatch[] = [
-  { name: "Highlight · gold", hex: "#C2A24B" },
-  { name: "Alert · clay", hex: "#C2674F" },
-  { name: "Editorial · plum", hex: "#8A6E96" },
+const grey: Swatch[] = [
+  { name: "50", hex: "#F6F6F5" },
+  { name: "100", hex: "#ECECEA" },
+  { name: "200", hex: "#DEDEDB" },
+  { name: "300", hex: "#CACAC6" },
+  { name: "400", hex: "#ADADA8" },
+  { name: "500", hex: "#8C8C87" },
+  { name: "600", hex: "#6A6A65" },
+  { name: "700", hex: "#4A4A47" },
+  { name: "800", hex: "#30302E" },
+  { name: "900", hex: "#1F1F1F" },
 ];
 
 function Ramp({ swatches }: { swatches: Swatch[] }) {
@@ -104,7 +87,7 @@ export default function DesignSystemPage() {
   return (
     <Container>
       <PageHeader
-        kicker="Serene Elegance"
+        kicker="Color System"
         title="Design System"
         intro="The living source of truth — palette, type, and components. Built from the same tokens the whole site uses."
       />
@@ -114,27 +97,21 @@ export default function DesignSystemPage() {
         <div className="space-y-7">
           <div>
             <h3 className="mb-3 font-sans text-[0.74rem] font-semibold uppercase tracking-[0.12em] text-faint">
-              Neutrals
+              Foundation — walls, surfaces, type
             </h3>
-            <Ramp swatches={neutrals} />
+            <Ramp swatches={foundation} />
           </div>
           <div>
             <h3 className="mb-3 font-sans text-[0.74rem] font-semibold uppercase tracking-[0.12em] text-faint">
-              Steel Blue — primary
+              Blue — signature color
             </h3>
             <Ramp swatches={blue} />
           </div>
           <div>
             <h3 className="mb-3 font-sans text-[0.74rem] font-semibold uppercase tracking-[0.12em] text-faint">
-              Sage — secondary
+              Grey — neutral ramp
             </h3>
-            <Ramp swatches={sage} />
-          </div>
-          <div>
-            <h3 className="mb-3 font-sans text-[0.74rem] font-semibold uppercase tracking-[0.12em] text-faint">
-              Purposeful
-            </h3>
-            <Ramp swatches={purposeful} />
+            <Ramp swatches={grey} />
           </div>
         </div>
       </Section>
@@ -206,8 +183,7 @@ export default function DesignSystemPage() {
             </h3>
             <div className="flex flex-wrap gap-2">
               <Tag>Blue</Tag>
-              <Tag tone="sage">Sage</Tag>
-              <Tag tone="gold">Gold</Tag>
+              <Tag tone="sage">Grey</Tag>
               <Tag tone="neutral">Neutral</Tag>
             </div>
           </div>

@@ -5,7 +5,7 @@ type Tone = "blue" | "sage" | "gold" | "neutral";
 const tones: Record<Tone, string> = {
   blue: "bg-blue-100 text-blue-700",
   sage: "bg-sage-100 text-sage-700",
-  gold: "bg-[color-mix(in_srgb,var(--color-gold)_22%,#fff)] text-[#7a661f]",
+  gold: "bg-blue-50 text-blue-700",
   neutral: "bg-canvas text-muted border border-border",
 };
 

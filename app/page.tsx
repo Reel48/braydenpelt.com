@@ -4,9 +4,11 @@ import { Display } from "@/components/ui/heading";
 import { Button } from "@/components/ui/button";
 import { ArtCarousel } from "@/components/art-carousel";
 import { QuoteCarousel } from "@/components/quote-carousel";
+import { HomeResume } from "@/components/home-resume";
 import { profile } from "@/content/profile";
 import { art } from "@/content/art";
 import { quotes } from "@/content/quotes";
+import { work, education } from "@/content/work";
 
 export default function HomePage() {
   return (
@@ -25,6 +27,9 @@ export default function HomePage() {
           </Button>
         </div>
       </section>
+
+      {/* Resume */}
+      <HomeResume work={work} education={education} />
 
       {/* Art */}
       {art.length ? (

@@ -75,6 +75,10 @@
   /* ---- Shadows ---- */
   --shadow-soft: 0 1px 2px rgba(31, 31, 31, 0.05),
     0 10px 28px rgba(31, 31, 31, 0.07);
+  --shadow-art: 0 2px 6px rgba(31, 31, 31, 0.1),
+    0 14px 36px rgba(31, 31, 31, 0.16); /* frameless paintings — hung-on-a-wall depth */
+  --shadow-lift: 0 4px 10px rgba(31, 31, 31, 0.07),
+    0 18px 44px rgba(31, 31, 31, 0.13); /* interactive card hover */
 }
 
 /* ============================================================
@@ -120,5 +124,14 @@
   /* Tabular numerals helper for data tables */
   .tnum {
     font-variant-numeric: tabular-nums;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 }

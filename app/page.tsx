@@ -2,6 +2,7 @@ import { Container } from "@/components/ui/container";
 import { Kicker } from "@/components/ui/kicker";
 import { Display } from "@/components/ui/heading";
 import { Button } from "@/components/ui/button";
+import { Reveal } from "@/components/ui/reveal";
 import { ArtCarousel } from "@/components/art-carousel";
 import { QuoteCarousel } from "@/components/quote-carousel";
 import { HomeResume } from "@/components/home-resume";
@@ -29,11 +30,13 @@ export default function HomePage() {
       </section>
 
       {/* Resume */}
-      <HomeResume work={work} education={education} />
+      <Reveal>
+        <HomeResume work={work} education={education} />
+      </Reveal>
 
       {/* Art */}
       {art.length ? (
-        <section className="pb-16">
+        <Reveal as="section" className="pb-16">
           <ArtCarousel
             items={art.map((a) => ({
               title: a.title,
@@ -41,12 +44,12 @@ export default function HomePage() {
               image: a.image,
             }))}
           />
-        </section>
+        </Reveal>
       ) : null}
 
       {/* Quotes */}
       {quotes.length ? (
-        <section className="pb-16">
+        <Reveal as="section" className="pb-16">
           <QuoteCarousel
             items={quotes.map((q) => ({
               text: q.text,
@@ -54,7 +57,7 @@ export default function HomePage() {
               source: q.source,
             }))}
           />
-        </section>
+        </Reveal>
       ) : null}
     </Container>
   );

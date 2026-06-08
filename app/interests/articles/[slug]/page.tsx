@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Container } from "@/components/ui/container";
 import { Tag } from "@/components/ui/tag";
 import { mdxComponents } from "@/components/mdx/mdx-components";
+import { ArrowLeft } from "@/components/ui/icons";
 import { getArticle, getArticleSlugs } from "@/lib/content";
 import { formatDate } from "@/lib/format";
 
@@ -37,9 +38,10 @@ export default async function ArticlePage({
       <article className="mx-auto max-w-[68ch] pt-14 pb-20">
         <Link
           href="/interests/articles"
-          className="font-sans text-sm text-muted transition-colors hover:text-accent"
+          className="group inline-flex items-center gap-1 font-sans text-sm text-muted transition-colors hover:text-accent"
         >
-          ← Research
+          <ArrowLeft className="transition-transform duration-200 group-hover:-translate-x-0.5" />
+          Research
         </Link>
 
         <div className="mt-6 flex items-center gap-2 font-sans text-sm text-faint">

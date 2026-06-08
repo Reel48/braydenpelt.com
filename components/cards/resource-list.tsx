@@ -1,5 +1,6 @@
 import { EmptyState } from "@/components/ui/empty-state";
 import { ResourceCard } from "@/components/cards/resource-card";
+import { Reveal } from "@/components/ui/reveal";
 import type { Resource } from "@/lib/types";
 
 /** Grid of resource cards with a shared empty state. */
@@ -24,7 +25,9 @@ export function ResourceList({
   return (
     <div className="grid grid-cols-1 gap-4 pb-20 sm:grid-cols-2">
       {items.map((r, i) => (
-        <ResourceCard key={`${r.url}-${i}`} resource={r} />
+        <Reveal key={`${r.url}-${i}`} delay={Math.min(i, 6) * 60}>
+          <ResourceCard resource={r} />
+        </Reveal>
       ))}
     </div>
   );

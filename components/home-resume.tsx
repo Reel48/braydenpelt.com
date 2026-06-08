@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { TimelineItem } from "@/components/cards/timeline-item";
 import type { WorkEntry, EducationEntry } from "@/lib/types";
+import { ArrowRight, ChevronDown } from "@/components/ui/icons";
 
 function roleProps(w: WorkEntry) {
   return {
@@ -41,9 +42,10 @@ export function HomeResume({
         <h2 className="font-serif text-[1.5rem] text-ink">Resume</h2>
         <Link
           href="/resume"
-          className="font-sans text-sm font-medium text-accent transition-colors hover:text-accent-strong"
+          className="group inline-flex items-center gap-1 font-sans text-sm font-medium text-accent transition-colors hover:text-accent-strong"
         >
-          Full resume →
+          Full resume
+          <ArrowRight className="transition-transform duration-200 group-hover:translate-x-0.5" />
         </Link>
       </div>
 
@@ -86,12 +88,9 @@ export function HomeResume({
           className="mt-3 inline-flex items-center gap-1.5 font-sans text-sm font-medium text-accent transition-colors hover:text-accent-strong"
         >
           {expanded ? "Show less" : "Show full resume"}
-          <span
-            aria-hidden
-            className={`transition-transform ${expanded ? "rotate-180" : ""}`}
-          >
-            ↓
-          </span>
+          <ChevronDown
+            className={`transition-transform duration-200 ${expanded ? "rotate-180" : ""}`}
+          />
         </button>
       ) : null}
     </section>

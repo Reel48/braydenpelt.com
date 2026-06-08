@@ -14,11 +14,11 @@ export function ArtCarousel({ items }: { items: ArtSlide[] }) {
           key={`${piece.title}-${i}`}
           className="w-[clamp(260px,78vw,400px)] shrink-0 snap-start"
         >
-          <div className="overflow-hidden rounded-[14px] border border-border bg-surface shadow-soft">
+          <div className="group/art overflow-hidden rounded-[10px] shadow-art">
             <LightboxImage
               src={piece.image}
               alt={piece.title}
-              className="h-[clamp(240px,42vh,340px)] w-full object-contain"
+              className="h-[clamp(240px,42vh,340px)] w-full object-cover transition-transform duration-500 ease-out group-hover/art:scale-[1.03]"
             />
           </div>
           <figcaption className="mt-3 leading-snug">

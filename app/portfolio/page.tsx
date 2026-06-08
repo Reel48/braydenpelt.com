@@ -3,6 +3,7 @@ import { Container } from "@/components/ui/container";
 import { PageHeader } from "@/components/ui/page-header";
 import { EmptyState } from "@/components/ui/empty-state";
 import { ProjectCard } from "@/components/cards/project-card";
+import { Reveal } from "@/components/ui/reveal";
 import { projects } from "@/content/portfolio";
 
 export const metadata: Metadata = { title: "Portfolio" };
@@ -21,7 +22,9 @@ export default function PortfolioPage() {
       ) : (
         <div className="grid grid-cols-1 gap-5 pb-20 sm:grid-cols-2 lg:grid-cols-3">
           {projects.map((p, i) => (
-            <ProjectCard key={p.slug ?? `${p.title}-${i}`} project={p} />
+            <Reveal key={p.slug ?? `${p.title}-${i}`} delay={Math.min(i, 6) * 60}>
+              <ProjectCard project={p} />
+            </Reveal>
           ))}
         </div>
       )}

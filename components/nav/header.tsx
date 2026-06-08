@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { Container } from "@/components/ui/container";
 import { nav, type NavItem } from "@/lib/nav";
 import { cn } from "@/lib/cn";
+import { Close, Menu } from "@/components/ui/icons";
 
 function isActive(pathname: string, href: string) {
   return href === "/" ? pathname === "/" : pathname.startsWith(href);
@@ -85,9 +86,9 @@ export function Header() {
           aria-label="Toggle menu"
           aria-expanded={mobileOpen}
           onClick={() => setMobileOpen((v) => !v)}
-          className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/30 text-white md:hidden"
+          className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/30 text-white transition-colors hover:bg-white/10 md:hidden"
         >
-          {mobileOpen ? "✕" : "☰"}
+          {mobileOpen ? <Close size={18} /> : <Menu size={18} />}
         </button>
       </Container>
 

@@ -11,6 +11,16 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Tag } from "@/components/ui/tag";
 import { EmptyState } from "@/components/ui/empty-state";
+import {
+  ArrowRight,
+  ArrowUpRight,
+  ArrowLeft,
+  ChevronDown,
+  ChevronLeft,
+  ChevronRight,
+  Close,
+  Menu,
+} from "@/components/ui/icons";
 
 export const metadata: Metadata = { title: "Design System" };
 
@@ -189,13 +199,65 @@ export default function DesignSystemPage() {
           </div>
           <div>
             <h3 className="mb-3 font-sans text-[0.74rem] font-semibold uppercase tracking-[0.12em] text-faint">
+              Icons — inline SVG, currentColor, stroke 2
+            </h3>
+            <div className="flex flex-wrap items-center gap-5 text-ink">
+              {(
+                [
+                  ["ArrowRight", ArrowRight],
+                  ["ArrowUpRight", ArrowUpRight],
+                  ["ArrowLeft", ArrowLeft],
+                  ["ChevronDown", ChevronDown],
+                  ["ChevronLeft", ChevronLeft],
+                  ["ChevronRight", ChevronRight],
+                  ["Close", Close],
+                  ["Menu", Menu],
+                ] as const
+              ).map(([name, Glyph]) => (
+                <div key={name} className="flex flex-col items-center gap-1.5">
+                  <Glyph size={20} />
+                  <span className="font-sans text-[0.66rem] text-muted">
+                    {name}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div>
+            <h3 className="mb-3 font-sans text-[0.74rem] font-semibold uppercase tracking-[0.12em] text-faint">
+              Elevation
+            </h3>
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+              {(
+                [
+                  ["shadow-soft", "Cards at rest"],
+                  ["shadow-lift", "Interactive hover"],
+                  ["shadow-art", "Frameless paintings"],
+                ] as const
+              ).map(([cls, label]) => (
+                <div
+                  key={cls}
+                  className={`rounded-[14px] bg-surface p-5 ${cls}`}
+                >
+                  <p className="font-sans text-[0.8rem] font-semibold text-ink">
+                    {cls}
+                  </p>
+                  <p className="mt-0.5 font-sans text-[0.72rem] text-muted">
+                    {label}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div>
+            <h3 className="mb-3 font-sans text-[0.74rem] font-semibold uppercase tracking-[0.12em] text-faint">
               Card
             </h3>
-            <Card className="max-w-md">
+            <Card className="max-w-md transition duration-200 hover:-translate-y-0.5 hover:shadow-lift">
               <Heading level={3}>Card title</Heading>
               <p className="mt-2 font-serif text-[1rem] leading-[1.6] text-ink-soft">
                 A surface for grouped content — used across portfolio, quotes, and
-                more.
+                more. Hover to see the lift.
               </p>
             </Card>
           </div>

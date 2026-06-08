@@ -5,6 +5,7 @@ import { Section, LiveBadge } from "@/components/ui/section";
 import { EmptyState } from "@/components/ui/empty-state";
 import { MediaCard } from "@/components/cards/media-card";
 import { SpotifyNowPlaying } from "@/components/spotify-now-playing";
+import { ArrowUpRight } from "@/components/ui/icons";
 import type { MusicItem } from "@/lib/types";
 import { music as manualMusic } from "@/content/music";
 import { integrations } from "@/content/integrations";
@@ -87,9 +88,10 @@ export default async function MusicPage() {
                   href={`https://open.spotify.com/playlist/${integrations.spotify.featuredPlaylistId}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-sans text-sm font-medium text-accent transition-colors hover:text-accent-strong"
+                  className="group/link inline-flex items-center gap-1 font-sans text-sm font-medium text-accent transition-colors hover:text-accent-strong"
                 >
-                  Open in Spotify ↗
+                  Open in Spotify
+                  <ArrowUpRight className="transition-transform duration-200 group-hover/link:-translate-y-0.5" />
                 </a>
                 <LiveBadge source="Spotify" />
               </div>

@@ -4,7 +4,7 @@ import { cn } from "@/lib/cn";
 type Variant = "primary" | "ghost";
 
 const base =
-  "inline-flex items-center justify-center rounded-full font-sans text-[0.92rem] font-medium px-5 py-3 transition-colors";
+  "inline-flex items-center justify-center rounded-full font-sans text-[0.92rem] font-medium px-5 py-3 transition duration-200";
 
 const variants: Record<Variant, string> = {
   primary: "bg-accent-strong text-on-accent hover:bg-secondary",

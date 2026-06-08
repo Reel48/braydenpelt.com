@@ -4,6 +4,7 @@ import { PageHeader } from "@/components/ui/page-header";
 import { LiveBadge } from "@/components/ui/section";
 import { EmptyState } from "@/components/ui/empty-state";
 import { MediaCard } from "@/components/cards/media-card";
+import { Reveal } from "@/components/ui/reveal";
 import { movies as manualMovies } from "@/content/movies";
 import { getLetterboxdMovies } from "@/lib/integrations/letterboxd";
 
@@ -32,16 +33,17 @@ export default async function MoviesPage() {
       ) : (
         <div className="grid grid-cols-1 gap-4 pb-20 sm:grid-cols-2">
           {movies.map((m, i) => (
-            <MediaCard
-              key={`${m.title}-${i}`}
-              title={m.title}
-              subtitle={m.director}
-              meta={m.year}
-              rating={m.rating}
-              note={m.note}
-              image={m.poster}
-              href={m.link}
-            />
+            <Reveal key={`${m.title}-${i}`} delay={Math.min(i, 6) * 60}>
+              <MediaCard
+                title={m.title}
+                subtitle={m.director}
+                meta={m.year}
+                rating={m.rating}
+                note={m.note}
+                image={m.poster}
+                href={m.link}
+              />
+            </Reveal>
           ))}
         </div>
       )}

@@ -5,6 +5,8 @@ import { EmptyState } from "@/components/ui/empty-state";
 import { LightboxImage } from "@/components/lightbox-image";
 import { renderInline } from "@/lib/inline";
 import { art } from "@/content/art";
+import { ArrowRight } from "@/components/ui/icons";
+import { Reveal } from "@/components/ui/reveal";
 
 export const metadata: Metadata = { title: "Art" };
 
@@ -28,20 +30,22 @@ export default function ArtPage() {
           file="content/art.ts"
         />
       ) : (
-        <div className="columns-1 gap-5 pb-20 sm:columns-2 lg:columns-3">
+        <Reveal className="columns-1 gap-5 pb-20 sm:columns-2 lg:columns-3">
           {art.map((piece, i) => {
             const meta = [piece.medium, piece.year].filter(Boolean).join(" · ");
             return (
               <figure
                 key={`${piece.title}-${i}`}
-                className="mb-5 break-inside-avoid overflow-hidden rounded-[14px] border border-border bg-surface shadow-soft"
+                className="mb-8 break-inside-avoid"
               >
-                <LightboxImage
-                  src={piece.image}
-                  alt={piece.title}
-                  className="w-full object-cover"
-                />
-                <figcaption className="p-4">
+                <div className="group/art overflow-hidden rounded-[10px] shadow-art">
+                  <LightboxImage
+                    src={piece.image}
+                    alt={piece.title}
+                    className="w-full object-cover transition-transform duration-500 ease-out group-hover/art:scale-[1.03]"
+                  />
+                </div>
+                <figcaption className="pt-3">
                   <div className="flex items-baseline justify-between gap-2">
                     <h2 className="font-serif text-[1.1rem] text-ink">
                       <em className="italic">{piece.title}</em>
@@ -65,16 +69,17 @@ export default function ArtPage() {
                       href={piece.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="mt-3 inline-block font-sans text-sm font-medium text-accent transition-colors hover:text-accent-strong"
+                      className="group/link mt-3 inline-flex items-center gap-1 font-sans text-sm font-medium text-accent transition-colors hover:text-accent-strong"
                     >
-                      View on {hostname(piece.url)} →
+                      View on {hostname(piece.url)}
+                      <ArrowRight className="transition-transform duration-200 group-hover/link:translate-x-0.5" />
                     </a>
                   ) : null}
                 </figcaption>
               </figure>
             );
           })}
-        </div>
+        </Reveal>
       )}
     </Container>
   );

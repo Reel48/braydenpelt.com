@@ -4,6 +4,7 @@ import { PageHeader } from "@/components/ui/page-header";
 import { LiveBadge } from "@/components/ui/section";
 import { EmptyState } from "@/components/ui/empty-state";
 import { MediaCard } from "@/components/cards/media-card";
+import { Reveal } from "@/components/ui/reveal";
 import { books as manualBooks } from "@/content/books";
 import { getGoodreadsBooks } from "@/lib/integrations/goodreads";
 
@@ -32,16 +33,17 @@ export default async function BooksPage() {
       ) : (
         <div className="grid grid-cols-1 gap-4 pb-20 sm:grid-cols-2">
           {books.map((b, i) => (
-            <MediaCard
-              key={`${b.title}-${i}`}
-              title={b.title}
-              subtitle={b.author}
-              meta={b.year}
-              rating={b.rating}
-              note={b.note}
-              image={b.cover}
-              href={b.link}
-            />
+            <Reveal key={`${b.title}-${i}`} delay={Math.min(i, 6) * 60}>
+              <MediaCard
+                title={b.title}
+                subtitle={b.author}
+                meta={b.year}
+                rating={b.rating}
+                note={b.note}
+                image={b.cover}
+                href={b.link}
+              />
+            </Reveal>
           ))}
         </div>
       )}

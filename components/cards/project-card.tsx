@@ -2,10 +2,11 @@ import { Card } from "@/components/ui/card";
 import { Tag } from "@/components/ui/tag";
 import { renderInline } from "@/lib/inline";
 import type { Project } from "@/lib/types";
+import { ArrowRight } from "@/components/ui/icons";
 
 export function ProjectCard({ project }: { project: Project }) {
   return (
-    <Card className="overflow-hidden p-0">
+    <Card className="overflow-hidden p-0 transition duration-200 hover:-translate-y-0.5 hover:shadow-lift">
       {project.image ? (
         // eslint-disable-next-line @next/next/no-img-element
         <img
@@ -47,9 +48,10 @@ export function ProjectCard({ project }: { project: Project }) {
                 href={project.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-accent"
+                className="group/visit inline-flex items-center gap-1 text-accent transition-colors hover:text-accent-strong"
               >
-                Visit &rarr;
+                Visit
+                <ArrowRight className="transition-transform duration-200 group-hover/visit:translate-x-0.5" />
               </a>
             ) : null}
             {project.repo ? (

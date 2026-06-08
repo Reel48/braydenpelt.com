@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import { ArrowRight, ChevronLeft, ChevronRight } from "@/components/ui/icons";
 
 /**
  * Horizontal, swipeable carousel shell: a titled header with an optional
@@ -28,7 +29,7 @@ export function Carousel({
   }
 
   const arrow =
-    "flex h-9 w-9 items-center justify-center rounded-full border border-border-strong font-sans text-muted transition-colors hover:border-accent hover:text-accent";
+    "flex h-9 w-9 items-center justify-center rounded-full border border-border-strong font-sans text-muted transition duration-200 hover:border-accent hover:bg-accent-soft hover:text-accent";
 
   return (
     <div>
@@ -38,9 +39,10 @@ export function Carousel({
           {viewAllHref ? (
             <a
               href={viewAllHref}
-              className="font-sans text-sm font-medium text-accent transition-colors hover:text-accent-strong"
+              className="group inline-flex items-center gap-1 font-sans text-sm font-medium text-accent transition-colors hover:text-accent-strong"
             >
-              {viewAllLabel} &rarr;
+              {viewAllLabel}
+              <ArrowRight className="transition-transform duration-200 group-hover:translate-x-0.5" />
             </a>
           ) : null}
           <div className="flex items-center gap-2">
@@ -50,7 +52,7 @@ export function Carousel({
               onClick={() => nudge(-1)}
               className={arrow}
             >
-              &larr;
+              <ChevronLeft />
             </button>
             <button
               type="button"
@@ -58,7 +60,7 @@ export function Carousel({
               onClick={() => nudge(1)}
               className={arrow}
             >
-              &rarr;
+              <ChevronRight />
             </button>
           </div>
         </div>

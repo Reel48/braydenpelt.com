@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { Close } from "@/components/ui/icons";
 
 /**
  * An image that opens a full-size lightbox overlay when clicked.
@@ -60,9 +61,9 @@ export function LightboxImage({
             type="button"
             aria-label="Close"
             onClick={() => setOpen(false)}
-            className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-xl text-white transition-colors hover:bg-white/20"
+            className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20"
           >
-            ✕
+            <Close size={20} />
           </button>
         </div>
       ) : null}

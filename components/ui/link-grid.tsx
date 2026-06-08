@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { NavItem } from "@/lib/nav";
+import { ArrowRight } from "@/components/ui/icons";
 
 /** A grid of large link cards — used by the home page and category hubs. */
 export function LinkGrid({ items }: { items: NavItem[] }) {
@@ -9,16 +10,16 @@ export function LinkGrid({ items }: { items: NavItem[] }) {
         <Link
           key={item.href}
           href={item.href}
-          className="group flex items-center justify-between rounded-[14px] border border-border bg-surface px-5 py-5 shadow-soft transition-colors hover:border-accent"
+          className="group flex items-center justify-between rounded-[14px] border border-border bg-surface px-5 py-5 shadow-soft transition duration-200 hover:-translate-y-0.5 hover:border-accent hover:shadow-lift"
         >
           <span className="font-serif text-[1.25rem] text-ink">
             {item.label}
           </span>
           <span
             aria-hidden
-            className="font-sans text-muted transition-transform group-hover:translate-x-0.5 group-hover:text-accent"
+            className="text-muted transition-transform duration-200 group-hover:translate-x-0.5 group-hover:text-accent"
           >
-            →
+            <ArrowRight />
           </span>
         </Link>
       ))}

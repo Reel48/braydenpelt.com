@@ -69,4 +69,13 @@ export const art: ArtPiece[] = [
     url: "https://www.moma.org/collection/works/199984",
     note: "A dreamlike nocturne by the pioneering Brazilian modernist, painted in 1928 during her Antropofagia phase—the same year she made her celebrated *Abaporu*. A slim golden crescent floats in an undulating blue sky above rolling green hills and a lone cactus, the whole landscape pared down to smooth, sculptural curves. MoMA acquired it in 2019, the first painting by Tarsila to enter the collection.",
   },
+  {
+    title: "Garden at Sainte-Adresse",
+    artist: "Claude Monet, French",
+    medium: "Oil on canvas",
+    year: "1867",
+    image: "/images/art/garden-at-sainte-adresse.jpg",
+    url: "https://en.wikipedia.org/wiki/Garden_at_Sainte-Adresse",
+    note: "Painted in the summer of 1867 from a flower-filled terrace at the Normandy resort of Sainte-Adresse, near Le Havre, this sunlit scene shows Monet's father and relatives gazing out over the Channel as sailboats and steamers pass. Monet called it “the Chinese painting in which there are flags,” a nod to the flattened space and high horizon he borrowed from Japanese prints; beds of gladioli and nasturtiums blaze against the sea in bands of pure color. An early masterpiece on the cusp of Impressionism, it entered the Met in 1967.",
+  },
 ];

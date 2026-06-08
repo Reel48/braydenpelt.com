@@ -23,12 +23,14 @@ export function ResourceList({
     );
   }
   return (
-    <div className="grid grid-cols-1 gap-4 pb-20 sm:grid-cols-2">
+    // Masonry columns (like the art gallery): each column flows independently,
+    // so a card's height never forces a gap on the card beside it.
+    <Reveal className="columns-1 gap-4 pb-20 sm:columns-2">
       {items.map((r, i) => (
-        <Reveal key={`${r.url}-${i}`} delay={Math.min(i, 6) * 60}>
+        <div key={`${r.url}-${i}`} className="mb-4 break-inside-avoid">
           <ResourceCard resource={r} />
-        </Reveal>
+        </div>
       ))}
-    </div>
+    </Reveal>
   );
 }

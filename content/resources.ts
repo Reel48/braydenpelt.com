@@ -62,6 +62,13 @@ export const products: Resource[] = [
       "Cooling pillow with Snow Technology—phase-change material and heat-wicking bands over foam and down-alternative fiber for a balanced, cooler-sleeping feel.",
   },
   {
+    title: "Docket Gold Narrow Ruled Pads",
+    url: "https://www.amazon.com/dp/B003FLMJL4",
+    image: "/images/products/docket-gold-narrow-ruled.jpg",
+    description:
+      "TOPS’s premium legal pad—thick, smooth yellow paper with a narrow rule that resists ink bleed, bound to a sturdy back that stays firm in the hand. Made in the USA and sold six pads to a pack.",
+  },
+  {
     title: "Kindle Paperwhite",
     url: "https://www.amazon.com/Kindle-Paperwhite/b?node=11624010011",
     image: "/images/products/kindle-paperwhite.jpg",

@@ -57,30 +57,35 @@ export const products: Resource[] = [
   {
     title: "Casper Hybrid Snow Pillow",
     url: "https://casper.com/products/hybrid-snow-pillow",
+    image: "/images/products/casper-hybrid-snow-pillow.webp",
     description:
       "Cooling pillow with Snow Technology—phase-change material and heat-wicking bands over foam and down-alternative fiber for a balanced, cooler-sleeping feel.",
   },
   {
     title: "Kindle Paperwhite",
     url: "https://www.amazon.com/Kindle-Paperwhite/b?node=11624010011",
+    image: "/images/products/kindle-paperwhite.jpg",
     description:
       "Amazon's e-reader with a glare-free 300-ppi display, adjustable warm light, waterproofing, and weeks of battery—reads like paper in any light.",
   },
   {
     title: "OGIO Renegade RSS",
     url: "https://www.ogio.com/backpacks/ogio-backpack-2017-renegade-rss.html?pid=spr4704946",
+    image: "/images/products/ogio-renegade-rss.webp",
     description:
       "Commuter backpack with an armored, foam-lined bay for 15-inch laptops (and slim 17-inch ones), a crush-proof tech vault for fragile gear, and OGIO's padded RSS straps that spread the load across your shoulders.",
   },
   {
     title: "Pilot G2",
     url: "https://pilotpen.us",
+    image: "/images/products/pilot-g2.jpg",
     description:
       "Refillable retractable gel-ink rollerball with a contoured grip—smooth, quick-drying, and America's best-selling gel pen.",
   },
   {
     title: "Tecovas Leather Wallets",
     url: "https://www.tecovas.com/shop/wallets",
+    image: "/images/products/tecovas-leather-wallets.avif",
     description:
       "Full-grain leather wallets from the Western-heritage brand best known for its handmade boots—clean, durable, and made to patina with age.",
   },

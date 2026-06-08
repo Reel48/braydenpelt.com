@@ -173,6 +173,8 @@ export interface Resource {
   description?: string;
   /** Optional grouping heading, e.g. "Tools", "Reading", "People". */
   category?: string;
+  /** Optional product image, path under /public (e.g. "/images/products/foo.jpg"). */
+  image?: string;
 }
 
 /* ---- Articles (MDX frontmatter + computed) ---- */

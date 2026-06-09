@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Container } from "@/components/ui/container";
@@ -63,7 +63,36 @@ export function Header() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
 
+  // Close the menu whenever the route changes (covers back/forward too).
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [pathname]);
+
+  // While the menu is open: lock background scroll, close on Escape, and
+  // close if the viewport grows past the mobile breakpoint.
+  useEffect(() => {
+    if (!mobileOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMobileOpen(false);
+    };
+    const mq = window.matchMedia("(min-width: 768px)");
+    const onMq = () => {
+      if (mq.matches) setMobileOpen(false);
+    };
+    document.addEventListener("keydown", onKey);
+    mq.addEventListener("change", onMq);
+    // The viewport scroller is <html>, so lock it (locking <body> alone does
+    // not stop the root scroll).
+    document.documentElement.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      mq.removeEventListener("change", onMq);
+      document.documentElement.style.overflow = "";
+    };
+  }, [mobileOpen]);
+
   return (
+    <>
     <header className="sticky top-0 z-40 border-b border-white/10 bg-secondary/90 text-white backdrop-blur-md">
       <Container className="flex h-16 items-center justify-between gap-4">
         <Link
@@ -83,19 +112,28 @@ export function Header() {
         {/* Mobile toggle */}
         <button
           type="button"
-          aria-label="Toggle menu"
+          aria-label={mobileOpen ? "Close menu" : "Open menu"}
           aria-expanded={mobileOpen}
+          aria-controls="mobile-menu"
           onClick={() => setMobileOpen((v) => !v)}
           className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/30 text-white transition-colors hover:bg-white/10 md:hidden"
         >
           {mobileOpen ? <Close size={18} /> : <Menu size={18} />}
         </button>
       </Container>
+      </header>
 
-      {/* Mobile panel — parents shown as headings (links to hub) with children beneath */}
+      {/* Mobile panel — full-height overlay below the bar; parents link to their
+          hub with children beneath. Rendered outside <header> because the header's
+          backdrop-filter would otherwise trap this fixed element. Solid background
+          + locked body scroll so the page can't show or scroll behind it. */}
       {mobileOpen ? (
-        <Container className="md:hidden">
-          <nav className="flex flex-col gap-1 pb-5">
+        <div
+          id="mobile-menu"
+          className="fixed inset-x-0 bottom-0 top-16 z-40 overflow-y-auto overscroll-contain bg-secondary md:hidden"
+        >
+          <Container>
+            <nav className="flex flex-col gap-1 py-4">
             {nav.map((item) => (
               <div key={item.href} className="py-1">
                 <Link
@@ -131,9 +169,10 @@ export function Header() {
                 ) : null}
               </div>
             ))}
-          </nav>
-        </Container>
+            </nav>
+          </Container>
+        </div>
       ) : null}
-    </header>
+    </>
   );
 }

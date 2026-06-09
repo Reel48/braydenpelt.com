@@ -33,11 +33,13 @@ export function LightboxImage({
       if (e.key === "Escape") setOpen(false);
     }
     document.addEventListener("keydown", onKey);
-    document.body.style.overflow = "hidden";
+    // The viewport scroller is <html>, so lock it (locking <body> alone does
+    // not stop the root scroll).
+    document.documentElement.style.overflow = "hidden";
     return () => {
       cancelAnimationFrame(raf);
       document.removeEventListener("keydown", onKey);
-      document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
     };
   }, [open]);
 

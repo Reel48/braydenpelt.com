@@ -100,18 +100,20 @@ export function Carousel({
       </div>
 
       <div className="relative">
-        {/* Edge masks — fade in only on the side that has more to scroll. */}
+        {/* Edge masks — fade in only on the side that has more to scroll.
+            The track bleeds 20px (-mx-5) past this wrapper for shadow room, so
+            the masks sit at -left-5/-right-5 to meet the slides' real edges. */}
         <div
           aria-hidden
           className={cn(
-            "pointer-events-none absolute inset-y-0 left-0 z-10 w-10 bg-gradient-to-r from-bg to-transparent transition-opacity duration-200",
+            "pointer-events-none absolute inset-y-0 -left-5 z-10 w-10 bg-gradient-to-r from-bg to-transparent transition-opacity duration-200",
             atStart ? "opacity-0" : "opacity-100",
           )}
         />
         <div
           aria-hidden
           className={cn(
-            "pointer-events-none absolute inset-y-0 right-0 z-10 w-10 bg-gradient-to-l from-bg to-transparent transition-opacity duration-200",
+            "pointer-events-none absolute inset-y-0 -right-5 z-10 w-10 bg-gradient-to-l from-bg to-transparent transition-opacity duration-200",
             atEnd ? "opacity-0" : "opacity-100",
           )}
         />

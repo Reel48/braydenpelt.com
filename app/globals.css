@@ -121,6 +121,13 @@
     background: var(--color-accent-soft);
     color: var(--color-accent-strong);
   }
+  /* One cohesive keyboard-focus ring everywhere. :focus-visible keeps it off
+     for mouse/touch, so it only appears when tabbing. */
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+    border-radius: 3px;
+  }
   /* Tabular numerals helper for data tables */
   .tnum {
     font-variant-numeric: tabular-nums;
@@ -130,8 +137,45 @@
     *::before,
     *::after {
       animation-duration: 0.01ms !important;
+      animation-delay: 0ms !important;
       transition-duration: 0.01ms !important;
+      transition-delay: 0ms !important;
       scroll-behavior: auto !important;
     }
   }
+}
+
+/* ============================================================
+   MOTION — a tiny shared entrance vocabulary.
+   `.animate-fade-up` / `.animate-fade-in` play once on mount and read an
+   optional `--reveal-delay` so callers can stagger siblings (e.g. the hero,
+   the mobile-menu rows). `both` fill keeps the start state during the delay
+   and holds the end state after. The reduced-motion guard above zeroes the
+   duration AND delay, so these collapse to their final, static state.
+   ============================================================ */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.animate-fade-up {
+  animation: fade-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: var(--reveal-delay, 0ms);
+}
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out both;
+  animation-delay: var(--reveal-delay, 0ms);
 }

@@ -18,7 +18,7 @@ export function ArtCarousel({ items }: { items: ArtSlide[] }) {
             <LightboxImage
               src={piece.image}
               alt={piece.title}
-              className="h-[clamp(240px,42vh,340px)] w-full object-cover transition-transform duration-500 ease-out group-hover/art:scale-[1.03]"
+              className="h-[clamp(240px,42vh,340px)] w-full object-cover group-hover/art:scale-[1.03]"
             />
           </div>
           <figcaption className="mt-3 leading-snug">

@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { Close } from "@/components/ui/icons";
+import { cn } from "@/lib/cn";
 
 /**
  * An image that opens a full-screen lightbox when clicked. The overlay is
@@ -22,6 +23,12 @@ export function LightboxImage({
 }) {
   const [open, setOpen] = useState(false);
   const [shown, setShown] = useState(false);
+  const [loaded, setLoaded] = useState(false);
+  // A cached image can finish loading before React attaches `onLoad`, so the
+  // event never fires. Catch that case when the node mounts.
+  const thumbRef = useCallback((node: HTMLImageElement | null) => {
+    if (node?.complete && node.naturalWidth > 0) setLoaded(true);
+  }, []);
 
   useEffect(() => {
     if (!open) {
@@ -52,7 +59,20 @@ export function LightboxImage({
         className="block w-full cursor-zoom-in"
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={src} alt={alt} className={className} />
+        <img
+          ref={thumbRef}
+          src={src}
+          alt={alt}
+          onLoad={() => setLoaded(true)}
+          className={cn(
+            // One transition covers both the load fade and the hover zoom
+            // (callers supply `group-hover/*:scale-*`), so they never fight
+            // over `transition-property`.
+            "transition-[opacity,transform] duration-500 ease-out motion-reduce:transition-none",
+            loaded ? "opacity-100" : "opacity-0",
+            className,
+          )}
+        />
       </button>
 
       {open

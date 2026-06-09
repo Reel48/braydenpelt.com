@@ -10,7 +10,7 @@ export function LinkGrid({ items }: { items: NavItem[] }) {
         <Link
           key={item.href}
           href={item.href}
-          className="group flex items-center justify-between rounded-[14px] border border-border bg-surface px-5 py-5 shadow-soft transition duration-200 hover:-translate-y-0.5 hover:border-accent hover:shadow-lift"
+          className="group flex items-center justify-between rounded-[14px] border border-border bg-surface px-5 py-5 shadow-soft transition duration-200 hover:-translate-y-0.5 hover:border-accent hover:shadow-lift active:translate-y-0 active:shadow-soft"
         >
           <span className="font-serif text-[1.25rem] text-ink">
             {item.label}

@@ -1,6 +1,7 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { cn } from "@/lib/cn";
 import { ArrowRight, ChevronLeft, ChevronRight } from "@/components/ui/icons";
 
 /**
@@ -21,6 +22,36 @@ export function Carousel({
   children: React.ReactNode;
 }) {
   const trackRef = useRef<HTMLDivElement>(null);
+  // Track scroll position so we can signal where the user is: disable the
+  // arrow at each extent and fade an edge mask on the side with more content.
+  const [atStart, setAtStart] = useState(true);
+  const [atEnd, setAtEnd] = useState(true);
+
+  useEffect(() => {
+    const el = trackRef.current;
+    if (!el) return;
+    let raf = 0;
+    // The track's left padding (px-5) is also where scroll-snap rests the first
+    // slide, so "at start" means scrollLeft is within that padding, not 0.
+    const pad = parseFloat(getComputedStyle(el).paddingLeft) || 0;
+    const update = () => {
+      raf = 0;
+      const { scrollLeft, scrollWidth, clientWidth } = el;
+      setAtStart(scrollLeft <= pad + 1);
+      setAtEnd(scrollLeft + clientWidth >= scrollWidth - 1);
+    };
+    const onScroll = () => {
+      if (!raf) raf = requestAnimationFrame(update);
+    };
+    update();
+    el.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      el.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (raf) cancelAnimationFrame(raf);
+    };
+  }, []);
 
   function nudge(dir: 1 | -1) {
     const el = trackRef.current;
@@ -29,7 +60,7 @@ export function Carousel({
   }
 
   const arrow =
-    "flex h-9 w-9 items-center justify-center rounded-full border border-border-strong font-sans text-muted transition duration-200 hover:border-accent hover:bg-accent-soft hover:text-accent";
+    "flex h-9 w-9 items-center justify-center rounded-full border border-border-strong font-sans text-muted transition duration-200 hover:border-accent hover:bg-accent-soft hover:text-accent disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-border-strong disabled:hover:bg-transparent disabled:hover:text-muted";
 
   return (
     <div>
@@ -50,6 +81,7 @@ export function Carousel({
               type="button"
               aria-label="Previous"
               onClick={() => nudge(-1)}
+              disabled={atStart}
               className={arrow}
             >
               <ChevronLeft />
@@ -58,6 +90,7 @@ export function Carousel({
               type="button"
               aria-label="Next"
               onClick={() => nudge(1)}
+              disabled={atEnd}
               className={arrow}
             >
               <ChevronRight />
@@ -66,11 +99,28 @@ export function Carousel({
         </div>
       </div>
 
-      <div
-        ref={trackRef}
-        className="flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-smooth px-5 pb-10 pt-4 -mx-5 -mb-6 -mt-4 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-      >
-        {children}
+      <div className="relative">
+        {/* Edge masks — fade in only on the side that has more to scroll. */}
+        <div
+          aria-hidden
+          className={cn(
+            "pointer-events-none absolute inset-y-0 left-0 z-10 w-10 bg-gradient-to-r from-bg to-transparent transition-opacity duration-200",
+            atStart ? "opacity-0" : "opacity-100",
+          )}
+        />
+        <div
+          aria-hidden
+          className={cn(
+            "pointer-events-none absolute inset-y-0 right-0 z-10 w-10 bg-gradient-to-l from-bg to-transparent transition-opacity duration-200",
+            atEnd ? "opacity-0" : "opacity-100",
+          )}
+        />
+        <div
+          ref={trackRef}
+          className="flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-smooth px-5 pb-10 pt-4 -mx-5 -mb-6 -mt-4 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        >
+          {children}
+        </div>
       </div>
     </div>
   );

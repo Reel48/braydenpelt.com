@@ -30,19 +30,21 @@ export default function ArtPage() {
           file="content/art.ts"
         />
       ) : (
-        <Reveal className="columns-1 gap-5 pb-20 sm:columns-2 lg:columns-3">
+        <div className="columns-1 gap-5 pb-20 sm:columns-2 lg:columns-3">
           {art.map((piece, i) => {
             const meta = [piece.medium, piece.year].filter(Boolean).join(" · ");
             return (
-              <figure
+              <Reveal
                 key={`${piece.title}-${i}`}
+                as="figure"
+                delay={Math.min(i, 6) * 60}
                 className="mb-8 break-inside-avoid"
               >
                 <div className="group/art overflow-hidden rounded-[10px] shadow-art">
                   <LightboxImage
                     src={piece.image}
                     alt={piece.title}
-                    className="w-full object-cover transition-transform duration-500 ease-out group-hover/art:scale-[1.03]"
+                    className="w-full object-cover group-hover/art:scale-[1.03]"
                   />
                 </div>
                 <figcaption className="pt-3">
@@ -76,10 +78,10 @@ export default function ArtPage() {
                     </a>
                   ) : null}
                 </figcaption>
-              </figure>
+              </Reveal>
             );
           })}
-        </Reveal>
+        </div>
       )}
     </Container>
   );

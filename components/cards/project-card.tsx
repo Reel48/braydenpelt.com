@@ -3,13 +3,13 @@ import { Tag } from "@/components/ui/tag";
 import { renderInline } from "@/lib/inline";
 import type { Project } from "@/lib/types";
 import { ArrowRight } from "@/components/ui/icons";
+import { FadeImage } from "@/components/ui/fade-image";
 
 export function ProjectCard({ project }: { project: Project }) {
   return (
-    <Card className="overflow-hidden p-0 transition duration-200 hover:-translate-y-0.5 hover:shadow-lift">
+    <Card className="overflow-hidden p-0 transition duration-200 hover:-translate-y-0.5 hover:shadow-lift active:translate-y-0 active:shadow-soft">
       {project.image ? (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img
+        <FadeImage
           src={project.image}
           alt={project.title}
           className="aspect-[16/10] w-full object-cover"

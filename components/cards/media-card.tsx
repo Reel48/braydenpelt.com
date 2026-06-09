@@ -1,5 +1,6 @@
 import { cn } from "@/lib/cn";
 import { renderInline } from "@/lib/inline";
+import { FadeImage } from "@/components/ui/fade-image";
 
 /** Compact rating, e.g. ★★★★☆ for n out of 5. */
 function Rating({ value }: { value: number }) {
@@ -42,13 +43,13 @@ export function MediaCard({
     <div
       className={cn(
         "flex h-full gap-4 rounded-[14px] border border-border bg-surface p-4 shadow-soft transition duration-200",
-        href && "hover:-translate-y-0.5 hover:border-accent hover:shadow-lift",
+        href &&
+          "hover:-translate-y-0.5 hover:border-accent hover:shadow-lift active:translate-y-0 active:shadow-soft",
         className,
       )}
     >
       {image ? (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img
+        <FadeImage
           src={image}
           alt={title}
           className="h-24 w-16 flex-none rounded-md object-cover"

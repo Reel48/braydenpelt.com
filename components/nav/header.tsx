@@ -32,8 +32,9 @@ function DesktopItem({ item, pathname }: { item: NavItem; pathname: string }) {
       <Link href={item.href} className={cn(base, tone)} aria-haspopup="menu">
         {item.label}
       </Link>
-      {/* pt-2 bridges the gap so the menu stays open while moving the cursor */}
-      <div className="absolute left-0 top-full hidden pt-2 group-hover:block group-focus-within:block">
+      {/* pt-2 bridges the gap so the menu stays open while moving the cursor.
+          Kept mounted and faded/slid in on hover/focus so it animates. */}
+      <div className="invisible absolute left-0 top-full -translate-y-1 pt-2 opacity-0 transition duration-200 ease-out group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
         <div
           role="menu"
           className="min-w-[13rem] rounded-[12px] border border-border bg-surface p-1.5 shadow-soft"
@@ -130,12 +131,18 @@ export function Header() {
       {mobileOpen ? (
         <div
           id="mobile-menu"
-          className="fixed inset-x-0 bottom-0 top-16 z-40 overflow-y-auto overscroll-contain bg-secondary md:hidden"
+          className="fixed inset-x-0 bottom-0 top-16 z-40 animate-fade-in overflow-y-auto overscroll-contain bg-secondary md:hidden"
         >
           <Container>
             <nav className="flex flex-col gap-1 py-4">
-            {nav.map((item) => (
-              <div key={item.href} className="py-1">
+            {nav.map((item, i) => (
+              <div
+                key={item.href}
+                className="animate-fade-up py-1"
+                style={
+                  { "--reveal-delay": `${i * 40}ms` } as React.CSSProperties
+                }
+              >
                 <Link
                   href={item.href}
                   onClick={() => setMobileOpen(false)}

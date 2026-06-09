@@ -4,6 +4,7 @@ import { PageHeader } from "@/components/ui/page-header";
 import { Section, LiveBadge } from "@/components/ui/section";
 import { EmptyState } from "@/components/ui/empty-state";
 import { MediaCard } from "@/components/cards/media-card";
+import { Reveal } from "@/components/ui/reveal";
 import { SpotifyNowPlaying } from "@/components/spotify-now-playing";
 import { ArrowUpRight } from "@/components/ui/icons";
 import type { MusicItem } from "@/lib/types";
@@ -26,18 +27,19 @@ function MusicGrid({ items }: { items: MusicItem[] }) {
   return (
     <div className={grid}>
       {items.map((m, i) => (
-        <MediaCard
-          key={`${m.title}-${i}`}
-          title={m.title}
-          // CMOS: albums italic, songs quoted, artist names plain.
-          titleStyle={
-            m.kind === "song" ? "quoted" : m.kind === "artist" ? "plain" : "italic"
-          }
-          subtitle={m.artist}
-          note={m.note}
-          image={m.cover}
-          href={m.url}
-        />
+        <Reveal key={`${m.title}-${i}`} delay={Math.min(i, 6) * 60}>
+          <MediaCard
+            title={m.title}
+            // CMOS: albums italic, songs quoted, artist names plain.
+            titleStyle={
+              m.kind === "song" ? "quoted" : m.kind === "artist" ? "plain" : "italic"
+            }
+            subtitle={m.artist}
+            note={m.note}
+            image={m.cover}
+            href={m.url}
+          />
+        </Reveal>
       ))}
     </div>
   );

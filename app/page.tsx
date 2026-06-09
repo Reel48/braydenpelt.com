@@ -14,14 +14,19 @@ import { work, education } from "@/content/work";
 export default function HomePage() {
   return (
     <Container>
-      {/* Hero */}
+      {/* Hero — staggered on-load entrance (above the fold, so a scroll
+          observer would fire instantly; a timed fade-up reads as deliberate). */}
       <section className="pt-16 pb-12 sm:pt-24 sm:pb-16">
         {profile.descriptors.length ? (
-          <Kicker className="mb-4">{profile.descriptors.join(" · ")}</Kicker>
+          <Kicker className="mb-4 animate-fade-up">
+            {profile.descriptors.join(" · ")}
+          </Kicker>
         ) : null}
-        <Display>{profile.name}</Display>
+        <Display className="animate-fade-up [--reveal-delay:80ms]">
+          {profile.name}
+        </Display>
 
-        <div className="mt-8 flex flex-wrap gap-3">
+        <div className="mt-8 flex flex-wrap gap-3 animate-fade-up [--reveal-delay:160ms]">
           <Button href="/portfolio">View work</Button>
           <Button href="/interests/articles" variant="ghost">
             Read articles

@@ -119,6 +119,12 @@ export const tools: Resource[] = [
       "Awards site recognizing the best in web design and development—a deep well of design inspiration.",
   },
   {
+    title: "Index",
+    url: "https://index.how/to/articulate",
+    description:
+      "A design-education resource compiling the vocabulary, principles, and guidelines behind typography, color, layout, motion, accessibility, and more—curated reference and practical advice for designers and developers.",
+  },
+  {
     title: "Transitions.dev",
     url: "https://transitions.dev/",
     description:

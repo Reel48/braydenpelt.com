@@ -119,6 +119,12 @@ export const tools: Resource[] = [
       "Awards site recognizing the best in web design and development—a deep well of design inspiration.",
   },
   {
+    title: "Design Engineer Tools",
+    url: "https://designengineer.tools/",
+    description:
+      "A curated directory of tools for web-focused design engineers, spanning inspiration, components, code, design, motion, and 3D.",
+  },
+  {
     title: "Index",
     url: "https://index.how/to/articulate",
     description:

@@ -214,15 +214,6 @@ export const art: ArtPiece[] = [
     note: "Monet looked down on the rue Montorgueil from an upper window and dissolved the packed street and its blizzard of red-white-and-blue tricolors into a flicker of quick, broken strokes. The flags marked the government's “Fête de la paix et du travail” on June 30, 1878, staged during the Paris Universal Exhibition as a show of recovery after the defeat of 1870. Often mistaken for a Bastille Day scene, it has a companion view of the nearby rue Saint-Denis.",
   },
   {
-    title: "Jack-in-the-Pulpit No. IV",
-    artist: "Georgia O'Keeffe, American",
-    medium: "Oil on canvas",
-    year: "1930",
-    image: "/images/art/jack-in-the-pulpit-no-iv.jpg",
-    url: "https://www.nga.gov/artworks/70179-jack-pulpit-no-iv",
-    note: "The fourth of a series of six canvases O'Keeffe painted in 1930, each magnifying the woodland jack-in-the-pulpit flower until it fills the frame and tips toward pure abstraction. Here the spathe's dark hood and pale spadix loom out of a deep, shadowy ground, the bloom enlarged to a scale that makes its veined folds read almost as landscape. O'Keeffe traced her fascination with the plant to a girlhood lesson—she recalled a teacher at her Wisconsin school holding one up to show the class its subtle colors—and the series stands among her most powerful explorations of the flower form.",
-  },
-  {
     title: "An English Warship Firing a Salute",
     artist: "Willem van de Velde the Younger, Dutch",
     medium: "Oil on canvas",
@@ -230,5 +221,14 @@ export const art: ArtPiece[] = [
     image: "/images/art/english-warship-firing-a-salute.jpg",
     url: "https://www.nga.gov/artworks/214374-english-warship-firing-salute",
     note: "A three-decked warship rides at anchor and lets off a cloud of cannon smoke in salute, the gun ports along its port side flung open and a flag bearing the cross of St. George streaming from the stern. Van de Velde was the greatest marine painter of the Dutch Golden Age, and he made this picture the year he and his father left Holland to enter the service of Charles II—one of his earliest English works, signed on a fragment of driftwood at lower right, “W. V Velde In Londen 1673.” His exacting rigging and weather, drawn from a lifetime of studies made at sea, set the standard for ship portraiture for a century to come.",
+  },
+  {
+    title: "Imaginary River Landscape",
+    artist: "Herman Saftleven, Dutch",
+    medium: "Oil on panel",
+    year: "1670",
+    image: "/images/art/imaginary-river-landscape.jpg",
+    url: "https://www.nga.gov/artworks/208068-imaginary-river-landscape",
+    note: "One of Herman Saftleven's most delicate Rhineland fantasies, looking down from a high vantage over a meandering river valley that exists nowhere in particular. Precisely drawn travelers, a shepherd, and boatmen working the river occupy a warm, earthy foreground that dissolves, through layer upon layer of atmospheric blue, into distant walled towns, church towers, and villages. A native of Rotterdam who settled in Utrecht, Saftleven traveled the Rhine after the Thirty Years' War ended in 1648, and the journey gave him the fanciful mountainous panoramas—indebted to Pieter Bruegel the Elder's “world landscapes”—that became the finest work of his long career.",
   },
 ];

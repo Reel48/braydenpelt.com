@@ -213,4 +213,13 @@ export const art: ArtPiece[] = [
     url: "https://artsandculture.google.com/asset/the-rue-montorgueil-in-paris-celebration-of-june-30-1878/hQGKcVaLpt9iCg",
     note: "Monet looked down on the rue Montorgueil from an upper window and dissolved the packed street and its blizzard of red-white-and-blue tricolors into a flicker of quick, broken strokes. The flags marked the government's “Fête de la paix et du travail” on June 30, 1878, staged during the Paris Universal Exhibition as a show of recovery after the defeat of 1870. Often mistaken for a Bastille Day scene, it has a companion view of the nearby rue Saint-Denis.",
   },
+  {
+    title: "Jack-in-the-Pulpit No. IV",
+    artist: "Georgia O'Keeffe, American",
+    medium: "Oil on canvas",
+    year: "1930",
+    image: "/images/art/jack-in-the-pulpit-no-iv.jpg",
+    url: "https://www.nga.gov/artworks/70179-jack-pulpit-no-iv",
+    note: "The fourth of a series of six canvases O'Keeffe painted in 1930, each magnifying the woodland jack-in-the-pulpit flower until it fills the frame and tips toward pure abstraction. Here the spathe's dark hood and pale spadix loom out of a deep, shadowy ground, the bloom enlarged to a scale that makes its veined folds read almost as landscape. O'Keeffe traced her fascination with the plant to a girlhood lesson—she recalled a teacher at her Wisconsin school holding one up to show the class its subtle colors—and the series stands among her most powerful explorations of the flower form.",
+  },
 ];

@@ -231,4 +231,13 @@ export const art: ArtPiece[] = [
     url: "https://www.nga.gov/artworks/208068-imaginary-river-landscape",
     note: "One of Herman Saftleven's most delicate Rhineland fantasies, looking down from a high vantage over a meandering river valley that exists nowhere in particular. Precisely drawn travelers, a shepherd, and boatmen working the river occupy a warm, earthy foreground that dissolves, through layer upon layer of atmospheric blue, into distant walled towns, church towers, and villages. A native of Rotterdam who settled in Utrecht, Saftleven traveled the Rhine after the Thirty Years' War ended in 1648, and the journey gave him the fanciful mountainous panoramas—indebted to Pieter Bruegel the Elder's “world landscapes”—that became the finest work of his long career.",
   },
+  {
+    title: "Salem Cove",
+    artist: "Maurice Prendergast, American",
+    medium: "Oil on canvas",
+    year: "c. 1915–1918",
+    image: "/images/art/salem-cove.jpg",
+    url: "https://www.nga.gov/artworks/66431-salem-cove",
+    note: "A sunny New England shore built up from dabs and patches of color in Prendergast's unmistakable mosaic-like manner, where figures, foliage, water, and sky flatten into a single shimmering, tapestried surface. The lone American member of The Eight and an early champion of European modernism at home, Prendergast spent his late summers in resort towns north of Boston; this is among the finest of the Salem, Massachusetts, scenes he painted between 1914 and 1923, when failing health forced him to put down his brushes.",
+  },
 ];

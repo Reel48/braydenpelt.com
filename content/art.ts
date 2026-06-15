@@ -222,4 +222,13 @@ export const art: ArtPiece[] = [
     url: "https://www.nga.gov/artworks/70179-jack-pulpit-no-iv",
     note: "The fourth of a series of six canvases O'Keeffe painted in 1930, each magnifying the woodland jack-in-the-pulpit flower until it fills the frame and tips toward pure abstraction. Here the spathe's dark hood and pale spadix loom out of a deep, shadowy ground, the bloom enlarged to a scale that makes its veined folds read almost as landscape. O'Keeffe traced her fascination with the plant to a girlhood lesson—she recalled a teacher at her Wisconsin school holding one up to show the class its subtle colors—and the series stands among her most powerful explorations of the flower form.",
   },
+  {
+    title: "An English Warship Firing a Salute",
+    artist: "Willem van de Velde the Younger, Dutch",
+    medium: "Oil on canvas",
+    year: "1673",
+    image: "/images/art/english-warship-firing-a-salute.jpg",
+    url: "https://www.nga.gov/artworks/214374-english-warship-firing-salute",
+    note: "A three-decked warship rides at anchor and lets off a cloud of cannon smoke in salute, the gun ports along its port side flung open and a flag bearing the cross of St. George streaming from the stern. Van de Velde was the greatest marine painter of the Dutch Golden Age, and he made this picture the year he and his father left Holland to enter the service of Charles II—one of his earliest English works, signed on a fragment of driftwood at lower right, “W. V Velde In Londen 1673.” His exacting rigging and weather, drawn from a lifetime of studies made at sea, set the standard for ship portraiture for a century to come.",
+  },
 ];

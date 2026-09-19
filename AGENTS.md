@@ -1,4 +1,4 @@
-# CLAUDE.md
+# braydenpelt.com — agent briefing
 
 Personal website built with Next.js 16, TypeScript, and Tailwind CSS 4 (pnpm).
 
